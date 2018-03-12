@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'BigmarkerRoomSDK'
-s.version          = '0.1.1'
+s.version          = '0.1.2'
 s.summary          = 'test test testBigmarkerRoomSDK'
 
 s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
@@ -8,7 +8,7 @@ s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => "0.1.1" }
+s.source           = { :http => 'http://github.com/hanqingqingmomo/BigmarkerRoomSDK/archive/0.1.2.zip'}
 
 s.frameworks    = 'UIKit','AVFoundation','Foundation'
 

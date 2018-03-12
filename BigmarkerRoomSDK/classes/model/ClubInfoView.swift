@@ -1,0 +1,53 @@
+//
+//  ClubInfoView.swift
+//  bigmarker
+//
+//  Created by hanqing on 8/24/16.
+//  Copyright © 2016 hanqing. All rights reserved.
+//
+
+import UIKit
+
+class ClubInfoView: UIView {
+
+    var backgroundImageView: UIImageView!
+    var clubImageView: UIImageView!
+    var clubName: UILabel!
+    var channel: Channel!
+    
+     init(frame: CGRect, channel: Channel) {
+        super.init(frame: frame)
+        self.frame = frame
+        self.channel = channel
+        
+        self.backgroundImageView = UIImageView(frame: CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.frame.width, height: 130))
+        
+        let bgUrl = NSURL(string: self.channel.backgroundImage)
+        
+        //self.backgroundImageView.sd_setImageWithURL(bgUrl)
+        self.backgroundImageView.contentMode = UIViewContentMode.scaleToFill
+    
+        
+        self.clubImageView = UIImageView(frame: CGRect(x: 10, y: 100, width: 60, height: 60))
+        
+        let url = NSURL(string: self.channel.logo)
+        //self.clubImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_community"))
+        self.clubImageView.contentMode = UIViewContentMode.scaleAspectFit
+        
+        self.clubName = UILabel(frame: CGRect(x: 80, y: 130, width: 250, height: 30))
+        self.clubName.text = self.channel.name
+        self.clubName.font = UIFont.systemFont(ofSize: 13)
+        //UIFont.init(name: UIFont.systemFont(ofSize: 13), size: 13.0)
+        
+       
+        self.addSubview(backgroundImageView)
+        self.addSubview(clubImageView)
+        self.addSubview(clubName)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}

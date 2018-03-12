@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2011B5A020565B6C00C3C5AF /* classes in Resources */ = {isa = PBXBuildFile; fileRef = 2011B59F20565B6C00C3C5AF /* classes */; };
+		202B806B2056A98000C1067C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 202B806A2056A98000C1067C /* MQTTKit */; };
+		202B806F2056A9DC00C1067C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202B806E2056A9DC00C1067C /* libMQTTKit.a */; };
+		2030A6E62056605C00073FDB /* BMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A6E52056605C00073FDB /* BMTabBarController.swift */; };
+		2030A70B2056737100073FDB /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7012056737100073FDB /* Channel.swift */; };
+		2030A70C2056737100073FDB /* ClubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7022056737100073FDB /* ClubInfo.swift */; };
+		2030A70D2056737100073FDB /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7032056737100073FDB /* Community.swift */; };
+		2030A70E2056737100073FDB /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7042056737100073FDB /* Conference.swift */; };
+		2030A70F2056737100073FDB /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7052056737100073FDB /* Presenter.swift */; };
+		2030A7102056737100073FDB /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7062056737100073FDB /* Register.swift */; };
+		2030A7112056737100073FDB /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7072056737100073FDB /* Room.swift */; };
+		2030A7122056737100073FDB /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7082056737100073FDB /* RoomInfo.swift */; };
+		2030A7132056737100073FDB /* ToolHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7092056737100073FDB /* ToolHelper.swift */; };
+		2030A7142056737100073FDB /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A70A2056737100073FDB /* UserInfo.swift */; };
+		2030A7182056748E00073FDB /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7152056748E00073FDB /* Member.swift */; };
+		2030A7192056748E00073FDB /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7162056748E00073FDB /* MemberModel.swift */; };
+		2030A71A2056748E00073FDB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A7172056748E00073FDB /* Message.swift */; };
+		2030A71C205674DC00073FDB /* ClubInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A71B205674DC00073FDB /* ClubInfoView.swift */; };
+		2030A71E205675CC00073FDB /* ClubProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030A71D205675CC00073FDB /* ClubProfile.swift */; };
 		203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992BE20564DE20058A8DC /* AppDelegate.swift */; };
 		203992C120564DE20058A8DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992C020564DE20058A8DC /* ViewController.swift */; };
 		203992C420564DE20058A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203992C220564DE20058A8DC /* Main.storyboard */; };
@@ -41,6 +60,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2011B59F20565B6C00C3C5AF /* classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = classes; sourceTree = "<group>"; };
+		2011B5A120565C4800C3C5AF /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		202B806A2056A98000C1067C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
+		202B806E2056A9DC00C1067C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMQTTKit.a; path = MQTTKit/libMQTTKit.a; sourceTree = "<group>"; };
+		2030A6E52056605C00073FDB /* BMTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BMTabBarController.swift; path = BigmarkerRoomSDK/classes/controller/BMTabBarController.swift; sourceTree = "<group>"; };
+		2030A7012056737100073FDB /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = BigmarkerRoomSDK/classes/model/Channel.swift; sourceTree = "<group>"; };
+		2030A7022056737100073FDB /* ClubInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClubInfo.swift; path = BigmarkerRoomSDK/classes/model/ClubInfo.swift; sourceTree = "<group>"; };
+		2030A7032056737100073FDB /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Community.swift; path = BigmarkerRoomSDK/classes/model/Community.swift; sourceTree = "<group>"; };
+		2030A7042056737100073FDB /* Conference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Conference.swift; path = BigmarkerRoomSDK/classes/model/Conference.swift; sourceTree = "<group>"; };
+		2030A7052056737100073FDB /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Presenter.swift; path = BigmarkerRoomSDK/classes/model/Presenter.swift; sourceTree = "<group>"; };
+		2030A7062056737100073FDB /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Register.swift; path = BigmarkerRoomSDK/classes/model/Register.swift; sourceTree = "<group>"; };
+		2030A7072056737100073FDB /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Room.swift; path = BigmarkerRoomSDK/classes/model/Room.swift; sourceTree = "<group>"; };
+		2030A7082056737100073FDB /* RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomInfo.swift; path = BigmarkerRoomSDK/classes/model/RoomInfo.swift; sourceTree = "<group>"; };
+		2030A7092056737100073FDB /* ToolHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolHelper.swift; path = BigmarkerRoomSDK/classes/model/ToolHelper.swift; sourceTree = "<group>"; };
+		2030A70A2056737100073FDB /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = BigmarkerRoomSDK/classes/model/UserInfo.swift; sourceTree = "<group>"; };
+		2030A7152056748E00073FDB /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Member.swift; path = BigmarkerRoomSDK/classes/model/Member.swift; sourceTree = "<group>"; };
+		2030A7162056748E00073FDB /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemberModel.swift; path = BigmarkerRoomSDK/classes/model/MemberModel.swift; sourceTree = "<group>"; };
+		2030A7172056748E00073FDB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = BigmarkerRoomSDK/classes/model/Message.swift; sourceTree = "<group>"; };
+		2030A71B205674DC00073FDB /* ClubInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClubInfoView.swift; path = BigmarkerRoomSDK/classes/model/ClubInfoView.swift; sourceTree = "<group>"; };
+		2030A71D205675CC00073FDB /* ClubProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClubProfile.swift; path = BigmarkerRoomSDK/classes/model/ClubProfile.swift; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		203992BE20564DE20058A8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		203992C020564DE20058A8DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202B806F2056A9DC00C1067C /* libMQTTKit.a in Frameworks */,
 				203992D1205651F80058A8DC /* BMroomSDK.framework in Frameworks */,
 				203992D3205652160058A8DC /* WebRTC.framework in Frameworks */,
 			);
@@ -65,13 +105,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		202B806D2056A9DC00C1067C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				202B806E2056A9DC00C1067C /* libMQTTKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				202B806A2056A98000C1067C /* MQTTKit */,
+				2030A71D205675CC00073FDB /* ClubProfile.swift */,
+				2030A71B205674DC00073FDB /* ClubInfoView.swift */,
+				2030A7152056748E00073FDB /* Member.swift */,
+				2030A7162056748E00073FDB /* MemberModel.swift */,
+				2030A7172056748E00073FDB /* Message.swift */,
+				2030A7012056737100073FDB /* Channel.swift */,
+				2030A7022056737100073FDB /* ClubInfo.swift */,
+				2030A7032056737100073FDB /* Community.swift */,
+				2030A7042056737100073FDB /* Conference.swift */,
+				2030A7052056737100073FDB /* Presenter.swift */,
+				2030A7062056737100073FDB /* Register.swift */,
+				2030A7072056737100073FDB /* Room.swift */,
+				2030A7082056737100073FDB /* RoomInfo.swift */,
+				2030A7092056737100073FDB /* ToolHelper.swift */,
+				2030A70A2056737100073FDB /* UserInfo.swift */,
+				2030A6E52056605C00073FDB /* BMTabBarController.swift */,
 				203992D2205652160058A8DC /* WebRTC.framework */,
 				203992D0205651F80058A8DC /* BMroomSDK.framework */,
 				203992BD20564DE20058A8DC /* BigmarkerRoomSDK */,
 				203992BC20564DE20058A8DC /* Products */,
+				202B806D2056A9DC00C1067C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +152,8 @@
 		203992BD20564DE20058A8DC /* BigmarkerRoomSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2011B5A120565C4800C3C5AF /* Bridge-Header.h */,
+				2011B59F20565B6C00C3C5AF /* classes */,
 				203992BE20564DE20058A8DC /* AppDelegate.swift */,
 				203992C020564DE20058A8DC /* ViewController.swift */,
 				203992C220564DE20058A8DC /* Main.storyboard */,
@@ -158,8 +226,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2011B5A020565B6C00C3C5AF /* classes in Resources */,
 				203992C920564DE20058A8DC /* LaunchScreen.storyboard in Resources */,
 				203992C620564DE20058A8DC /* Assets.xcassets in Resources */,
+				202B806B2056A98000C1067C /* MQTTKit in Resources */,
 				203992C420564DE20058A8DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +241,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2030A71E205675CC00073FDB /* ClubProfile.swift in Sources */,
+				2030A71C205674DC00073FDB /* ClubInfoView.swift in Sources */,
+				2030A7182056748E00073FDB /* Member.swift in Sources */,
+				2030A7192056748E00073FDB /* MemberModel.swift in Sources */,
+				2030A71A2056748E00073FDB /* Message.swift in Sources */,
+				2030A70B2056737100073FDB /* Channel.swift in Sources */,
+				2030A70C2056737100073FDB /* ClubInfo.swift in Sources */,
+				2030A70D2056737100073FDB /* Community.swift in Sources */,
+				2030A70E2056737100073FDB /* Conference.swift in Sources */,
+				2030A70F2056737100073FDB /* Presenter.swift in Sources */,
+				2030A7102056737100073FDB /* Register.swift in Sources */,
+				2030A7112056737100073FDB /* Room.swift in Sources */,
+				2030A7122056737100073FDB /* RoomInfo.swift in Sources */,
+				2030A7132056737100073FDB /* ToolHelper.swift in Sources */,
+				2030A7142056737100073FDB /* UserInfo.swift in Sources */,
+				2030A6E62056605C00073FDB /* BMTabBarController.swift in Sources */,
 				203992C120564DE20058A8DC /* ViewController.swift in Sources */,
 				203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */,
 			);
@@ -301,9 +387,15 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = BigmarkerRoomSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MQTTKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bigmarker.BigmarkerRoomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BigmarkerRoomSDK/Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -318,9 +410,15 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = BigmarkerRoomSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MQTTKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bigmarker.BigmarkerRoomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BigmarkerRoomSDK/Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
