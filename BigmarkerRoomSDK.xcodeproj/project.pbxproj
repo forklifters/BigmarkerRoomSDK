@@ -12,7 +12,33 @@
 		203992C420564DE20058A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203992C220564DE20058A8DC /* Main.storyboard */; };
 		203992C620564DE20058A8DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 203992C520564DE20058A8DC /* Assets.xcassets */; };
 		203992C920564DE20058A8DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203992C720564DE20058A8DC /* LaunchScreen.storyboard */; };
+		203992D1205651F80058A8DC /* BMroomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203992D0205651F80058A8DC /* BMroomSDK.framework */; };
+		203992D3205652160058A8DC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203992D2205652160058A8DC /* WebRTC.framework */; };
+		20F0630B205653B700DFBEF1 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 203992D2205652160058A8DC /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		20F063092056533300DFBEF1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F0630C205653B700DFBEF1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				20F0630B205653B700DFBEF1 /* WebRTC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +48,8 @@
 		203992C520564DE20058A8DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		203992C820564DE20058A8DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		203992CA20564DE20058A8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		203992D0205651F80058A8DC /* BMroomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BMroomSDK.framework; sourceTree = "<group>"; };
+		203992D2205652160058A8DC /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				203992D1205651F80058A8DC /* BMroomSDK.framework in Frameworks */,
+				203992D3205652160058A8DC /* WebRTC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +68,8 @@
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				203992D2205652160058A8DC /* WebRTC.framework */,
+				203992D0205651F80058A8DC /* BMroomSDK.framework */,
 				203992BD20564DE20058A8DC /* BigmarkerRoomSDK */,
 				203992BC20564DE20058A8DC /* Products */,
 			);
@@ -74,6 +106,8 @@
 				203992B720564DE20058A8DC /* Sources */,
 				203992B820564DE20058A8DC /* Frameworks */,
 				203992B920564DE20058A8DC /* Resources */,
+				20F063092056533300DFBEF1 /* CopyFiles */,
+				20F0630C205653B700DFBEF1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,6 +296,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LDJ79JV2CS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BigmarkerRoomSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bigmarker.BigmarkerRoomSDK;
@@ -275,6 +313,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LDJ79JV2CS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BigmarkerRoomSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bigmarker.BigmarkerRoomSDK;
@@ -302,6 +344,7 @@
 				203992CF20564DE20058A8DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

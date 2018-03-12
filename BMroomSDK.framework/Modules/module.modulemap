@@ -1,0 +1,6 @@
+framework module BMroomSDK {
+  umbrella header "BMroomSDK.h"
+
+  export *
+  module * { export * }
+}
