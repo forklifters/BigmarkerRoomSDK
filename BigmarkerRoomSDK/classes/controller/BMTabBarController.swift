@@ -113,9 +113,18 @@ class BMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bm.delegate = self
-        avSession = AVAudioSession.sharedInstance()
-        UIApplication.shared.isIdleTimerDisabled = true
+//        bm.delegate = self
+//        avSession = AVAudioSession.sharedInstance()
+//        UIApplication.shared.isIdleTimerDisabled = true
+        
+        
+        UITabBar.appearance().barTintColor = UIColor.white
+        
+        let item = UITabBarItem.appearance()
+        item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.init(red: 193/255.0, green: 201/255.0, blue: 214/255.0, alpha: 1.0),NSFontAttributeName:UIFont.systemFont(ofSize: 12)], for:.normal)
+        item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.init(red: 43/255.0, green: 55/255.0, blue: 77/255.0, alpha: 1.0),NSFontAttributeName:UIFont.systemFont(ofSize: 12)], for:.selected)
+        
+        addChildVc()
     }
     
     
@@ -133,6 +142,7 @@ class BMTabBarController: UITabBarController {
 //    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
         self.tabBar.barTintColor = UIColor(red: 43/255, green: 55/255, blue: 76/255, alpha: 1)
     }
     
@@ -140,6 +150,13 @@ class BMTabBarController: UITabBarController {
         super.viewWillDisappear(true)
 //        NotificationCenter.defaultCenter().removeObserver(self, name: AVAudioSessionRouteChangeNotification, object: nil)
 //        NotificationCenter.defaultCenter().removeObserver(self, name: AVAudioSessionInterruptionNotification, object: avSession)
+    }
+    
+    func addChildVc(){
+        let videoController = BMVideoViewController(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 520))
+        let msgController  = BMMessageViewController(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 520))
+        addChildViewController(videoController)
+        addChildViewController(msgController)
     }
     
 }
