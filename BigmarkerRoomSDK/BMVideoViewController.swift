@@ -26,7 +26,7 @@ class BMVideoViewController: UIViewController {
     
     var conference: Conference!
     var bm: BMRoom!
-    //var notification: CWStatusBarNotification!
+    var notification: CWStatusBarNotification!
     
     var otherVideoArray = [String]() // 存放mp4 youtube screenShare whiteBoard
     var videoArray      = [String]() // 存放 video
@@ -198,8 +198,8 @@ class BMVideoViewController: UIViewController {
     func makeNotice(title: String, color: UIColor){
         let view = NoticeView(frame: CGRect(x: 0, y: 0, width: ScreenW, height: 60), title: title)
         view.backgroundColor = color
-//        self.notification = CWStatusBarNotification()
-//        self.notification.display(with: view, forDuration: TimeInterval(2))
+        self.notification = CWStatusBarNotification()
+        self.notification.display(with: view, forDuration: TimeInterval(2))
     }
     
     

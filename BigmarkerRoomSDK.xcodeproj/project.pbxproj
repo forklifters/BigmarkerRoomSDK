@@ -21,6 +21,9 @@
 		20191BA72057C22500FD0889 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20191BA62057C22500FD0889 /* LoadingView.swift */; };
 		202B806B2056A98000C1067C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 202B806A2056A98000C1067C /* MQTTKit */; };
 		202B806F2056A9DC00C1067C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202B806E2056A9DC00C1067C /* libMQTTKit.a */; };
+		20359EEA205821900081A8B9 /* CWStatusBarNotification in Resources */ = {isa = PBXBuildFile; fileRef = 20359EE9205821900081A8B9 /* CWStatusBarNotification */; };
+		20359EF2205821FC0081A8B9 /* CWStatusBarNotification.h in Sources */ = {isa = PBXBuildFile; fileRef = 20359EF0205821FC0081A8B9 /* CWStatusBarNotification.h */; };
+		20359EF3205821FC0081A8B9 /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 20359EF1205821FC0081A8B9 /* CWStatusBarNotification.m */; };
 		203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992BE20564DE20058A8DC /* AppDelegate.swift */; };
 		203992C120564DE20058A8DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992C020564DE20058A8DC /* ViewController.swift */; };
 		203992C420564DE20058A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203992C220564DE20058A8DC /* Main.storyboard */; };
@@ -89,6 +92,9 @@
 		20191BA62057C22500FD0889 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		202B806A2056A98000C1067C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		202B806E2056A9DC00C1067C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMQTTKit.a; path = MQTTKit/libMQTTKit.a; sourceTree = "<group>"; };
+		20359EE9205821900081A8B9 /* CWStatusBarNotification */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CWStatusBarNotification; sourceTree = "<group>"; };
+		20359EF0205821FC0081A8B9 /* CWStatusBarNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CWStatusBarNotification.h; path = CWStatusBarNotification/CWStatusBarNotification.h; sourceTree = "<group>"; };
+		20359EF1205821FC0081A8B9 /* CWStatusBarNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CWStatusBarNotification.m; path = CWStatusBarNotification/CWStatusBarNotification.m; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		203992BE20564DE20058A8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		203992C020564DE20058A8DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +191,9 @@
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				20359EF0205821FC0081A8B9 /* CWStatusBarNotification.h */,
+				20359EF1205821FC0081A8B9 /* CWStatusBarNotification.m */,
+				20359EE9205821900081A8B9 /* CWStatusBarNotification */,
 				202B806A2056A98000C1067C /* MQTTKit */,
 				203992D2205652160058A8DC /* WebRTC.framework */,
 				203992D0205651F80058A8DC /* BMroomSDK.framework */,
@@ -341,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2011B5A020565B6C00C3C5AF /* classes in Resources */,
+				20359EEA205821900081A8B9 /* CWStatusBarNotification in Resources */,
 				203992C920564DE20058A8DC /* LaunchScreen.storyboard in Resources */,
 				20191BA52057C19F00FD0889 /* NoVideoCell.xib in Resources */,
 				203992C620564DE20058A8DC /* Assets.xcassets in Resources */,
@@ -356,6 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20359EF2205821FC0081A8B9 /* CWStatusBarNotification.h in Sources */,
+				20359EF3205821FC0081A8B9 /* CWStatusBarNotification.m in Sources */,
 				20F252B12056ADA700339D90 /* Channel.swift in Sources */,
 				20F252B22056ADA700339D90 /* ClubInfo.swift in Sources */,
 				20F252B32056ADA700339D90 /* ClubInfoView.swift in Sources */,
