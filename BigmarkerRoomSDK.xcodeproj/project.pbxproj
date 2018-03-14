@@ -24,6 +24,8 @@
 		20359EEA205821900081A8B9 /* CWStatusBarNotification in Resources */ = {isa = PBXBuildFile; fileRef = 20359EE9205821900081A8B9 /* CWStatusBarNotification */; };
 		20359EF2205821FC0081A8B9 /* CWStatusBarNotification.h in Sources */ = {isa = PBXBuildFile; fileRef = 20359EF0205821FC0081A8B9 /* CWStatusBarNotification.h */; };
 		20359EF3205821FC0081A8B9 /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 20359EF1205821FC0081A8B9 /* CWStatusBarNotification.m */; };
+		20359EF5205824DC0081A8B9 /* BigRoomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20359EF4205824DC0081A8B9 /* BigRoomBase.swift */; };
+		20359EF7205829080081A8B9 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20359EF6205829080081A8B9 /* NetworkTools.swift */; };
 		203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992BE20564DE20058A8DC /* AppDelegate.swift */; };
 		203992C120564DE20058A8DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992C020564DE20058A8DC /* ViewController.swift */; };
 		203992C420564DE20058A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203992C220564DE20058A8DC /* Main.storyboard */; };
@@ -95,6 +97,8 @@
 		20359EE9205821900081A8B9 /* CWStatusBarNotification */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CWStatusBarNotification; sourceTree = "<group>"; };
 		20359EF0205821FC0081A8B9 /* CWStatusBarNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CWStatusBarNotification.h; path = CWStatusBarNotification/CWStatusBarNotification.h; sourceTree = "<group>"; };
 		20359EF1205821FC0081A8B9 /* CWStatusBarNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CWStatusBarNotification.m; path = CWStatusBarNotification/CWStatusBarNotification.m; sourceTree = "<group>"; };
+		20359EF4205824DC0081A8B9 /* BigRoomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigRoomBase.swift; sourceTree = "<group>"; };
+		20359EF6205829080081A8B9 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		203992BE20564DE20058A8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		203992C020564DE20058A8DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 		20F252D12056CA9A00339D90 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				20359EF6205829080081A8B9 /* NetworkTools.swift */,
+				20359EF4205824DC0081A8B9 /* BigRoomBase.swift */,
 				20191B962057A72000FD0889 /* ArrayExt.swift */,
 				20191B8C20577E5700FD0889 /* Constant.swift */,
 				20F252A12056ADA700339D90 /* Channel.swift */,
@@ -373,6 +379,7 @@
 				20F252B32056ADA700339D90 /* ClubInfoView.swift in Sources */,
 				20F252B42056ADA700339D90 /* ClubProfile.swift in Sources */,
 				20F252B52056ADA700339D90 /* Community.swift in Sources */,
+				20359EF7205829080081A8B9 /* NetworkTools.swift in Sources */,
 				20191B972057A72000FD0889 /* ArrayExt.swift in Sources */,
 				20F252B62056ADA700339D90 /* Conference.swift in Sources */,
 				20F252B72056ADA700339D90 /* Member.swift in Sources */,
@@ -380,6 +387,7 @@
 				20191B932057A45200FD0889 /* VideoBottomUserInfoView.swift in Sources */,
 				20F252B92056ADA700339D90 /* Message.swift in Sources */,
 				20F252BA2056ADA700339D90 /* Presenter.swift in Sources */,
+				20359EF5205824DC0081A8B9 /* BigRoomBase.swift in Sources */,
 				20191B992057ABDB00FD0889 /* NoticeView.swift in Sources */,
 				20191B8D20577E5700FD0889 /* Constant.swift in Sources */,
 				20F252C72056B15800339D90 /* BMTabBarController.swift in Sources */,

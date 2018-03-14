@@ -273,24 +273,25 @@ extension BMTabBarController: BMRoomDelegate {
     
     
     func connectServer(){ }
-    func bmRoomDidConnect(bm: BMRoom!) { }
-    func bmRoomFailedConnect(bm: BMRoom!) { }
+    func bmRoomDidConnect(_ bm: BMRoom!) { }
+    func bmRoomFailedConnect(_ bm: BMRoom!) { }
     
-    func bmRoom(bm: BMRoom!, userConnected user: [NSObject : AnyObject]!) {
+    func bmRoom(_ bm: BMRoom!, userConnected user: [NSObject : AnyObject]!) {
+        print("-----------------------")
         self.bmroomUserDelegate?.bigRoomNotificationDelegateUserEnter!(user: user)
     }
     
-    func bmRoom(bm: BMRoom!, userDisconnected sid: String!) {
+    func bmRoom(_ bm: BMRoom!, userDisconnected sid: String!) {
         self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLeave!(sid: sid)
     }
     
     
-    func bmRoom(bm: BMRoom!, didSyncChatMessages messages: [NSObject : AnyObject]!) {
+    func bmRoom(_ bm: BMRoom!, didSyncChatMessages messages: [NSObject : AnyObject]!) {
        self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLoad!(messages: messages)
     }
     
     
-    func bmRoom(bm: BMRoom!, didReceiveChatMessage message: [NSObject : AnyObject]!) {
+    func bmRoom(_ bm: BMRoom!, didReceiveChatMessage message: [NSObject : AnyObject]!) {
         self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgAdd!(message: message)
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateMsgAddTabbar!(message: message)
         
@@ -310,17 +311,17 @@ extension BMTabBarController: BMRoomDelegate {
     
     
     //分页获取chats
-    func bmRoom(bm: BMRoom!, didReceiveSyncMessages messages: [NSObject : AnyObject]!) {
+    func bmRoom(_ bm: BMRoom!, didReceiveSyncMessages messages: [NSObject : AnyObject]!) {
         //self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLoad!(messages)
     }
     
     
-    func bmRoom(bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
+    func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateReceiveNewStream!(didReceiveNewStream: muxerID, enableVideo: video, enableAudio: audio)
     }
     
     
-    func bmRoom(bm: BMRoom!, didConnectStream muxerID: String!) {
+    func bmRoom(_ bm: BMRoom!, didConnectStream muxerID: String!) {
 //        if isHeadsetPluggedIn() {
 //            bm.toggleAudioOutput("handset")
 //        } else {
@@ -330,12 +331,12 @@ extension BMTabBarController: BMRoomDelegate {
     }
     
     
-    func bmRoom(bm: BMRoom!, disconnectedStream muxerID: String!) {
+    func bmRoom(_ bm: BMRoom!, disconnectedStream muxerID: String!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateDisconnectedStream!(muxerID: muxerID)
     }
     
     
-    func bmRoom(bm: BMRoom!, didReceiveMessage message: [NSObject : AnyObject]!) {
+    func bmRoom(_ bm: BMRoom!, didReceiveMessage message: [NSObject : AnyObject]!) {
         
         let messageDict = message as NSDictionary
         guard let action = messageDict["action"] as? String else { return }

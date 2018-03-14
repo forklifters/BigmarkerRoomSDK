@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
-        self.window?.rootViewController = UINavigationController(rootViewController: BMTabBarController())
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        
+        self.window?.rootViewController = vc
+//        self.window?.rootViewController = UINavigationController(rootViewController: BMTabBarController())
         self.window?.makeKeyAndVisible()
 
         
