@@ -10,11 +10,12 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
 s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => s.version.to_s}
 
-s.frameworks    = 'UIKit','AVFoundation','Foundation', 'webRTC', 'MQTTKit', 'BMroomSDK'
-s.resources     = ['BigmarkerRoomSDK/Assets/*.png']
+s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
+s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
+s.frameworks    = 'UIKit','AVFoundation','Foundation'
 
-s.ios.deployment_target = '9.0'
-s.source_files = 'BigmarkerRoomSDK/*.swift'
+s.ios.deployment_target = '9.3'
+s.source_files = 'BigmarkerRoomSDK/ViewController.swift'
 
 end
