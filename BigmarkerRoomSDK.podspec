@@ -8,10 +8,10 @@ s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :http => 'http://github.com/hanqingqingmomo/BigmarkerRoomSDK/archive/0.1.3.zip'}
+s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => s.version.to_s}
 
-s.frameworks    = 'UIKit','AVFoundation','Foundation'
-
+s.frameworks    = 'UIKit','AVFoundation','Foundation', 'webRTC', 'MQTTKit', 'BMroomSDK'
+s.resources     = ['BigmarkerRoomSDK/Assets/*.png']
 
 
 s.ios.deployment_target = '9.0'

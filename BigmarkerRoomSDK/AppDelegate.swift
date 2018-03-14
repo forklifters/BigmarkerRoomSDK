@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BMroomSDK
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
