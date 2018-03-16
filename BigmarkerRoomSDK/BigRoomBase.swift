@@ -18,15 +18,15 @@ class BigRoomBase: NSObject,  BMRoomDelegate {
     
     var delegate:BigRoomConnectionProtocol?
     
-    var host   = "" //"192.168.0.12"
-    var mcuID  = ""                          //"37558ee4cbbc"
-    var userID = ""                          //"40fbdba8084d"
+    var host   = ""
+    var mcuID  = ""
+    var userID = ""
     var data   = ""
     var conference: Conference!
     
     init(conference: Conference) {
         self.conference = conference
-        self.host =  "wrtc32.bigmarker.com"//conference.conferenceServer!
+        self.host = conference.conferenceServer!.replacingOccurrences(of: "https://", with: "")
     }
     
     
@@ -69,10 +69,10 @@ class BigRoomBase: NSObject,  BMRoomDelegate {
     func bmRoom(_ bm: BMRoom!, didConnectStream muxerID: String!) {}
     func bmRoom(_ bm: BMRoom!, disconnectedStream muxerID: String!) {}
     func bmRoom(_ bm: BMRoom!, didReceiveMessage message: [NSObject : AnyObject]!) {}
-     func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {}
+     func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
+    }
     func bmRoom(_ bm: BMRoom!, failedConnectStream muxerID: String!) {}
     func bmRoom(_ bm: BMRoom!, userConnected user: [NSObject : AnyObject]!) {
-        print("================")
     }
     func bmRoom(_ bm: BMRoom!, userDisconnected sid: String!) {}
     func bmRoomDidClose(_ bm: BMRoom!) {}

@@ -15,12 +15,6 @@ class NoticeView: UIView {
     init(frame: CGRect, title: String) {
        super.init(frame: frame)
        self.frame = frame
-//       var x = 0
-//        if title == "Mic and camera on" {
-//            x = SCREEN_WIDTH/2 - 60
-//        } else {
-//            x = SCREEN_WIDTH/2 - 30
-//        }
        titleLabel = UILabel(frame: CGRect(x: 10, y: 5, width: ScreenW, height: 10))
        titleLabel.textColor = UIColor.white
        titleLabel.textAlignment = NSTextAlignment.center

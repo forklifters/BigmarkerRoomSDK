@@ -107,8 +107,18 @@ class BMTabBarController: UITabBarController {
     var conference: Conference!
     var avSession: AVAudioSession!
     var bm: BMRoom!
-    // 标示临时管理员 -->在会议室手动设置
-    //var tmpAdminStatus = false
+
+    
+    init(bm: BMRoom, conference: Conference) {
+        super.init(nibName: nil, bundle: nil)
+        self.bm = bm
+        self.conference = conference
+        addChildVc()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 
     override func viewDidLoad() {
@@ -123,8 +133,6 @@ class BMTabBarController: UITabBarController {
         let item = UITabBarItem.appearance()
         item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.init(red: 193/255.0, green: 201/255.0, blue: 214/255.0, alpha: 1.0),NSFontAttributeName:UIFont.systemFont(ofSize: 12)], for:.normal)
         item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.init(red: 43/255.0, green: 55/255.0, blue: 77/255.0, alpha: 1.0),NSFontAttributeName:UIFont.systemFont(ofSize: 12)], for:.selected)
-        
-        addChildVc()
     }
     
     
@@ -153,9 +161,12 @@ class BMTabBarController: UITabBarController {
     }
     
     func addChildVc(){
-        let videoController = BMVideoViewController(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 520))
+        let videoController = BMVideoViewController(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 520), bm: self.bm, conference: self.conference)
+         self.bmroomVideoDelegate = videoController
+         videoController.bm = self.bm
+         addChildViewController(videoController)
+        
         let msgController  = BMMessageViewController(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 520))
-        addChildViewController(videoController)
         addChildViewController(msgController)
     }
     
@@ -277,7 +288,6 @@ extension BMTabBarController: BMRoomDelegate {
     func bmRoomFailedConnect(_ bm: BMRoom!) { }
     
     func bmRoom(_ bm: BMRoom!, userConnected user: [NSObject : AnyObject]!) {
-        print("-----------------------")
         self.bmroomUserDelegate?.bigRoomNotificationDelegateUserEnter!(user: user)
     }
     
@@ -585,28 +595,28 @@ extension BMTabBarController: BMRoomDelegate {
 //    }
 
     
-    func bmRoom(bm: BMRoom!, didChangeVideoDimension muxerID: String!, withSize size: CGSize) {
+    func bmRoom(_ bm: BMRoom!, didChangeVideoDimension muxerID: String!, with size: CGSize) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoFrameChanged!(muxerID: muxerID, size: size)
         return
     }
     
-    func bmRoom(bm: BMRoom!, muxerAudioLevel muxerID: String!, changedTo level: Int32) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateAudioSizeChanged!(muxerID: muxerID, level: level)
+    func bmRoom(_ bm: BMRoom!, muxerAudioLevel muxerID: String!, changedTo level: Int32) {
+//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateAudioSizeChanged!(muxerID: muxerID, level: level)
         return
     }
     
-    func bmRoom(bm: BMRoom!, failedConnectStream muxerID: String!) {
+    func bmRoom(_ bm: BMRoom!, failedConnectStream muxerID: String!) {
        self.bmroomVideoDelegate?.bigRoomNotificationDelegateFailedConnectStream!(muxerID: muxerID)
        return
     }
     
-    func bmRoomDidClose(bm: BMRoom!) {
+    func bmRoomDidClose(_ bm: BMRoom!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateCloseRoom!()
 //        NotificationCenter.defaultCenter.postNotificationName("closeRoom", object: nil, userInfo: nil)
         return
     }
     
-    func bmRoom(bm: BMRoom!, loadYoutubeMsg message: [NSObject : AnyObject]!) {
+    func bmRoom(_ bm: BMRoom!, loadYoutubeMsg message: [NSObject : AnyObject]!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeLoad!(message: message)
         return
     }

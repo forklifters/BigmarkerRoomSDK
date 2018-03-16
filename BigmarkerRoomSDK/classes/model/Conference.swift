@@ -675,4 +675,26 @@ class Conference: NSObject {
     }
     
     
+    class func requestConferenceData(id: String, token: String, finishedCallback : @escaping (_ conference: Conference?) -> ()){
+        let urlString = SERVICE_API_DOMAIN + "/mobile/api/v1/conferences/\(id)?mobile_token=f75f6f7ddb80ed15100f26fed2afc37c5db24a75078e781895b4c04a2d440856"
+        print(urlString)
+        NetworkTools.requestData(type: .GET, URLString: urlString) { (result) in
+            
+            guard let dict = result as? NSDictionary else {
+                finishedCallback(nil)
+                return
+            }
+            
+            guard let conference = dict.value(forKey: "conference") as? NSDictionary else {
+                finishedCallback(nil)
+                return
+            }
+            
+            finishedCallback(Conference(dictionary: conference))
+        }
+    }
+    
+
+    
+    
 }

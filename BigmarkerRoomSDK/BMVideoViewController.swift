@@ -76,10 +76,12 @@ class BMVideoViewController: UIViewController {
     let LOADING     = "loading"
     
     
-    init(frame: CGRect) {
+    init(frame: CGRect, bm: BMRoom, conference: Conference) {
        super.init(nibName: nil, bundle: nil)
        self.view.frame = frame
-        
+       self.bm = bm
+       self.conference = conference
+       setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -142,9 +144,6 @@ class BMVideoViewController: UIViewController {
         let tabBarItem = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
         tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         self.tabBarItem = tabBarItem
-        
-        //(self.tabBarController as! BMTabBarController).bmroomVideoDelegate = self
-        setupUI()
     }
     
     func setupUI(){
@@ -532,8 +531,9 @@ class BMVideoViewController: UIViewController {
     
     func addPannelView(){
         let frame = CGRect(x: ScreenW - 130, y: 20, width: 80, height: 40)
-//        videoPannelView = VideoPannelView(frame: frame, admin:  self.conference.isAdmin(), bm: self.bm)
-        videoPannelView = VideoPannelView(frame: frame, admin:  false, bm: nil)
+        print(self.conference)
+        print(self.bm)
+        videoPannelView = VideoPannelView(frame: frame, admin:  self.conference.isAdmin(), bm: self.bm)
         videoPannelView.switchVideoDelegate = self
         self.view.addSubview(videoPannelView)
     }
@@ -675,7 +675,8 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     
     //链接视频
     func bigRoomNotificationDelegateConnectStream(muxerID: String!) {
-        DispatchQueue.main.sync {
+
+        //DispatchQueue.main.sync {
             self.sortVideoPosition(muxerID: muxerID)
             if muxerID == self.selfMuxerID {
                 self.videoPannelView.clearConnectTimer()
@@ -688,23 +689,17 @@ extension BMVideoViewController: BigRoomVideoDelegate {
             }
             //如果连接的screenShare 则reload tableview  否则 reload  collectionView
             if self.bm.screenViews[muxerID] != nil {
-                
                 if self.removeVideoMuxerID == ""{
                     self.reloadView()
-                }else{
-                    
                 }
-                
             } else {
-                
                 if self.removeVideoMuxerID == ""{
-                    self.reloadView()
-                }else{
-                    
+                   // DispatchQueue.main.sync {
+                        self.reloadView()
+                   // }
                 }
-                
             }
-        }
+        //}
     }
     
     
@@ -1264,7 +1259,6 @@ extension BMVideoViewController: SwitchVideoNotification{
     func notifyOpenAudio(muxerID: String){
         makeNotice(title: "Mic on", color: UIColor(red: 100/255, green: 210/255, blue: 123/255, alpha: 1))
         self.selfMuxerID = muxerID
-        //self.videoArray.insert(LOADING, atIndex: 0)
         self.connectingMuxerArray.insert(muxerID)
         self.reloadView()
     }
@@ -1317,7 +1311,7 @@ extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+       
         if videoArray.isEmpty {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoVideoCell", for: indexPath as IndexPath) as! NoVideoCell
             //cell.conference = self.conference
@@ -1372,8 +1366,6 @@ extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDel
         var height:CGFloat = 0
         
         if (videoArray.count == 0) && (otherVideoArray.count == 0) {
-            print("==========")
-            print(self.collectionView.frame)
             return self.collectionView.frame.size
         }
         
