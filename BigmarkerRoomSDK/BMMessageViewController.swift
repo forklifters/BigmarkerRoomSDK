@@ -23,7 +23,7 @@ class BMMessageViewController: UIViewController {
     }
     
     lazy private var navView : BMNavView = { [weak self] in
-        let navView = BMNavView(frame: CGRect(x: 0, y: 0, width: self!.view.frame.width, height: 64), conference: nil)
+        let navView = BMNavView(frame: CGRect(x: 0, y: 0, width: self!.view.frame.width, height: 64), conference: self!.conference)
         //navView.delegate = self as! BMNavViewDelegate?
         return navView
         }()
@@ -32,7 +32,7 @@ class BMMessageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(self.navView)
+        //self.view.addSubview(self.navView)
         
         let image = UIImage(named: "icon_chat_active")?.withRenderingMode(.alwaysOriginal)
         let selectedImage = UIImage(named: "icon_chat_active")?.withRenderingMode(.alwaysOriginal)

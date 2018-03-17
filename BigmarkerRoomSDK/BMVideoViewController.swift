@@ -21,6 +21,10 @@ struct AdminAndSwitch {
     static var isSwitchOn = false //记录开关的状态,关闭or开启
 }
 
+struct WhiteBoardImage {
+    static var images: [UIImage?]   = []
+}
+
 class BMVideoViewController: UIViewController {
     
     
@@ -39,11 +43,14 @@ class BMVideoViewController: UIViewController {
     
     // 计时器，每隔20秒钟 去拉去视频数据
     var streamTimer: Timer!
-    
     var youtubeTimer: Timer!
     
     var tableViewOriginFrame: CGRect!
     var collectionViewOriginFrame: CGRect!
+    
+    var audioOnly = false
+    var rotation  = false
+    
     
     //自己的video id
     var selfMuxerID = "" {
@@ -65,10 +72,7 @@ class BMVideoViewController: UIViewController {
     
     var videoInfoDictionary: NSMutableDictionary = NSMutableDictionary()
     var videoPannelView: VideoPannelView!
-//    var screenDirection: Rotation = Rotation.NORMAL
-//    var whiteboaredDirection: Rotation = Rotation.NORMAL
-    
-    
+ 
     let MP4         = "mp4"
     let YOUTUBE     = "youtube"
     let WHITEBOARD  = "whiteboard"
@@ -89,8 +93,8 @@ class BMVideoViewController: UIViewController {
     }
     
     lazy  var navView : BMNavView = { [weak self] in
-        let navView = BMNavView(frame: CGRect(x: 0, y: 0, width: self!.view.frame.width, height: 64), conference: nil)
-        //navView.delegate = self as! BMNavViewDelegate?
+        let navView = BMNavView(frame: CGRect(x: 0, y: 0, width: self!.view.frame.width, height: 64), conference: (self?.conference)!)
+        navView.delegate = self
         return navView
         }()
     
@@ -542,16 +546,27 @@ class BMVideoViewController: UIViewController {
     func reloadView(){
         
         // 没有whiteboard mp4 youtube 但是有视频
-        if self.otherVideoArray.count == 0 && self.videoArray.count > 0{
+        if self.otherVideoArray.count == 0 && self.videoArray.count > 0 {
             //self.disConnectView.hidden = true
             let h   = ScreenH - self.navView.frame.height - TabbarH
             self.tableView.frame = CGRect.zero
             self.collectionView.frame = CGRect(x: 0, y: self.navView.frame.height, width: ScreenW, height: h)
             self.tableView.reloadData()
             self.collectionView.reloadData()
-        } else if self.otherVideoArray.count > 0 && self.videoArray.count > 0{
+        } else if self.otherVideoArray.count > 0 && self.videoArray.count > 0 && !rotation{
             // 有whiteboard mp4 youtube 并且有视频
             //self.disConnectView.hidden = true
+            
+            
+            if audioOnly {
+                let h   = (ScreenH - self.navView.frame.height - TabbarH)
+                self.tableView.frame = CGRect(x: 0, y: self.navView.frame.height, width: ScreenW, height: h)
+                self.tableView.reloadData()
+                self.collectionView.frame = CGRect.zero
+                return
+            }
+            
+            
             let h   = (ScreenH - self.navView.frame.height - TabbarH) / 2
             if self.tableView.frame.height < (h + 20) && self.tableView.frame.height > 0  {
                 self.collectionView.frame = CGRect(x: 0, y: self.navView.frame.height + self.tableView.frame.height, width: ScreenW, height: h)
@@ -567,7 +582,7 @@ class BMVideoViewController: UIViewController {
                 self.collectionView.reloadData()
             }
             
-        } else if self.otherVideoArray.count > 0 && self.videoArray.count == 0 {
+        } else if (self.otherVideoArray.count > 0 && self.videoArray.count == 0)  || rotation{
             // 有whiteboard mp4 youtube 但是没有视频
             
             let h     = ScreenH - self.navView.frame.height - TabbarH
@@ -584,7 +599,6 @@ class BMVideoViewController: UIViewController {
             self.tableView.reloadData()
             self.collectionView.reloadData()
         }
-        
         
         self.reloadTableView = false
         
@@ -1295,11 +1309,26 @@ extension BMVideoViewController: SwitchVideoNotification{
 }
 
 
-
 extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if rotation {
+            return 0
+        }
+        
+        if self.audioOnly && otherVideoArray.count > 0 {
+            return 0
+        }
+        
+        if self.audioOnly {
+            return 1
+        }
+        
+        if audioArray.count > 0 && (videoArray.count == 0) && (otherVideoArray.count == 0) {
+            return 1
+        }
+        
         if (videoArray.count == 0) && (otherVideoArray.count == 0) {
             return 1
         } else if videoArray.count > 4{
@@ -1311,21 +1340,30 @@ extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-        if videoArray.isEmpty {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoVideoCell", for: indexPath as IndexPath) as! NoVideoCell
+        
+        
+        if videoArray.isEmpty && audioArray.isEmpty && otherVideoArray.isEmpty {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoVideoCell", for: indexPath) as! NoVideoCell
             //cell.conference = self.conference
             return cell
             
+        } else if (videoArray.isEmpty && !audioArray.isEmpty) || audioOnly {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            var audioArr = self.audioArray
+            if audioOnly {
+                audioArr += self.videoArray
+            }
+            let audioView = AudioViewUI(bm: self.bm, audioArray: audioArr)
+            cell.contentView.addSubview(audioView)
+            audioView.setupUI()
+            return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath)
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
             for view in cell.contentView.subviews {
                 view.removeFromSuperview()
             }
             cell.contentView.tag = indexPath.row + 11
             cell.contentView.backgroundColor = cellColor
-            
             
             let muxerID = videoArray[indexPath.row] as String
             let videoInfo = videoInfoDictionary[muxerID] as? VideoInfo
@@ -1333,13 +1371,10 @@ extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDel
             if muxerID == LOADING {
                 let loadingView = LoadingView(frame: cell.bounds)
                 cell.contentView.addSubview(loadingView)
-                //            } else if bm.videoViews[muxerID] == nil {
-                //                let audioView = AudioView(frame: cell.bounds, videoInfo: videoInfo!, avatarSize: cell.frame.width/2)
-                //                cell.contentView.addSubview(audioView)
             } else if bm.videoViews[muxerID] != nil {
                 var frame: CGRect!
                 if videoArray.count == 1 {
-                    frame = calculateVideoFrame(muxerID: muxerID, cellFrame: CGRect(x: 0, y: ScreenH/2 - ScreenH/3, width: ScreenW, height: ScreenW/2))
+                    frame = calculateVideoFrame(muxerID: muxerID, cellFrame: CGRect(x: 0, y: ScreenH/2 - ScreenH/3, width: ScreenW, height: ScreenH/2))
                 } else {
                     frame = calculateVideoFrame(muxerID: muxerID, cellFrame: cell.bounds)
                 }
@@ -1357,13 +1392,16 @@ extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     
-    
     func collectionView(_ collectionView: UICollectionView!,
                         layout collectionViewLayout: UICollectionViewLayout!,
                         sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
         
         var width:CGFloat  = 0
         var height:CGFloat = 0
+        
+        if audioOnly || (videoArray.isEmpty && !audioArray.isEmpty){
+            return self.collectionView.frame.size
+        }
         
         if (videoArray.count == 0) && (otherVideoArray.count == 0) {
             return self.collectionView.frame.size
@@ -1403,7 +1441,6 @@ extension BMVideoViewController: UICollectionViewDataSource, UICollectionViewDel
         }))
         alertView.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alertView, animated: true, completion: nil)
-        AdminAndSwitch.isSwitchOn = false
     }
     
 }
@@ -1485,6 +1522,27 @@ extension BMVideoViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+}
+
+extension BMVideoViewController: BMNavViewDelegate{
+    func quiteRoomNotification() {
+        self.quiteRoom()
+    }
+    
+    func audioOnlyNotification(status: Bool) {
+        self.audioOnly = status
+        self.reloadView()
+    }
+    
+    func quiteRoom(){
+        let alertView = UIAlertController(title: "", message: "Are you sure you want to exit this webinar?", preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.clearRoom()
+            //PeopleMessage.pollCount = "0"
+        }))
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
+    }
 }
 
 

@@ -25,6 +25,7 @@ let PROGRESS_VIEW_TAG        = 509
 let VIDEO_BOTTOM_VIEW_TAG    = 510
 let WHITE_BOARD_TAG          = 511
 let SCREEN_SHARE_BOTTOM_VIEW = 512
+let BMROOMNAV_COLOR = UIColor(red: 38/255, green: 48/255, blue: 68/255, alpha: 1)
 //let ScreenW =  UIScreen.main.bounds.width
 
 
