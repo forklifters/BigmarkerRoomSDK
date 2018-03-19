@@ -19,8 +19,8 @@ class AudioViewCell: UICollectionViewCell {
            
             avatar = UIImageView()
            
-            let url = NSURL(string: userInfo!.avatarUrl)
-//            avatar.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_profile_picture"))
+            let url = URL(string: userInfo!.avatarUrl)
+            avatar.sd_setImage(with: url, placeholderImage: UIImage(named: "default_profile_picture"))
             avatar.translatesAutoresizingMaskIntoConstraints = false
             avatar.contentMode = UIViewContentMode.scaleAspectFill
             avatar.clipsToBounds = true

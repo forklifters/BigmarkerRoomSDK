@@ -25,7 +25,7 @@ struct WhiteBoardImage {
     static var images: [UIImage?]   = []
 }
 
-class BMVideoViewController: UIViewController {
+class BMVideoViewController: BMMsgBaseViewController {
     
     
     var conference: Conference!
@@ -79,18 +79,7 @@ class BMVideoViewController: UIViewController {
     let SCREENSHARE = "screenShare"
     let LOADING     = "loading"
     
-    
-    init(frame: CGRect, bm: BMRoom, conference: Conference) {
-       super.init(nibName: nil, bundle: nil)
-       self.view.frame = frame
-       self.bm = bm
-       self.conference = conference
-       setupUI()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
     lazy  var navView : BMNavView = { [weak self] in
         let navView = BMNavView(frame: CGRect(x: 0, y: 0, width: self!.view.frame.width, height: 64), conference: (self?.conference)!)
@@ -142,12 +131,7 @@ class BMVideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        let image = UIImage(named: "icon_video_inactive")?.withRenderingMode(.alwaysOriginal)
-        let selectedImage = UIImage(named: "icon_video_active")?.withRenderingMode(.alwaysOriginal)
-        let tabBarItem = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
-        tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        self.tabBarItem = tabBarItem
+        setupUI()
     }
     
     func setupUI(){

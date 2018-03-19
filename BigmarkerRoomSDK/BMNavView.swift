@@ -70,9 +70,6 @@ class BMNavView: UIView {
         let view = PopoverView()
         view.style = PopoverViewStyle.default
         view.showShade = true
-        print(audio)
-        print(action)
-        print(sender)
         view.show(to: sender as! UIView, with: [audio!, action!])
         
         
