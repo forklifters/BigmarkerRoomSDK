@@ -10,6 +10,7 @@ import UIKit
 import  BMroomSDK
 private let BMRoomPepleCellID = "bMRoomPepleCellID"
 
+
 class BMPeopleViewController: UIViewController{
     
     var bm: BMRoom!
