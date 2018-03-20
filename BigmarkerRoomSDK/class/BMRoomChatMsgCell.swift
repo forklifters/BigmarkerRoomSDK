@@ -24,7 +24,7 @@ class BMRoomChatMsgCell: UITableViewCell {
             self.timeLabel.text = message?.formatTime
             
             let url = URL(string: message!.avatarUrl!)
-            self.avatarImageVIew.sd_setImage(with: url, placeholderImage: UIImage(named: "default_profile_picture"))
+            self.avatarImageVIew.sd_setImage(with: url, placeholderImage: UIImage(named: "BMSDK.bundle/default_profile_picture"))
             
             
             self.avatarImageVIew.layer.cornerRadius = 3

@@ -45,7 +45,7 @@ class BMNavView: UIView {
         self.addSubview(titleLabel!)
         let x = ScreenW - 40
         let settingButton = UIButton(frame: CGRect(x: x, y: 25, width: 30, height: 30))
-        settingButton.setImage(UIImage(named: "setting"), for: UIControlState.normal)
+        settingButton.setImage(UIImage(named: "BMSDK.bundle/setting"), for: UIControlState.normal)
         settingButton.addTarget(self, action: #selector(clickButton), for: .touchUpInside)
         self.addSubview(settingButton)
         

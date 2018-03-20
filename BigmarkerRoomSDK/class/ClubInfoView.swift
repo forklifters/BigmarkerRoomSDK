@@ -33,7 +33,7 @@ class ClubInfoView: UIView {
         let url = URL(string: self.channel.logo)
     
         //self.clubImageView.sd_setImage(with: <#T##URL!#>, placeholderImage: <#T##UIImage!#>)
-        self.clubImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "default_community"))
+        self.clubImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "BMSDK.bundle/default_community"))
         self.clubImageView.contentMode = UIViewContentMode.scaleAspectFit
         
         self.clubName = UILabel(frame: CGRect(x: 80, y: 130, width: 250, height: 30))

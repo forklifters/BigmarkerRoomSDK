@@ -30,11 +30,11 @@ class SettingView: UIView{
     
     func setupUI(){
         arrowBtn = UIButton()
-        arrowBtn.setImage(UIImage(named: "up-Shape"), for: UIControlState.normal)
+        arrowBtn.setImage(UIImage(named: "BMSDK.bundle/up-Shape"), for: UIControlState.normal)
         arrowBtn.addTarget(self, action: #selector(hideSettingView), for: UIControlEvents.touchUpInside)
         
         delBtn = UIButton()
-        delBtn.setImage(UIImage(named: "shape"), for: UIControlState.normal)
+        delBtn.setImage(UIImage(named: "BMSDK.bundle/shape"), for: UIControlState.normal)
         delBtn.addTarget(self, action: #selector(whiteBoardDel), for: UIControlEvents.touchUpInside)
         
         

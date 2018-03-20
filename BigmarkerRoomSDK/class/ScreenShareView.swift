@@ -34,7 +34,7 @@ class ScreenShareView: UIView {
         topView.backgroundColor = UIColor(red: 56.0/255.0, green: 61.0/255.0, blue: 63.0/255.0, alpha: 1)
         
         self!.fullButton = UIButton()
-        self!.fullButton.setImage(UIImage(named: "full_screen"), for: UIControlState.normal)
+        self!.fullButton.setImage(UIImage(named: "BMSDK.bundle/full_screen"), for: UIControlState.normal)
         self!.fullButton.addTarget(self, action: #selector(ScreenShareView.switchScreen), for: UIControlEvents.touchDown)
         topView.addSubview(self!.fullButton)
         

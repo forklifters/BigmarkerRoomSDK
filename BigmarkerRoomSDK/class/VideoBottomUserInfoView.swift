@@ -52,7 +52,7 @@ class VideoBottomUserInfoView: UIView {
         userNameLabel.textAlignment = NSTextAlignment.left
         
         mutedImageView = UIImageView(frame: CGRect(x: self.frame.width-20, y: 4, width: 17, height: 20))
-        mutedImageView.image = UIImage(named: "audio-muted")
+        mutedImageView.image = UIImage(named: "BMSDK.bundle/audio-muted")
         
         if !videoInfo.isMuted() {
             mutedImageView.isHidden = true

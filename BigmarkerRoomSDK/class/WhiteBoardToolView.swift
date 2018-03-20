@@ -44,11 +44,11 @@ class WhiteBoardToolView: UIView {
         titleLabel.font = UIFont.systemFont(ofSize: 12)
         
         leftBtn = UIButton()
-        leftBtn.setImage(UIImage(named: "Shape_left"), for: UIControlState.normal)
+        leftBtn.setImage(UIImage(named: "BMSDK.bundle/Shape_left"), for: UIControlState.normal)
         leftBtn.addTarget(self, action: #selector(prePage), for: UIControlEvents.touchUpInside)
         
         rightBrn = UIButton()
-        rightBrn.setImage(UIImage(named: "Shape_right"), for: UIControlState.normal)
+        rightBrn.setImage(UIImage(named: "BMSDK.bundle/Shape_right"), for: UIControlState.normal)
         rightBrn.addTarget(self, action: #selector(nextPage), for: UIControlEvents.touchUpInside)
         
         
@@ -58,16 +58,16 @@ class WhiteBoardToolView: UIView {
         settingBtn = UIButton()
         
         if conference.adminRole(){
-            settingBtn.setImage(UIImage(named: "shape_blue"), for: UIControlState.normal)
+            settingBtn.setImage(UIImage(named: "BMSDK.bundle/shape_blue"), for: UIControlState.normal)
             settingBtn.addTarget(self, action: #selector(toggleSettingView), for: UIControlEvents.touchUpInside)
         } else {
-            settingBtn.setImage(UIImage(named: "pen"), for: UIControlState.normal)
+            settingBtn.setImage(UIImage(named: "BMSDK.bundle/pen"), for: UIControlState.normal)
         }
       
         self.addSubview(settingBtn)
         
         fullScreenImageView = UIImageView()
-        fullScreenImageView.image = UIImage(named: "iconExpand")
+        fullScreenImageView.image = UIImage(named: "BMSDK.bundle/iconExpand")
         fullScreenImageView.isUserInteractionEnabled = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(fullScreen))
@@ -140,10 +140,10 @@ class WhiteBoardToolView: UIView {
     
     func changeSettingBtn(){
         if conference.adminRole(){
-            settingBtn.setImage(UIImage(named: "shape_blue"), for: UIControlState.normal)
+            settingBtn.setImage(UIImage(named: "BMSDK.bundle/shape_blue"), for: UIControlState.normal)
             settingBtn.addTarget(self, action: #selector(toggleSettingView), for: UIControlEvents.touchUpInside)
         } else {
-            settingBtn.setImage(UIImage(named: "pen"), for: UIControlState.normal)
+            settingBtn.setImage(UIImage(named: "BMSDK.bundle/pen"), for: UIControlState.normal)
         }
     }
     

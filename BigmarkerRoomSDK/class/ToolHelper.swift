@@ -190,7 +190,7 @@ class ToolHelper {
     }
     
     class func currentUserDefaultAvatar() -> UIImage{
-        return UIImage(named: "default_profile_picture")!
+        return UIImage(named: "BMSDK.bundle/default_profile_picture")!
     }
     
     // asyn fetch

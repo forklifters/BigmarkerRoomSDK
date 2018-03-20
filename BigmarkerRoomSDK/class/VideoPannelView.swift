@@ -138,7 +138,7 @@ class VideoPannelView: UIView {
         self.openType = OpenStatus.video
         videoStatus = ButtonStatus.open
         let muxerID = bm.connectStream(nil, enableVideo: "front", enableAudio: "true")
-        sender.setImage(UIImage(named: "cam-on"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/cam-on"), for: UIControlState.normal)
         switchVideoDelegate?.notifyOpenVideo(muxerID: muxerID!)
         
         self.connectTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countConnectTime), userInfo: nil, repeats: true)
@@ -158,7 +158,7 @@ class VideoPannelView: UIView {
     func closeVideo(sender:UIButton!){
         videoStatus = ButtonStatus.close
         bm.disconnectStream(muxerID)
-        sender.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/cam-off"), for: UIControlState.normal)
         switchVideoDelegate?.notifyCloseVideo(muxerID: muxerID)
     }
     
@@ -166,7 +166,7 @@ class VideoPannelView: UIView {
         self.openType = OpenStatus.audio
         audioStatus = ButtonStatus.open
         let muxerID = bm.connectStream(nil, enableVideo: "false", enableAudio: "true")
-        sender.setImage(UIImage(named: "mic-on"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/mic-on"), for: UIControlState.normal)
         switchVideoDelegate?.notifyOpenAudio(muxerID: muxerID!)
         self.connectTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countConnectTime), userInfo: nil, repeats: true)
     }
@@ -174,41 +174,41 @@ class VideoPannelView: UIView {
     func closeAudio(sender:UIButton!){
         audioStatus = ButtonStatus.close
         bm.disconnectStream(muxerID)
-        sender.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         switchVideoDelegate?.notifyCloseAudio(muxerID: muxerID)
     }
     
     func updateMuteAudioUI(sender:UIButton!){
         mutedStatus = ButtonStatus.muted
         bm.switchStream(muxerID, enableVideo: "true", enableAudio: "false", sendMessage: false)
-        sender.setImage(UIImage(named: "mic-mute"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/mic-mute"), for: UIControlState.normal)
         self.switchVideoDelegate?.notifyMuteAudioBySelf(muxerID: muxerID, status: false)
     }
     
     func updateUnMuteAudioUI(sender:UIButton!){
         mutedStatus = ButtonStatus.unmuted
         bm.switchStream(muxerID, enableVideo: "true", enableAudio: "true", sendMessage: false)
-        sender.setImage(UIImage(named: "mic-on"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/mic-on"), for: UIControlState.normal)
         self.switchVideoDelegate?.notifyMuteAudioBySelf(muxerID: muxerID, status: true)
     }
     
     func muteAudio(sender:UIButton!){
         mutedStatus = ButtonStatus.muted
         bm.switchStream(muxerID, enableVideo: "true", enableAudio: "false", sendMessage: true)
-        sender.setImage(UIImage(named: "mic-mute"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/mic-mute"), for: UIControlState.normal)
         //self.switchVideoDelegate?.notifyMuteAudioBySelf(muxerID, status: false)
     }
     
     func unMuteAudio(sender:UIButton!){
         mutedStatus = ButtonStatus.unmuted
         bm.switchStream(muxerID, enableVideo: "true", enableAudio: "true", sendMessage: true)
-        sender.setImage(UIImage(named: "mic-on"), for: UIControlState.normal)
+        sender.setImage(UIImage(named: "BMSDK.bundle/mic-on"), for: UIControlState.normal)
         //self.switchVideoDelegate?.notifyMuteAudioBySelf(muxerID, status: true)
     }
     
     func clearVideo(){
-        videoUIButton.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
-        audioUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        videoUIButton.setImage(UIImage(named: "BMSDK.bundle/cam-off"), for: UIControlState.normal)
+        audioUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.hideMuteButton()
         audioStatus = ButtonStatus.close
         videoStatus = ButtonStatus.close
@@ -234,59 +234,59 @@ class VideoPannelView: UIView {
     //////////////////////////////////
     
     func showVideoButton(){
-        videoUIButton.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
+        videoUIButton.setImage(UIImage(named: "BMSDK.bundle/cam-off"), for: UIControlState.normal)
         videoStatus = ButtonStatus.close
         self.videoUIButton.isHidden = false
     }
     
     func hideVideoButton(){
-        videoUIButton.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
+        videoUIButton.setImage(UIImage(named: "BMSDK.bundle/cam-off"), for: UIControlState.normal)
         self.videoUIButton.isHidden = true
         videoStatus = ButtonStatus.block
     }
     
     func showMuteButton(){
-        mutedUIButton.setImage(UIImage(named: "mic-on"), for: UIControlState.normal)
+        mutedUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-on"), for: UIControlState.normal)
         self.mutedUIButton.isHidden = false
     }
     
     func hideMuteButton(){
-        mutedUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        mutedUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.mutedUIButton.isHidden = true
     }
     
     func showAudioButton(){
-        audioUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        audioUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.audioUIButton.isHidden = false
         audioStatus = ButtonStatus.close
     }
     
     func hideAudioButton(){
-        audioUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        audioUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.audioUIButton.isHidden = true
         audioStatus = ButtonStatus.close
     }
     
     func blockAudioButton(){
-        audioUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        audioUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.audioUIButton.isHidden = true
         audioStatus = ButtonStatus.block
     }
     
     func unblockAudioButton(){
-        audioUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        audioUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.audioUIButton.isHidden = false
         audioStatus = ButtonStatus.close
     }
     
     func unblockVideoButton(){
-        videoUIButton.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
+        videoUIButton.setImage(UIImage(named: "BMSDK.bundle/cam-off"), for: UIControlState.normal)
         self.videoUIButton.isHidden = false
         videoStatus = ButtonStatus.close
     }
     
     func blockVideoButton(){
-        videoUIButton.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
+        videoUIButton.setImage(UIImage(named: "BMSDK.bundle/-off"), for: UIControlState.normal)
         self.videoUIButton.isHidden = true
         videoStatus = ButtonStatus.block
     }
@@ -301,16 +301,16 @@ extension VideoPannelView {
         self.backgroundColor = UIColor.clear
         
         audioUIButton = UIButton(frame: CGRect(x: 3, y: 2, width: 40, height: 40))
-        audioUIButton.setImage(UIImage(named: "mic-off"), for: UIControlState.normal)
+        audioUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-off"), for: UIControlState.normal)
         self.addSubview(audioUIButton)
         
         videoUIButton = UIButton(frame: CGRect(x: 40, y: 2, width: 40, height: 40))
-        videoUIButton.setImage(UIImage(named: "cam-off"), for: UIControlState.normal)
+        videoUIButton.setImage(UIImage(named: "BMSDK.bundle/cam-off"), for: UIControlState.normal)
         self.addSubview(videoUIButton)
         
         mutedUIButton = UIButton()
         mutedUIButton.frame = audioUIButton.frame
-        mutedUIButton.setImage(UIImage(named: "mic-on"), for: UIControlState.normal)
+        mutedUIButton.setImage(UIImage(named: "BMSDK.bundle/mic-on"), for: UIControlState.normal)
         mutedUIButton.isHidden = true
         self.addSubview(mutedUIButton)
         

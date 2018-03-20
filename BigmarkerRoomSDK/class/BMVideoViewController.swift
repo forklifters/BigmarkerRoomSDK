@@ -1321,7 +1321,7 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     func bigRoomNotificationDelegateMsgAddTabbar(message: [NSObject : AnyObject]) {
         if self.tabBarController?.selectedIndex != 1{
             DispatchQueue.main.async{
-                self.tabBarController?.tabBar.items![1].image = UIImage(named: "icon_chat_new")
+                self.tabBarController?.tabBar.items![1].image = UIImage(named: "BMSDK.bundle/icon_chat_new")
             }
         }
     }

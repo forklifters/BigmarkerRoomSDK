@@ -33,9 +33,9 @@ class BMPersionCell: UITableViewCell {
             self.userInfoId = userInfo!["sid"] as? String ?? ""
             let imgUrl = userInfo!["photo"] as? String ?? ""
             if (imgUrl.range(of: "assets") != nil) {
-                avatarImageView.sd_setImage(with: URL(string: SERVICE_API_DOMAIN + imgUrl), placeholderImage: UIImage(named: "default_profile_picture"))
+                avatarImageView.sd_setImage(with: URL(string: SERVICE_API_DOMAIN + imgUrl), placeholderImage: UIImage(named: "BMSDK.bundle/default_profile_picture"))
             } else {
-                avatarImageView.sd_setImage(with:  URL(string: imgUrl), placeholderImage: UIImage(named: "default_profile_picture"))
+                avatarImageView.sd_setImage(with:  URL(string: imgUrl), placeholderImage: UIImage(named: "BMSDK.bundle/default_profile_picture"))
             }
             
             avatarImageView.layer.cornerRadius = 3

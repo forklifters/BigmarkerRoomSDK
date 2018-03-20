@@ -20,7 +20,7 @@ class AudioViewUI: UIView {
     lazy private var topView: UIView = { [weak self] in
         let topView = UIView()
         self!.imageView = UIImageView()
-        self!.imageView.image = UIImage(named: "mic")
+        self!.imageView.image = UIImage(named: "BMSDK.bundle/mic")
         self!.imageView.contentMode = UIViewContentMode.scaleAspectFill
         
         self!.title = UILabel()

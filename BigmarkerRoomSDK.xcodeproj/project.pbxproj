@@ -116,6 +116,7 @@
 		2021B25B206149AD00E30327 /* AttendeeViewLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021B25A206149AD00E30327 /* AttendeeViewLockedCell.swift */; };
 		2021B25D206149CC00E30327 /* VideoBottomUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021B25C206149CC00E30327 /* VideoBottomUserInfoView.swift */; };
 		2021B25F20614AB600E30327 /* BMMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021B25E20614AB600E30327 /* BMMessageViewController.swift */; };
+		2021B2632061519100E30327 /* BMSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2021B2622061519100E30327 /* BMSDK.bundle */; };
 		202B806B2056A98000C1067C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 202B806A2056A98000C1067C /* MQTTKit */; };
 		202B806F2056A9DC00C1067C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202B806E2056A9DC00C1067C /* libMQTTKit.a */; };
 		203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992BE20564DE20058A8DC /* AppDelegate.swift */; };
@@ -272,6 +273,7 @@
 		2021B25A206149AD00E30327 /* AttendeeViewLockedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendeeViewLockedCell.swift; path = class/AttendeeViewLockedCell.swift; sourceTree = "<group>"; };
 		2021B25C206149CC00E30327 /* VideoBottomUserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoBottomUserInfoView.swift; path = class/VideoBottomUserInfoView.swift; sourceTree = "<group>"; };
 		2021B25E20614AB600E30327 /* BMMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMMessageViewController.swift; path = class/BMMessageViewController.swift; sourceTree = "<group>"; };
+		2021B2622061519100E30327 /* BMSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BMSDK.bundle; sourceTree = "<group>"; };
 		202B806A2056A98000C1067C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		202B806E2056A9DC00C1067C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMQTTKit.a; path = MQTTKit/libMQTTKit.a; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -446,6 +448,7 @@
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				2021B2622061519100E30327 /* BMSDK.bundle */,
 				20E5EB572060D996006AD214 /* YTPlayerView */,
 				20FE307A205EAA2300D2EBE6 /* HMSegmentedControl */,
 				20EEEF4D205CF4A700D0FED1 /* SDWebImage */,
@@ -704,6 +707,7 @@
 				203992C920564DE20058A8DC /* LaunchScreen.storyboard in Resources */,
 				2021B1FD2061460300E30327 /* MessageInputView.xib in Resources */,
 				2021B2012061460300E30327 /* NoVideoCell.xib in Resources */,
+				2021B2632061519100E30327 /* BMSDK.bundle in Resources */,
 				203992C620564DE20058A8DC /* Assets.xcassets in Resources */,
 				202B806B2056A98000C1067C /* MQTTKit in Resources */,
 				20EEEF46205CEE5F00D0FED1 /* LICENSE in Resources */,

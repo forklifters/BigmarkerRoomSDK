@@ -173,8 +173,8 @@ class BMTabBarController: UITabBarController {
         
         for (index, singleVC) in (self.viewControllers?.enumerated())! {
             
-            let image = UIImage(named: normalImageArr[index] as! String)?.withRenderingMode(.alwaysOriginal)
-            let selectedImage = UIImage(named: selectedImageArray[index] as! String)?.withRenderingMode(.alwaysOriginal)
+            let image = UIImage(named: "BMSDK.bundle/\(normalImageArr[index] as! String)")?.withRenderingMode(.alwaysOriginal)
+            let selectedImage = UIImage(named: "BMSDK.bundle/\(selectedImageArray[index] as! String)")?.withRenderingMode(.alwaysOriginal)
             let tabBarItem = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
             tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
             singleVC.tabBarItem = tabBarItem
