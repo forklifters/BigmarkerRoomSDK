@@ -45,8 +45,9 @@ class MyView: UIView {
     var position = 0 //现在是第几笔
     var max = 0 //一共有多少笔
     
-    init(frame: CGRect, superView: WhiteBoardView,currentPage:Int) {
+    init(frame: CGRect, bm: BMRoom, superView: WhiteBoardView,currentPage:Int) {
         super.init(frame: CGRect.zero)
+        self.bm = bm
         self.whiteBoardView = superView
         self.currentPage = currentPage
         //加载服务器的图片
@@ -58,6 +59,8 @@ class MyView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(addImage), name: NSNotification.Name(rawValue: "whiteboardDrawModel"), object: nil)
         //向服务器发送信号,看有没有画图的图片
         var dict = [String:AnyObject]()
+        print(self.bm)
+        print(self.bm.whiteboardInfo)
         dict["whId"] = self.bm.whiteboardInfo[1] as? String as AnyObject?
         dict["whIndex"] = self.currentPage as AnyObject?
         self.bm.whiteboardGetHistory(dict)

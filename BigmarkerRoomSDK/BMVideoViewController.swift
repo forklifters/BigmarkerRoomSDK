@@ -17,7 +17,6 @@ let cellColor   =  UIColor(red: 63/255, green: 92/255, blue: 130/255, alpha: 1)
 
 
 struct AdminAndSwitch {
-    //    static var isAdmin = false //记录是不是管理员
     static var isSwitchOn = false //记录开关的状态,关闭or开启
 }
 
@@ -25,12 +24,15 @@ struct WhiteBoardImage {
     static var images: [UIImage?]   = []
 }
 
-class BMVideoViewController: BMMsgBaseViewController {
+class BMVideoViewController: UIViewController {
     
     
     var conference: Conference!
     var bm: BMRoom!
     var notification: CWStatusBarNotification!
+    
+    var mp4View: MP4VideoView!
+    var youtubeView: YouTubeVideoView!
     
     var otherVideoArray = [String]() // 存放mp4 youtube screenShare whiteBoard
     var videoArray      = [String]() // 存放 video
@@ -59,10 +61,9 @@ class BMVideoViewController: BMMsgBaseViewController {
         }
     }
     var screenID    = ""
-    //var screenShareView: ScreenShareView!
+    var screenShareView: ScreenShareView!
     var screenView: UIView?
-//    var mp4View: MP4VideoView!
-//    var youtubeView: YouTubeVideoView!
+    var whiteBoardView: WhiteBoardView!
     var youtubeLink       = ""
     var mp4Link           = ""
     var seconds: Float    = 0.0
@@ -132,10 +133,12 @@ class BMVideoViewController: BMMsgBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.bm.youtubeCheckExisting()
+        self.bm.mp4CheckExisting()
+        (self.tabBarController as! BMTabBarController).bmroomVideoDelegate = self
     }
     
     func setupUI(){
-        
         self.tableViewOriginFrame = self.tableView.frame
         self.collectionViewOriginFrame = self.collectionView.frame
         self.view.addSubview(navView)
@@ -152,10 +155,8 @@ class BMVideoViewController: BMMsgBaseViewController {
         }
         self.bm.disconnectFromServer()
         
-//        (UIApplication.sharedApplication().delegate as! AppDelegate).bm = nil
-//        
-//        self.clearYoutube()
-//        self.clearMP4()
+        self.clearYoutube()
+        self.clearMP4()
         
         self.streamTimer.invalidate()
         self.youtubeTimer.invalidate()
@@ -268,6 +269,27 @@ class BMVideoViewController: BMMsgBaseViewController {
         }
     }
 
+    
+    func enableAllAttendeeCam(){
+        if !self.conference.adminRole(){
+            if self.camIsOpen(){
+                self.videoPannelView.videoStatus = ButtonStatus.open
+            } else {
+                self.videoPannelView.showVideoButton()
+            }
+        }
+    }
+    
+    func disEnableAllAttendeeCam(){
+        if !self.conference.adminRole() {
+            if self.camIsOpen() {
+                closeUsreCam()
+            } else {
+                self.videoPannelView.hideVideoButton()
+            }
+        }
+    }
+    
     
     func enableAllAttendeeMic(){
         if !self.conference.adminRole() {
@@ -519,8 +541,6 @@ class BMVideoViewController: BMMsgBaseViewController {
     
     func addPannelView(){
         let frame = CGRect(x: ScreenW - 130, y: 20, width: 80, height: 40)
-        print(self.conference)
-        print(self.bm)
         videoPannelView = VideoPannelView(frame: frame, admin:  self.conference.isAdmin(), bm: self.bm)
         videoPannelView.switchVideoDelegate = self
         self.view.addSubview(videoPannelView)
@@ -657,6 +677,100 @@ class BMVideoViewController: BMMsgBaseViewController {
             
         }
     }
+    
+    
+    func videoAction(action: String, status: Int){
+        var action_ = action
+        if (action == "mute-user-video" || action == "mute-user-audio")  {
+            //判断当前已经打开的video id 存不存在  来确定是 mute 还是 close
+            if let muxerInfo = bm.muxersInfo[self.selfMuxerID ] as? NSDictionary {
+                
+                if bm.videoViews[self.selfMuxerID] != nil && action == "mute-user-video" {
+                    action_ = "close-user-video"
+                }  else if  muxerInfo["audio"] as? String == "true" && action == "mute-user-audio" {
+                    action_ = "close-user-audio"
+                }
+                //                if muxerInfo["video"] as? String == "false" {
+                //                    action_ = "close-user-audio"
+                //                } else {
+                //                    action_ = "close-user-video"
+                //                }
+            }
+        }
+        
+        
+        DispatchQueue.main.sync {
+            if action_ == "admin" {
+                if status == 1 {
+                    self.makeToAdmin()
+                } else if status == 0 {
+                    self.canleAdmin()
+                }
+            } else if action_ == "mute-user-video" { // show/hide user video   打开/禁止 用户cam
+                // 1  显示/隐藏 button
+                if status == 1 {
+                    self.videoPannelView.showVideoButton()
+                } else {
+                    if self.camIsOpen(){
+                        self.closeCam()
+                        self.videoPannelView.clearConnectTimer()
+                    }
+                    self.videoPannelView.blockVideoButton()
+                }
+            } else if action_ == "mute-user-audio" { // show/hide user audio   打开/禁止 用户mic
+                // 1  显示/隐藏 button
+                if status == 1 {
+                    self.videoPannelView.showAudioButton()
+                    // todo self.enableAllAttendeeMic()
+                } else {
+                    if self.micIsOpen(){
+                        self.closeMic()
+                        self.videoPannelView.clearConnectTimer()
+                    }
+                    self.videoPannelView.blockAudioButton()
+                    // todo self.disEnableAllAttendeeMic()
+                }
+            } else if action_ == "close-user-video" {
+                if self.camIsOpen(){
+                    self.closeUsreCam()
+                    self.videoPannelView.clearConnectTimer()
+                }
+            } else if action_ == "close-user-audio" {
+                if self.micIsOpen(){
+                    self.closeUserMic()
+                    self.videoPannelView.clearConnectTimer()
+                }
+            } else if action_ == "mute-all-mic" {
+                //  attendee mic  disable/able   打开/禁止  观众的mic
+                if status == 1 {
+                    if !self.conference.adminRole() {
+                        self.bm.muteUserAudio = "enable"
+                    }
+                    self.enableAllAttendeeMic()
+                } else {
+                    if !self.conference.adminRole() {
+                        self.bm.muteUserAudio = "disable"
+                    }
+                    self.disEnableAllAttendeeMic()
+                }
+            } else if action_ == "mute-all-cam" {
+                // set attendee cam  disable/able   打开/禁止  观众的cam
+                if status == 1 {
+                    if !self.conference.adminRole() {
+                        self.bm.muteUserVideo = "enable"
+                    }
+                    self.enableAllAttendeeCam()
+                } else {
+                    if !self.conference.adminRole() {
+                        self.bm.muteUserVideo = "disable"
+                    }
+                    self.disEnableAllAttendeeCam()
+                    //self.videoPannelView.clearConnectTimer()
+                }
+            }
+        }
+    }
+    
 
 }
 
@@ -782,59 +896,57 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     
     func bigRoomNotificationDelegateWhiteBoardCreated() {
         
-//        // 第一次加载whiteboard
-//        if !otherVideoArray.contains(WHITEBOARD){
-//            DispatchQueue.main.async{
-//                self.otherVideoArray.insert(WHITEBOARD, atIndex: 0)
-//                self.reloadView()
-//            }
-//        } else {
-//            // 替换前一张whiteboard  先去除之前的 再加载新的
-//            otherVideoArray.removeObject(WHITEBOARD)
-//            WhiteBoardImage.images.removeAll()
-//            WhiteBoardDrawView.drawViews.removeAll()
-//            NSNotificationCenter.defaultCenter().postNotificationName("whiteboardPageRemoved", object: nil)
-//            
-//            let time: NSTimeInterval = 2.0
-//            let delay = dispatch_time(DISPATCH_TIME_NOW,
-//                                      Int64(time * Double(NSEC_PER_SEC)))
-//            dispatch_after(delay, dispatch_get_main_queue()) {
-//                self.otherVideoArray.insert(WHITEBOARD, atIndex: 0)
-//                self.reloadTableView = true
-//                self.reloadView()
-//            }
-//        }
+        // 第一次加载whiteboard
+        if !otherVideoArray.contains(WHITEBOARD){
+             DispatchQueue.main.sync{
+                self.otherVideoArray.insert(WHITEBOARD, at: 0)
+                self.reloadView()
+            }
+        } else {
+            // 替换前一张whiteboard  先去除之前的 再加载新的
+            otherVideoArray.removeObject(object: self.WHITEBOARD)
+            WhiteBoardImage.images.removeAll()
+            WhiteBoardDrawView.drawViews.removeAll()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "whiteboardPageRemoved"), object: nil)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                self.otherVideoArray.insert(self.WHITEBOARD, at: 0)
+                self.reloadTableView = true
+                self.reloadView()
+            })
+        }
+
         
     }
     
     func bigRoomNotificationDelegateWhiteBoardRemoved() {
-//        DispatchQueue.main.async{
-//            if self.otherVideoArray.contains(WHITEBOARD){
-//                self.otherVideoArray.removeObject(WHITEBOARD)
-//                NSNotificationCenter.defaultCenter().postNotificationName("whiteboardPageRemoved", object: nil)
-//                self.reloadView()
-//                WhiteBoardImage.images.removeAll()
-//                if WhiteBoardDrawView.drawViews.count != 0 {
-//                    WhiteBoardDrawView.drawViews.removeAll()
-//                }
-//                WhiteboardMyView.lineColor = UIColor.init(red: 254/255.0, green: 255/255.0, blue: 100/255.0, alpha: 1.0)
-//                WhiteboardMyView.lineWidth = 10.0
-//                AdminAndSwitch.isSwitchOn = false
-//                
-//            }
-//        }
+        DispatchQueue.main.async{
+            if self.otherVideoArray.contains(self.WHITEBOARD){
+                self.otherVideoArray.removeObject(object: self.WHITEBOARD)
+                self.rotation = false
+                self.whiteBoardView.superview!.transform = CGAffineTransform(rotationAngle: 0)
+                self.whiteBoardView.removeFromSuperview()
+                
+                self.reloadView()
+                WhiteBoardImage.images.removeAll()
+                if WhiteBoardDrawView.drawViews.count != 0 {
+                    WhiteBoardDrawView.drawViews.removeAll()
+                }
+                WhiteboardMyView.lineColor = UIColor.init(red: 254/255.0, green: 255/255.0, blue: 100/255.0, alpha: 1.0)
+                WhiteboardMyView.lineWidth = 10.0
+            }
+        }
     }
     
     func bigRoomNotificationDelegateWhiteBoardSwitch(page: Int) {
-//        self.bm.whiteboardInfo[2] = page
-//        DispatchQueue.main.async{
-//            if self.otherVideoArray.contains(WHITEBOARD){
-//                if let whiteboard = self.view.viewWithTag(WHITE_BOARD_TAG) as? WhiteBoardView {
-//                    whiteboard.switchPage(page)
-//                }
-//                NSNotificationCenter.defaultCenter().postNotificationName("whiteboardPageSwitched", object: page)
-//            }
-//        }
+        self.bm.whiteboardInfo[2] = page
+        DispatchQueue.main.async{
+            if self.otherVideoArray.contains(self.WHITEBOARD){
+                if let whiteboard = self.view.viewWithTag(WHITE_BOARD_TAG) as? WhiteBoardView {
+                    whiteboard.switchPage(page: page)
+                }
+            }
+        }
     }
     
     // 打开摄像头视频失败
@@ -948,36 +1060,37 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     
     func bigRoomNotificationDelegateYoutubeLoad(message: [NSObject : AnyObject]) {
         
-//        //todo 代码需要检查一下
-//        DispatchQueue.main.async{
-//            guard let data   = message["data"] as? NSDictionary else { return }
-//            guard let link   = data["youtubeLink"] as? String   else { return }
-//            if !self.otherVideoArray.contains(MP4) && !self.otherVideoArray.contains(YOUTUBE) {
-//                self.otherVideoArray.insert(YOUTUBE, atIndex: 0)
-//            }
-//            
-//            //  标记刷新tableview部分
-//            if self.youtubeLink != link{
-//                self.reloadTableView = true
-//            }
-//            
-//            if self.youtubeView != nil {
-//                if link != self.youtubeLink {
-//                    self.assemVideoData(message)
-//                    self.reloadView()
-//                }
-//                self.assemVideoData(message)
-//                self.youtubeView.seconds      = self.seconds
-//                self.youtubeView.eventTime    = self.eventTime
-//                self.youtubeView.playingState = self.playingState
-//                self.youtubeView.seekVideo()
-//            } else {
-//                self.assemVideoData(message)
-//                if self.removeVideoMuxerID == ""{
-//                    self.reloadView()
-//                }
-//            }
-//        }
+        //todo 代码需要检查一下
+        DispatchQueue.main.async{
+            let msgDict      = message as NSDictionary
+            guard let data   = msgDict["data"] as? NSDictionary else { return }
+            guard let link   = data["youtubeLink"] as? String   else { return }
+            if !self.otherVideoArray.contains(self.MP4) && !self.otherVideoArray.contains(self.YOUTUBE) {
+                self.otherVideoArray.insert(self.YOUTUBE, at: 0)
+            }
+            
+            //  标记刷新tableview部分
+            if self.youtubeLink != link{
+                self.reloadTableView = true
+            }
+            
+            if self.youtubeView != nil {
+                if link != self.youtubeLink {
+                    self.assemVideoData(msg: message as NSDictionary)
+                    self.reloadView()
+                }
+                self.assemVideoData(msg: message as NSDictionary)
+                self.youtubeView.seconds      = self.seconds
+                self.youtubeView.eventTime    = self.eventTime
+                self.youtubeView.playingState = self.playingState
+                self.youtubeView.seekVideo()
+            } else {
+                self.assemVideoData(msg: message as NSDictionary)
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }
+            }
+        }
         
     }
     
@@ -986,39 +1099,39 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     }
     
     func bigRoomNotificationDelegateYoutubePlay(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async{
-//            if self.youtubeView != nil {
-//                self.assemVideoData(message)
-//                self.youtubeView.seconds      = self.seconds
-//                self.youtubeView.eventTime    = self.eventTime
-//                self.youtubeView.playingState = self.playingState
-//                self.youtubeView.seekVideo()
-//            }
-//        }
+        DispatchQueue.main.async{
+            if self.youtubeView != nil {
+                self.assemVideoData(msg: message as NSDictionary)
+                self.youtubeView.seconds      = self.seconds
+                self.youtubeView.eventTime    = self.eventTime
+                self.youtubeView.playingState = self.playingState
+                self.youtubeView.seekVideo()
+            }
+        }
     }
     
     func bigRoomNotificationDelegateYoutubePause(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async{
-//            if self.youtubeView != nil {
-//                self.assemVideoData(message)
-//                self.youtubeView.seconds      = self.seconds
-//                self.youtubeView.eventTime    = self.eventTime
-//                self.youtubeView.playingState = self.playingState
-//                self.youtubeView.playerView.pauseVideo()
-//            }
-//        }
+        DispatchQueue.main.async{
+            if self.youtubeView != nil {
+                self.assemVideoData(msg: message as NSDictionary)
+                self.youtubeView.seconds      = self.seconds
+                self.youtubeView.eventTime    = self.eventTime
+                self.youtubeView.playingState = self.playingState
+                self.youtubeView.playerView.pauseVideo()
+            }
+        }
     }
     
     func bigRoomNotificationDelegateYoutubeEnd(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async{
-//            self.otherVideoArray.removeObject(YOUTUBE)
-//            if self.youtubeView != nil {
-//                self.clearYoutube()
-//                if self.removeVideoMuxerID == ""{
-//                    self.reloadView()
-//                }
-//            }
-//        }
+        DispatchQueue.main.async{
+            self.otherVideoArray.removeObject(object: self.YOUTUBE)
+            if self.youtubeView != nil {
+                self.clearYoutube()
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }
+            }
+        }
     }
     
     func bigRoomNotificationDelegateYoutubeMute(message: [NSObject : AnyObject]) {
@@ -1035,73 +1148,78 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     
     func bigRoomNotificationDelegateYoutubeAction(message: [NSObject : AnyObject]) {
     }
+        
     
     func bigRoomNotificationDelegateMp4Load(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async{
-//            guard let data   = message["data"] as? NSDictionary else { return }
-//            guard let link   = data["link"] as? String          else { return }
-//            
-//            if !self.otherVideoArray.contains(MP4) && !self.otherVideoArray.contains(YOUTUBE) {
-//                self.otherVideoArray.insert(MP4, atIndex: 0)
-//            }
-//            
-//            if self.mp4View != nil {
-//                if link != self.mp4Link {
-//                    self.assemVideoData(message)
-//                    self.reloadView()
-//                }
-//                
-//                self.assemVideoData(message)
-//                self.mp4View.seconds      = self.seconds
-//                self.mp4View.eventTime    = self.eventTime
-//                self.mp4View.playingState = Float(self.playingState)
-//                self.mp4View.seekPlay()
-//            } else {
-//                self.assemVideoData(message)
-//                if self.removeVideoMuxerID == ""{
-//                    self.reloadView()
-//                }
-//            }
-//        }
+        DispatchQueue.main.async{
+            let msgDict = message as NSDictionary
+            guard let data   = msgDict["data"] as? NSDictionary else { return }
+            guard let link   = data["link"] as? String          else { return }
+            
+            if !self.otherVideoArray.contains(self.MP4) && !self.otherVideoArray.contains(self.YOUTUBE) {
+                self.otherVideoArray.insert(self.MP4, at: 0)
+            }
+            
+            if self.mp4View != nil {
+                if link != self.mp4Link {
+                    self.assemVideoData(msg: message as NSDictionary)
+                    self.reloadView()
+                }
+                
+                self.assemVideoData(msg: message as NSDictionary)
+                self.mp4View.seconds      = self.seconds
+                self.mp4View.eventTime    = self.eventTime
+                self.mp4View.playingState = Float(self.playingState)
+                self.mp4View.seekPlay()
+            } else {
+                self.assemVideoData(msg: message as NSDictionary)
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }
+            }
+        }
     }
-    
+        
+  
     func bigRoomNotificationDelegateMp4End(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async {
-//            self.otherVideoArray.removeObject(MP4)
-//            if self.mp4View != nil {
-//                self.clearMP4()
-//                if self.removeVideoMuxerID == ""{
-//                    self.reloadView()
-//                }else{
-//                    
-//                }
-//            }
-//        }
+        DispatchQueue.main.async {
+            self.otherVideoArray.removeObject(object: self.MP4)
+            if self.mp4View != nil {
+                self.clearMP4()
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }else{
+                    
+                }
+            }
+        }
     }
-    
+        
+        
     func bigRoomNotificationDelegateMp4Play(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async{
-//            if self.mp4View != nil {
-//                self.assemVideoData(message)
-//                self.mp4View.seconds      = self.seconds
-//                self.mp4View.eventTime    = self.eventTime
-//                self.mp4View.playingState = Float(self.playingState)
-//                if self.mp4View.playingState == 2 {
-//                    self.mp4View.seekPause()
-//                } else {
-//                    self.mp4View.seekPlay()
-//                }
-//                
-//            }
-//        }
+        DispatchQueue.main.async{
+            if self.mp4View != nil {
+                self.assemVideoData(msg: message as NSDictionary)
+                self.mp4View.seconds      = self.seconds
+                self.mp4View.eventTime    = self.eventTime
+                self.mp4View.playingState = Float(self.playingState)
+                if self.mp4View.playingState == 2 {
+                    self.mp4View.seekPause()
+                } else {
+                    self.mp4View.seekPlay()
+                }
+                
+            }
+        }
     }
-    
+        
+ 
     func bigRoomNotificationDelegateMp4Pause(message: [NSObject : AnyObject]) {
-//        DispatchQueue.main.async{
-//            if self.mp4View != nil {
-//                self.mp4View.pause()
-//            }
-//        }
+        DispatchQueue.main.async{
+            if self.mp4View != nil {
+                self.mp4View.pause()
+            }
+        }
     }
     
     func bigRoomNotificationDelegateMp4Mute(message: [NSObject : AnyObject]) {
@@ -1111,24 +1229,21 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     func bigRoomNotificationDelegateMp4Unmute(message: [NSObject : AnyObject]) {
         
     }
-    
+        
+
     func bigRoomNotificationDelegateVideoAction(action: String, status: Int) {
         
         var action_ = action
         if (action == "mute-user-video" || action == "mute-user-audio")  {
             //判断当前已经打开的video id 存不存在  来确定是 mute 还是 close
-            if let muxerInfo = bm.muxersInfo[self.selfMuxerID ?? ""] as? NSDictionary {
+            if let muxerInfo = bm.muxersInfo[self.selfMuxerID ] as? NSDictionary {
                 
                 if bm.videoViews[self.selfMuxerID] != nil && action == "mute-user-video" {
                     action_ = "close-user-video"
                 }  else if  muxerInfo["audio"] as? String == "true" && action == "mute-user-audio" {
                     action_ = "close-user-audio"
                 }
-                //                if muxerInfo["video"] as? String == "false" {
-                //                    action_ = "close-user-audio"
-                //                } else {
-                //                    action_ = "close-user-video"
-                //                }
+
             }
         }
         
@@ -1212,6 +1327,58 @@ extension BMVideoViewController: BigRoomVideoDelegate {
     }
     
   }
+    
+    
+    func clearMP4() {
+        if mp4View != nil {
+            self.mp4Link = ""
+            self.mp4View.pvc.view.removeFromSuperview()
+            self.mp4View.removeFromSuperview()
+            self.mp4View = nil
+        }
+    }
+    
+    func clearYoutube() {
+        if youtubeView != nil {
+            self.youtubeLink = ""
+            self.youtubeView.playerView.stopVideo()
+            self.youtubeView.playerView.removeWebView()
+            self.youtubeView.removeFromSuperview()
+            self.youtubeView = nil
+        }
+    }
+    
+    func assemVideoData(msg: NSDictionary){
+        let msgDict = msg as NSDictionary
+        let data    =  msgDict["data"] as! NSDictionary
+        if let elapseTime = data["elapseTime"] as? Float {
+            self.seconds = elapseTime
+        } else if let elapseTime = data["elapseTime"] as? String {
+            self.seconds = (elapseTime as NSString).floatValue
+        }
+        
+        if let eventTime = data["eventTime"]  as? Double {
+            self.eventTime = eventTime
+        } else if let eventTime = data["eventTime"] as? String {
+            self.eventTime = (eventTime as NSString).doubleValue
+        }
+        
+        if let playingState = data["playingState"] as? Int {
+            self.playingState = playingState
+        } else if let playingState = data["playingState"] as? String {
+            self.playingState = (playingState as NSString).integerValue
+        } else {
+            //print("playingState null")
+        }
+        
+        if let link = data["link"] as? String {
+            self.mp4Link = link
+        } else if let link = data["youtubeLink"] as? String {
+            self.youtubeLink = link
+        }
+        
+    }
+
 
 }
 
@@ -1439,14 +1606,14 @@ extension BMVideoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // todo ??
-//        if self.mp4View != nil {
-//            self.bm.mp4CheckExisting()
-//        }
-//        
-//        if self.youtubeView != nil {
-//            self.bm.youtubeCheckExisting()
-//        }
+         //todo ??
+        if self.mp4View != nil {
+            self.bm.mp4CheckExisting()
+        }
+        
+        if self.youtubeView != nil {
+            self.bm.youtubeCheckExisting()
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCell, for: indexPath as IndexPath) as UITableViewCell
         
@@ -1457,40 +1624,33 @@ extension BMVideoViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         let muxerID   = self.otherVideoArray[indexPath.row] as String
         if muxerID == MP4 {
-//            self.mp4View = MP4VideoView(frame: cell.bounds, link: self.mp4Link, seconds: self.seconds, eventTime: self.eventTime, playingState: Float(self.playingState))
-//            self.mp4View.timeSinceLastEvent = self.timeSinceLastEvent
-//            cell.contentView.addSubview(mp4View)
+            self.mp4View = MP4VideoView(frame: cell.bounds, link: self.mp4Link, seconds: self.seconds, eventTime: self.eventTime, playingState: Float(self.playingState))
+            //self.mp4View.timeSinceLastEvent = self.timeSinceLastEvent
+            cell.contentView.addSubview(mp4View)
         } else if muxerID == YOUTUBE {
-//            if self.youtubeView != nil {
-//                self.youtubeView.removeFromSuperview()
-//            }
-//            let frame = CGRect.init(x: 0, y: 32, width: cell.frame.width, height: cell.frame.height)
-//            self.youtubeView = YouTubeVideoView(frame: frame, seconds: self.seconds, eventTime: self.eventTime, playingState: self.playingState)
-//            self.youtubeView.timeSinceLastEvent = self.timeSinceLastEvent
-//            self.youtubeView.loadVideo(self.youtubeLink)
-//            self.youtubeView.tag = 100
-//            self.tabBarController?.view.addSubview(youtubeView)
+            if self.youtubeView != nil {
+                self.youtubeView.removeFromSuperview()
+            }
+            let frame = CGRect.init(x: 0, y: 32, width: cell.frame.width, height: cell.frame.height)
+            self.youtubeView = YouTubeVideoView(frame: frame, seconds: self.seconds, eventTime: self.eventTime, playingState: self.playingState)
+            //self.youtubeView.timeSinceLastEvent = self.timeSinceLastEvent
+            self.youtubeView.loadVideo(url: self.youtubeLink)
+            self.youtubeView.tag = 100
+            self.tabBarController?.view.addSubview(youtubeView)
         } else if muxerID == WHITEBOARD {
-//            let whiteBoardView = WhiteBoardView(frame: cell.bounds, conference: self.conference, bm: self.bm,isNormal: true)
-//            whiteBoardView.setWhiteBoardDelegate(self)
-//            cell.contentView.addSubview(whiteBoardView)
+            self.whiteBoardView = WhiteBoardView(frame: cell.bounds, conference: self.conference, bm: self.bm,isNormal: true, superV: cell.contentView, rotation:  self.rotation)
+            whiteBoardView.setWhiteBoardDelegate(delegate: self as WhiteBoardFullScreenNotification)
+            whiteBoardView.rotation(rotation: self.rotation)
         } else if muxerID == SCREENSHARE  {
-//            if let screenView = bm.screenViews[self.screenID] as? UIView {
-//                let videoInfo = videoInfoDictionary[self.screenID] as? VideoInfo
-//                self.screenView = screenView
-//                if screenDirection == Rotation.NORMAL {
-//                    if otherVideoArray.count == 1 && videoArray.count == 0 {
-//                        let h:CGFloat = self.tableView.frame.height
-//                        let w:CGFloat = self.tableView.frame.width
-//                        screenView.frame = CGRect(x: 0, y: h/2 - w/3, width: w, height: h/3)
-//                    } else {
-//                        screenView.frame = cell.bounds
-//                    }
-//                    self.screenShareView = ScreenShareView(frame: cell.bounds, screenView: screenView, userName: videoInfo!.userName)
-//                    self.screenShareView.delegate = self
-//                    cell.contentView.addSubview(screenShareView)
-//                }
-//            }
+            if let screenView = bm.screenViews[self.screenID] as? UIView {
+                let videoInfo = videoInfoDictionary[self.screenID] as? VideoInfo
+                self.screenView = screenView
+                
+                self.screenShareView = ScreenShareView(bm: self.bm, screenView: screenView, userName: videoInfo!.userName, superView: cell.contentView,rotation: self.rotation)
+                self.screenShareView.delegate = self
+                self.screenShareView.rotation(rotation: self.rotation)
+                
+            }
         }
         
         return cell
@@ -1527,6 +1687,183 @@ extension BMVideoViewController: BMNavViewDelegate{
         alertView.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alertView, animated: true, completion: nil)
     }
+}
+
+
+
+extension BMVideoViewController: WhiteBoardFullScreenNotification, SwitchScreenNotification{
+    
+    
+    func didSwitchScreen(rotation: Bool) {
+        self.rotation = rotation
+        if self.videoArray.count > 0 {
+            self.reloadView()
+        }
+    }
+    
+    
+    func notifyWhiteBoardFullScreen(rotation: Bool){
+        self.rotation = rotation
+        self.changeTabBarStatus(status: rotation)
+        if self.videoArray.count > 0 {
+            self.reloadView()
+        }
+    }
+    
+    func changeTabBarStatus(status: Bool){
+        self.tabBarController?.tabBar.backgroundColor = UIColor.red
+        self.tabBarController?.tabBar.isHidden = status
+    }
+    
+    
+    func mp4Load(message: [NSObject : AnyObject]){
+        DispatchQueue.main.async{
+            let msgDict = message as NSDictionary
+            guard let data   = msgDict["data"] as? NSDictionary else { return }
+            guard let link   = data["link"] as? String          else { return }
+            
+            if !self.otherVideoArray.contains(self.MP4) && !self.otherVideoArray.contains(self.YOUTUBE) {
+                self.otherVideoArray.insert(self.MP4, at: 0)
+            }
+            
+            if self.mp4View != nil {
+                if link != self.mp4Link {
+                    self.assemVideoData(msg: message as NSDictionary)
+                    self.reloadView()
+                }
+                
+                self.assemVideoData(msg: message as NSDictionary)
+                self.mp4View.seconds      = self.seconds
+                self.mp4View.eventTime    = self.eventTime
+                self.mp4View.playingState = Float(self.playingState)
+                self.mp4View.seekPlay()
+            } else {
+                self.assemVideoData(msg: message as NSDictionary)
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }
+            }
+        }
+        
+    }
+    
+    
+    func mp4Ended(message: [NSObject : AnyObject]){
+        DispatchQueue.main.async {
+            self.otherVideoArray.removeObject(object: self.MP4)
+            if self.mp4View != nil {
+                self.clearMP4()
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }else{
+                    
+                }
+            }
+        }
+    }
+    
+    
+    func mp4Play(message: [NSObject : AnyObject]){
+        DispatchQueue.main.async{
+            if self.mp4View != nil {
+                self.assemVideoData(msg: message as NSDictionary)
+                self.mp4View.seconds      = self.seconds
+                self.mp4View.eventTime    = self.eventTime
+                self.mp4View.playingState = Float(self.playingState)
+                if self.mp4View.playingState == 2 {
+                    self.mp4View.seekPause()
+                } else {
+                    self.mp4View.seekPlay()
+                }
+                
+            }
+        }
+    }
+    
+    
+    func mp4Pause(message: [NSObject : AnyObject]){
+        DispatchQueue.main.async{
+            if self.mp4View != nil {
+                self.mp4View.pause()
+            }
+        }
+    }
+    
+    
+    func youtubeLoad(message: [NSObject : AnyObject]){
+        //todo 代码需要检查一下
+        DispatchQueue.main.async{
+            let msgDict      = message as NSDictionary
+            guard let data   = msgDict["data"] as? NSDictionary else { return }
+            guard let link   = data["youtubeLink"] as? String   else { return }
+            if !self.otherVideoArray.contains(self.MP4) && !self.otherVideoArray.contains(self.YOUTUBE) {
+                self.otherVideoArray.insert(self.YOUTUBE, at: 0)
+            }
+            
+            //  标记刷新tableview部分
+            if self.youtubeLink != link{
+                self.reloadTableView = true
+            }
+            
+            if self.youtubeView != nil {
+                if link != self.youtubeLink {
+                    self.assemVideoData(msg: message as NSDictionary)
+                    self.reloadView()
+                }
+                self.assemVideoData(msg: message as NSDictionary)
+                self.youtubeView.seconds      = self.seconds
+                self.youtubeView.eventTime    = self.eventTime
+                self.youtubeView.playingState = self.playingState
+                self.youtubeView.seekVideo()
+            } else {
+                self.assemVideoData(msg: message as NSDictionary)
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }
+            }
+        }
+
+    }
+    
+    
+    
+    func youtubePlay(message: [NSObject : AnyObject]) {
+        DispatchQueue.main.async{
+            if self.youtubeView != nil {
+                self.assemVideoData(msg: message as NSDictionary)
+                self.youtubeView.seconds      = self.seconds
+                self.youtubeView.eventTime    = self.eventTime
+                self.youtubeView.playingState = self.playingState
+                self.youtubeView.seekVideo()
+            }
+        }
+    }
+    
+    func youtubePause(message: [NSObject : AnyObject]) {
+        DispatchQueue.main.async{
+            if self.youtubeView != nil {
+                self.assemVideoData(msg: message as NSDictionary)
+                self.youtubeView.seconds      = self.seconds
+                self.youtubeView.eventTime    = self.eventTime
+                self.youtubeView.playingState = self.playingState
+                self.youtubeView.playerView.pauseVideo()
+            }
+        }
+    }
+    
+    func youtubeEnd(message: [NSObject : AnyObject]) {
+        DispatchQueue.main.async{
+            self.otherVideoArray.removeObject(object: self.YOUTUBE)
+            if self.youtubeView != nil {
+                self.clearYoutube()
+                if self.removeVideoMuxerID == ""{
+                    self.reloadView()
+                }
+            }
+        }
+    }
+
+    
 }
 
 

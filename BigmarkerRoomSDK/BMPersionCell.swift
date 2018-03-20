@@ -25,7 +25,7 @@ class BMPersionCell: UITableViewCell {
     var bmSoketId : String!
     var selectIndexPath : NSIndexPath!
     
-    var userInfo : NSMutableDictionary? {
+    var userInfo : NSDictionary? {
         didSet {
             let name = userInfo!["name"] as? String ?? ""
             nameLabel.text = name

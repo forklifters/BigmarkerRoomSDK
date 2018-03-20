@@ -31,7 +31,6 @@ class WhiteBoardView: UIView {
     var images: [UIImage?]   = []
     var imageUrls: [String]   = []
     var conference: Conference!
-    //var loading: MBProgressHUD!
     var backgroundImageView: UIImageView!
 
     var tapGesture: UITapGestureRecognizer?
@@ -232,7 +231,7 @@ class WhiteBoardView: UIView {
                            frame = AVMakeRect(aspectRatio: self.backgroundImageView.image!.size, insideRect: self.backgroundImageView.bounds)
                         }
 
-                        let myView = MyView(frame: frame, superView: self, currentPage:index)
+                        let myView = MyView(frame: frame, bm: self.bm, superView: self, currentPage:index)
 //                        if self.blankWhiteboard {
 //                            myView.frame = self.backgroundImageView.frame
 //                        } else {

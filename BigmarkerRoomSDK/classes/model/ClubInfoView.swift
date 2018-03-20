@@ -24,14 +24,16 @@ class ClubInfoView: UIView {
         
         let bgUrl = NSURL(string: self.channel.backgroundImage)
         
-        //self.backgroundImageView.sd_setImageWithURL(bgUrl)
+        self.backgroundImageView.sd_setImage(with: bgUrl as URL!)
         self.backgroundImageView.contentMode = UIViewContentMode.scaleToFill
     
         
         self.clubImageView = UIImageView(frame: CGRect(x: 10, y: 100, width: 60, height: 60))
         
-        let url = NSURL(string: self.channel.logo)
-        //self.clubImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default_community"))
+        let url = URL(string: self.channel.logo)
+    
+        //self.clubImageView.sd_setImage(with: <#T##URL!#>, placeholderImage: <#T##UIImage!#>)
+        self.clubImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "default_community"))
         self.clubImageView.contentMode = UIViewContentMode.scaleAspectFit
         
         self.clubName = UILabel(frame: CGRect(x: 80, y: 130, width: 250, height: 30))

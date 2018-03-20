@@ -10,12 +10,6 @@ import UIKit
 import AVFoundation
 import BMroomSDK
 
-//struct PeopleMessage {
-//    static var chatCount = "0"
-//    static var totalMessages: [Message]  = []
-//    static var bigTotalMessages : [Message] = []
-//    static var pollCount = "0"
-//}
 
 
 @objc protocol BigRoomVideoDelegate{
@@ -107,6 +101,9 @@ class BMTabBarController: UITabBarController {
     var conference: Conference!
     var avSession: AVAudioSession!
     var bm: BMRoom!
+    
+    var videoController: BMVideoViewController!
+    var msgController: BMMessageController!
 
     
     init(bm: BMRoom, conference: Conference) {
@@ -139,15 +136,11 @@ class BMTabBarController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioSessionWasInterrupted ), name: NSNotification.Name.AVAudioSessionInterruption, object: avSession)
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(true)
-//        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.handleRouteChange(_:)), name: AVAudioSessionRouteChangeNotification, object: nil)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.audioSessionWasInterrupted(_:)), name: AVAudioSessionInterruptionNotification, object: avSession)
-//    }
-//    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true
@@ -156,24 +149,18 @@ class BMTabBarController: UITabBarController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-//        NotificationCenter.defaultCenter().removeObserver(self, name: AVAudioSessionRouteChangeNotification, object: nil)
-//        NotificationCenter.defaultCenter().removeObserver(self, name: AVAudioSessionInterruptionNotification, object: avSession)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVAudioSessionInterruption, object: avSession)
     }
     
     func addChildVc(){
-        let videoController = BMVideoViewController()
+        self.videoController = BMVideoViewController()
         videoController.bm = self.bm
         videoController.conference = self.conference
-        self.bmroomVideoDelegate = videoController
-         //addChildViewController(videoController)
-        
-        let msgController  = BMMessageController()
+
+        self.msgController  = BMMessageController()
         msgController.bm = self.bm
         msgController.conference = self.conference
-        self.bmroomChatDelegate = msgController
-    
-        //addChildViewController(msgController)
-        
 
         self.viewControllers = [videoController, msgController]
         customTabBar()
@@ -295,12 +282,15 @@ extension BMTabBarController {
 //                    self.tmpAdminStatus = true
                     self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLock!(status: 1)
                     self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLock!(status: 1)
-                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 1)
+//                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 1)
+                    self.videoController.videoAction(action: action, status: 1)
                 }  else if role == "Member" {
 //                    self.tmpAdminStatus = false
                     self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLock!(status: 0)
                     self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLock!(status: 0)
-                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 0)
+//                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 0)
+                    
+                     self.videoController.videoAction(action: action, status: 0)
                     
                     
                 }
@@ -337,8 +327,8 @@ extension BMTabBarController: BMRoomDelegate {
     
     func bmRoom(_ bm: BMRoom!, didReceiveChatMessage message: [AnyHashable : Any]!) {
         self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgAdd!(message: message as [NSObject : AnyObject])
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMsgAddTabbar!(message: message as [NSObject : AnyObject])
-        
+//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMsgAddTabbar!(message: message as [NSObject : AnyObject])
+//        
 //        let msg = Message.init(dictionary: message)
 //        if msg.toId == "" {
 //            //chat的消息条数改变的通知
@@ -406,7 +396,9 @@ extension BMTabBarController: BMRoomDelegate {
                 
                 //表示是对当前用户的操作
                 if  (sid == bm.socketID && twitter_name == nil) {
-                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
+                    //self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
+                    self.videoController.videoAction(action: action, status: status == "enable" ? 1 : 0)
+                    
                 }
                 return
             }
@@ -423,7 +415,8 @@ extension BMTabBarController: BMRoomDelegate {
                 if !self.conference.adminRole(){
                     guard let data   = messageDict["data"] as? NSDictionary else { return }
                     guard let status = data["status"] as? String else { return }
-                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
+//                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
+                    self.videoController.videoAction(action: action, status: status == "enable" ? 1 : 0)
                 }
                 return
             }
@@ -649,7 +642,8 @@ extension BMTabBarController: BMRoomDelegate {
     
 
     func  bmRoom(_ bm: BMRoom!, loadYoutubeMsg message: [AnyHashable : Any]!)  {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeLoad!(message: message as [NSObject : AnyObject])
+        //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeLoad!(message: message as [NSObject : AnyObject])
+        self.videoController.youtubeLoad(message: message as [NSObject : AnyObject])
         return
     }
     
@@ -660,30 +654,33 @@ extension BMTabBarController: BMRoomDelegate {
     
 
     func bmRoom(_ bm: BMRoom!, playYoutubeMsg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePlay!(message: message as [NSObject : AnyObject])
+       // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePlay!(message: message as [NSObject : AnyObject])
+        self.videoController.youtubePlay(message: message as [NSObject : AnyObject])
         return
     }
     
 
     func bmRoom(_ bm: BMRoom!, pauseYoutubeMsg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePause!(message: message as [NSObject : AnyObject])
+        //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePause!(message: message as [NSObject : AnyObject])
+        self.videoController.youtubePause(message: message as [NSObject : AnyObject])
         return
     }
     
 
     func bmRoom(_ bm: BMRoom!, endYoutubeMsg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeEnd!(message: message as [NSObject : AnyObject])
+        //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeEnd!(message: message as [NSObject : AnyObject])
+        self.videoController.youtubeEnd(message: message as [NSObject : AnyObject])
         return
     }
     
     func bmRoom(_ bm: BMRoom!, muteYoutubeMsg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeMute!(message: message as [NSObject : AnyObject])
+       // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeMute!(message: message as [NSObject : AnyObject])
         return
     }
     
 
     func bmRoom(_ bm: BMRoom!, unmuteYoutubeMsg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeUnmute!(message: message as [NSObject : AnyObject])
+       // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeUnmute!(message: message as [NSObject : AnyObject])
         return
     }
     
@@ -694,17 +691,19 @@ extension BMTabBarController: BMRoomDelegate {
     }
     
     func bmRoom(_ bm: BMRoom!, actionYoutubeMsg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeAction!(message: message as [NSObject : AnyObject])
+        //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeAction!(message: message as [NSObject : AnyObject])
         return
     }
     
     func bmRoom(_ bm: BMRoom!, loadMP4Msg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Load!(message: message as [NSObject : AnyObject])
+//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Load!(message: message as [NSObject : AnyObject])
+        self.videoController.mp4Load(message: message as [NSObject : AnyObject])
         return
     }
     
     func bmRoom(_ bm: BMRoom!, endMP4Msg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4End!(message: message as [NSObject : AnyObject])
+//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4End!(message: message as [NSObject : AnyObject])
+         self.videoController.mp4Ended(message: message as [NSObject : AnyObject])
         return
     }
     
@@ -713,12 +712,14 @@ extension BMTabBarController: BMRoomDelegate {
     
 
     func bmRoom(_ bm: BMRoom!, pauseMP4Msg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Pause!(message: message as [NSObject : AnyObject])
+//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Pause!(message: message as [NSObject : AnyObject])
+         self.videoController.mp4Pause(message: message as [NSObject : AnyObject])
         return
     }
     
     func bmRoom(_ bm: BMRoom!, playMP4Msg message: [AnyHashable : Any]!) {
-        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Play!(message: message as [NSObject : AnyObject])
+//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Play!(message: message as [NSObject : AnyObject])
+         self.videoController.mp4Play(message: message as [NSObject : AnyObject])
         return
     }
     

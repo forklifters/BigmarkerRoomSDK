@@ -10,7 +10,7 @@ import UIKit
 import  BMroomSDK
 private let BMRoomPepleCellID = "bMRoomPepleCellID"
 
-class BMPeopleViewController: BMMsgBaseViewController{
+class BMPeopleViewController: UIViewController{
     
     var bm: BMRoom!
     var conference: Conference!
@@ -39,12 +39,9 @@ class BMPeopleViewController: BMMsgBaseViewController{
     
     init(frame: CGRect, bm: BMRoom, conference: Conference) {
         super.init(nibName: nil, bundle: nil)
-        self.view.frame = frame
         self.bm = bm
         self.conference = conference
-        setupUI()
-        loadMembers()
-        checkRole()
+        self.view.frame = frame
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,6 +51,7 @@ class BMPeopleViewController: BMMsgBaseViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,8 +75,9 @@ class BMPeopleViewController: BMMsgBaseViewController{
 extension BMPeopleViewController {
     
      func setupUI(){
-        self.view.backgroundColor = UIColor.yellow
-        //self.view.addSubview(tableView)
+        self.view.addSubview(tableView)
+        loadMembers()
+        checkRole()
     }
     
     
@@ -97,10 +96,13 @@ extension BMPeopleViewController {
     
     // load members
     func loadMembers(){
+       
         for userDic in bm.usersInfo as NSMutableDictionary {
-            guard let udic  = userDic.value as? NSMutableDictionary else { return }
+         
+            guard let udic  = userDic.value as? NSDictionary else { return }
             guard let role  = udic["role"]  as? String else { return }
             guard let mid   = userDic.key   as? String else { return }
+            
             
             if  role == "Organizer" {
                 self.admins.append(mid)
@@ -109,6 +111,7 @@ extension BMPeopleViewController {
             } else {
                 self.attendees.append(mid)
             }
+            
         }
     }
     
@@ -185,7 +188,8 @@ extension BMPeopleViewController: UITableViewDataSource,PrivateChatDelegate {
                 break
             }
             cell.bmSoketId = self.bm.socketID
-            cell.userInfo = bm.usersInfo[sid] as? NSMutableDictionary
+  
+            cell.userInfo = bm.usersInfo[sid] as? NSDictionary
             cell.selectIndexPath = indexPath as NSIndexPath!
             
             for msg in PeopleMessage.totalMessages {
@@ -202,9 +206,7 @@ extension BMPeopleViewController: UITableViewDataSource,PrivateChatDelegate {
     }
     
     
-    
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
@@ -251,10 +253,10 @@ extension BMPeopleViewController: UITableViewDataSource,PrivateChatDelegate {
 }
 
 
-extension BMPeopleViewController {
+extension BMPeopleViewController: BigRoomUserDelegate {
     
     
-    override func bigRoomNotificationDelegateUserEnter(user: [NSObject : AnyObject]) {
+    func bigRoomNotificationDelegateUserEnter(user: [NSObject : AnyObject]) {
         DispatchQueue.main.sync {
             let userDict = user as NSDictionary
             guard let sid  = userDict["sid"]  as? String else { return }
@@ -305,7 +307,7 @@ extension BMPeopleViewController {
     }
     
     
-    override func bigRoomNotificationDelegateUserLeave(sid: String) {
+    func bigRoomNotificationDelegateUserLeave(sid: String) {
         DispatchQueue.main.sync{
             if self.admins.contains(sid){
                 self.admins.removeObject(object: sid)
@@ -324,7 +326,7 @@ extension BMPeopleViewController {
         }
     }
     
-    override func bigRoomNotificationDelegateUserChangeRole(role: String, sid: String) {
+    func bigRoomNotificationDelegateUserChangeRole(role: String, sid: String) {
         DispatchQueue.main.sync{
             if (role == "Organizer" || role == "Temp-Organizer") && !self.admins.contains(sid) {
                 self.admins.append(sid)
@@ -345,12 +347,10 @@ extension BMPeopleViewController {
     }
     
     
-    override func bigRoomNotificationDelegateUserLoad() {
-        
-    }
+    func bigRoomNotificationDelegateUserLoad() {}
     
     
-    override func bigRoomNotificationDelegateUserLock(status: Int) {
+    func bigRoomNotificationDelegateUserLock(status: Int) {
         DispatchQueue.main.sync{
             if self.bm.seeallLock != "enable" {
                 self.switchLockPeopleList(status: status)

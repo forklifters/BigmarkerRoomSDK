@@ -116,6 +116,79 @@ class BMChatListViewController: UIViewController {
     
 }
 
+extension BMChatListViewController: BigRoomChatDelegate{
+    
+    
+    
+  func bigRoomNotificationDelegateMsgAdd(message: [NSObject : AnyObject]) {
+        DispatchQueue.main.sync {
+            let msgDict =  message as NSDictionary
+            guard let toId = msgDict["to_id"] as? String else { return }
+            if toId == "" {
+                let msg = Message(dictionary: msgDict)
+                self.messages.append(msg)
+                if !self.checkRepeatMessage(msg: msg){
+                    self.messages.append(msg)
+                }
+                self.messages.sort(by: { $0.time! < $1.time!})
+                self.tableView.reloadData()
+                
+                self.tableView.scrollToRow(at: NSIndexPath(row: self.messages.count - 1, section: 0) as IndexPath, at: UITableViewScrollPosition.bottom, animated: false)
+                
+            }
+        }
+    }
+    
+ 
+    func bigRoomNotificationDelegateMsgDel(message: [NSObject : AnyObject]) {
+        DispatchQueue.main.sync{
+            let msgDict =  message as NSDictionary
+            guard let time = msgDict["data"] as? String else { return }
+            for msg in self.messages {
+                if let msgTime = msg.time {
+                    if "\(msgTime)" == time {
+                        if self.messages.contains(msg){
+                            self.messages.removeObject(object: msg)
+                            if self.messages.count > 0 {
+                                self.tableView.reloadData()
+                                self.tableView.scrollToRow(at: NSIndexPath(row: self.messages.count - 1, section: 0) as IndexPath, at: UITableViewScrollPosition.bottom, animated: false)
+                            } else {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+ 
+    func bigRoomNotificationDelegateMsgChangeRole(status: Int) {
+        DispatchQueue.main.sync{
+            if self.bm.chatLock != "enable" {
+                self.swicthLockChat(status: status)
+            }
+        }
+    }
+    
+  
+    func bigRoomNotificationDelegateMsgLock(status: Int) {
+        DispatchQueue.main.sync{
+            self.swicthLockChat(status: status)
+        }
+    }
+    
+
+    func bigRoomNotificationDelegateMsgLoad(messages: [NSObject : AnyObject]) {
+        if self.loadStatus == 0 {
+            self.loadChats(messages: messages)
+        } else {
+            self.didLoadPreMessages(messages: messages)
+        }
+    }
+    
+}
+
 extension BMChatListViewController {
     
     
@@ -360,72 +433,6 @@ extension BMChatListViewController: UITextViewDelegate {
 
 extension BMChatListViewController {
     
-     func msgAdd(message: [NSObject : AnyObject]) {
-        DispatchQueue.main.sync {
-            let msgDict =  message as NSDictionary
-            guard let toId = msgDict["to_id"] as? String else { return }
-            if toId == "" {
-                let msg = Message(dictionary: msgDict)
-                self.messages.append(msg)
-                if !self.checkRepeatMessage(msg: msg){
-                    self.messages.append(msg)
-                }
-                self.messages.sort(by: { $0.time! < $1.time!})
-                self.tableView.reloadData()
-                
-                self.tableView.scrollToRow(at: NSIndexPath(row: self.messages.count - 1, section: 0) as IndexPath, at: UITableViewScrollPosition.bottom, animated: false)
-                
-            }
-        }
-    }
-    
-     func msgDel(message: [NSObject : AnyObject]) {
-        DispatchQueue.main.sync{
-            let msgDict =  message as NSDictionary
-            guard let time = msgDict["data"] as? String else { return }
-            for msg in self.messages {
-                if let msgTime = msg.time {
-                    if "\(msgTime)" == time {
-                        if self.messages.contains(msg){
-                            self.messages.removeObject(object: msg)
-                            if self.messages.count > 0 {
-                                self.tableView.reloadData()
-                                self.tableView.scrollToRow(at: NSIndexPath(row: self.messages.count - 1, section: 0) as IndexPath, at: UITableViewScrollPosition.bottom, animated: false)
-                            } else {
-                                self.tableView.reloadData()
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-     func changeRole(status: Int) {
-        DispatchQueue.main.sync{
-            if self.bm.chatLock != "enable" {
-                self.swicthLockChat(status: status)
-            }
-        }
-    }
-    
-     func msgLock(status: Int) {
-        DispatchQueue.main.sync{
-            self.swicthLockChat(status: status)
-        }
-    }
-    
-     func msgLoad(messages: [NSObject : AnyObject]) {
-        if self.loadStatus == 0 {
-            self.loadChats(messages: messages)
-        } else {
-            self.didLoadPreMessages(messages: messages)
-        }
-    }
-    
-
-    
-    
     func loadChats(messages: [NSObject : AnyObject]){
         DispatchQueue.main.sync{
             self.loading.hide(true)
@@ -447,6 +454,8 @@ extension BMChatListViewController {
             
         }
     }
+    
+
     
     func didLoadPreMessages(messages: [NSObject : AnyObject]){
         

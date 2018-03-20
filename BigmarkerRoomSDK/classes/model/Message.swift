@@ -84,6 +84,7 @@ class Message: NSObject {
     var formatTime: String? {
         get {
             if let time = self.dictionary["timestamp"] as? NSNumber {
+                return ""
                 let myDataSource: NSString = "\(time)" as NSString
                 let date = NSDate(timeIntervalSince1970: myDataSource.doubleValue/1000)
                 let dateFormatter = DateFormatter()

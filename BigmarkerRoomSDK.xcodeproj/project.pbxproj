@@ -94,7 +94,9 @@
 		203992D1205651F80058A8DC /* BMroomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203992D0205651F80058A8DC /* BMroomSDK.framework */; };
 		203992D3205652160058A8DC /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203992D2205652160058A8DC /* WebRTC.framework */; };
 		204FB1BB205F55B100BCF81B /* MessageInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 204FB1BA205F55B100BCF81B /* MessageInputView.xib */; };
-		204FB1BD205F5E0600BCF81B /* BMMsgBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FB1BC205F5E0600BCF81B /* BMMsgBaseViewController.swift */; };
+		20E5EB552060D84D006AD214 /* MP4VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E5EB532060D84D006AD214 /* MP4VideoView.swift */; };
+		20E5EB562060D84D006AD214 /* YouTubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E5EB542060D84D006AD214 /* YouTubeVideoView.swift */; };
+		20E5EB5A2060D996006AD214 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E5EB592060D996006AD214 /* YTPlayerView.m */; };
 		20EEEF2C205CAEAA00D0FED1 /* BMChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF2B205CAEAA00D0FED1 /* BMChatListViewController.swift */; };
 		20EEEF2E205CAEB300D0FED1 /* BMPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF2D205CAEB300D0FED1 /* BMPeopleViewController.swift */; };
 		20EEEF30205CC34800D0FED1 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF2F205CC34800D0FED1 /* MessageInputView.swift */; };
@@ -250,7 +252,10 @@
 		203992D0205651F80058A8DC /* BMroomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BMroomSDK.framework; sourceTree = "<group>"; };
 		203992D2205652160058A8DC /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		204FB1BA205F55B100BCF81B /* MessageInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageInputView.xib; sourceTree = "<group>"; };
-		204FB1BC205F5E0600BCF81B /* BMMsgBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMMsgBaseViewController.swift; sourceTree = "<group>"; };
+		20E5EB532060D84D006AD214 /* MP4VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MP4VideoView.swift; sourceTree = "<group>"; };
+		20E5EB542060D84D006AD214 /* YouTubeVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeVideoView.swift; sourceTree = "<group>"; };
+		20E5EB582060D996006AD214 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		20E5EB592060D996006AD214 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		20EEEF2B205CAEAA00D0FED1 /* BMChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMChatListViewController.swift; sourceTree = "<group>"; };
 		20EEEF2D205CAEB300D0FED1 /* BMPeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPeopleViewController.swift; sourceTree = "<group>"; };
 		20EEEF2F205CC34800D0FED1 /* MessageInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
@@ -467,6 +472,7 @@
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				20E5EB572060D996006AD214 /* YTPlayerView */,
 				20FE307A205EAA2300D2EBE6 /* HMSegmentedControl */,
 				20EEEF4D205CF4A700D0FED1 /* SDWebImage */,
 				20EEEF41205CEE5F00D0FED1 /* MBProgressHUD */,
@@ -505,6 +511,15 @@
 				203992CA20564DE20058A8DC /* Info.plist */,
 			);
 			path = BigmarkerRoomSDK;
+			sourceTree = "<group>";
+		};
+		20E5EB572060D996006AD214 /* YTPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				20E5EB582060D996006AD214 /* YTPlayerView.h */,
+				20E5EB592060D996006AD214 /* YTPlayerView.m */,
+			);
+			path = YTPlayerView;
 			sourceTree = "<group>";
 		};
 		20EEEF39205CEDC300D0FED1 /* SVPullToRefresh */ = {
@@ -585,7 +600,6 @@
 				20F252C02056B03800339D90 /* BMVideoViewController.swift */,
 				20F252C22056B04B00339D90 /* BMMessageViewController.swift */,
 				20EEEF2D205CAEB300D0FED1 /* BMPeopleViewController.swift */,
-				204FB1BC205F5E0600BCF81B /* BMMsgBaseViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -625,9 +639,11 @@
 		20F252D22056CAC300339D90 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				204FB1BA205F55B100BCF81B /* MessageInputView.xib */,
-				20EEEF2F205CC34800D0FED1 /* MessageInputView.swift */,
 				200E5EE4205B94D2003521DC /* newUI */,
+				204FB1BA205F55B100BCF81B /* MessageInputView.xib */,
+				20E5EB532060D84D006AD214 /* MP4VideoView.swift */,
+				20E5EB542060D84D006AD214 /* YouTubeVideoView.swift */,
+				20EEEF2F205CC34800D0FED1 /* MessageInputView.swift */,
 				20191BA62057C22500FD0889 /* LoadingView.swift */,
 				20191B982057ABDB00FD0889 /* NoticeView.swift */,
 				20191B942057A51F00FD0889 /* VideoUserInfo.swift */,
@@ -753,6 +769,7 @@
 				20EEEF2C205CAEAA00D0FED1 /* BMChatListViewController.swift in Sources */,
 				201A836A205C249D006CE5BE /* PopoverAction.h in Sources */,
 				20EEEF37205CE69100D0FED1 /* NoChatCell.swift in Sources */,
+				20E5EB5A2060D996006AD214 /* YTPlayerView.m in Sources */,
 				201A836B205C249D006CE5BE /* PopoverView.h in Sources */,
 				20EEEF72205CF4A700D0FED1 /* SDWebImagePrefetcher.m in Sources */,
 				201A836C205C249D006CE5BE /* PopoverViewCell.h in Sources */,
@@ -765,6 +782,7 @@
 				200E5F52205B9950003521DC /* MASConstraintMaker.h in Sources */,
 				200E5F53205B9950003521DC /* MASLayoutConstraint.h in Sources */,
 				20EEEF6D205CF4A700D0FED1 /* SDWebImageCompat.m in Sources */,
+				20E5EB552060D84D006AD214 /* MP4VideoView.swift in Sources */,
 				20EEEF6F205CF4A700D0FED1 /* SDWebImageDownloader.m in Sources */,
 				20EEEF48205CEE5F00D0FED1 /* README.mdown in Sources */,
 				20EEEF75205CF4A700D0FED1 /* UIImage+MultiFormat.m in Sources */,
@@ -781,7 +799,6 @@
 				200E5F5A205B9950003521DC /* NSLayoutConstraint+MASDebugAdditions.h in Sources */,
 				200E5F5B205B9950003521DC /* View+MASAdditions.h in Sources */,
 				200E5F5C205B9950003521DC /* View+MASShorthandAdditions.h in Sources */,
-				204FB1BD205F5E0600BCF81B /* BMMsgBaseViewController.swift in Sources */,
 				200E5F5D205B9950003521DC /* ViewController+MASAdditions.h in Sources */,
 				200E5EEE205B94FD003521DC /* WhiteBoardColorToolView.swift in Sources */,
 				200E5EF6205B951E003521DC /* AudioViewCell.swift in Sources */,
@@ -811,6 +828,7 @@
 				20EEEF47205CEE5F00D0FED1 /* MBProgressHUD.m in Sources */,
 				200E5EE8205B94E7003521DC /* MyView.swift in Sources */,
 				20F252B72056ADA700339D90 /* Member.swift in Sources */,
+				20E5EB562060D84D006AD214 /* YouTubeVideoView.swift in Sources */,
 				20F252B82056ADA700339D90 /* MemberModel.swift in Sources */,
 				20191B932057A45200FD0889 /* VideoBottomUserInfoView.swift in Sources */,
 				20EEEF77205CF4A700D0FED1 /* UIImageView+WebCache.m in Sources */,

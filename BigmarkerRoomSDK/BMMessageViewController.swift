@@ -100,11 +100,15 @@ class BMMessageController:  UIViewController {
         let h = ScreenH - self.navView.frame.height - self.segmentView.frame.height - TabbarH
         let frame = CGRect(x: 0, y: y, width: ScreenW, height: h)
   
-        self.chatController = BMChatListViewController.init(frame: frame, bm: self.bm, conference: self.conference)
+        self.chatController = BMChatListViewController(frame: frame, bm: self.bm, conference: self.conference)
+     
+        (self.tabBarController as! BMTabBarController).bmroomChatDelegate = chatController
         self.addChildViewController(chatController)
         
-        self.peopleController = BMPeopleViewController.init(frame: frame, bm: self.bm, conference: self.conference)
+        self.peopleController = BMPeopleViewController(frame: frame, bm: self.bm, conference: self.conference)
+        (self.tabBarController as! BMTabBarController).bmroomUserDelegate = peopleController
         self.addChildViewController(peopleController)
+        
         
         let count = self.childViewControllers.count
         let contentH = self.scrollView.bounds.size.height
@@ -129,31 +133,6 @@ class BMMessageController:  UIViewController {
 
 }
 
-extension BMMessageController: BMNavViewDelegate, BigRoomChatDelegate{
-    
-     func bigRoomNotificationDelegateMsgAdd(message: [NSObject : AnyObject]){
-        self.chatController.msgAdd(message: message)
-    }
-     func bigRoomNotificationDelegateMsgDel(message: [NSObject : AnyObject]){
-        self.chatController.msgDel(message: message)
-    }
-     func bigRoomNotificationDelegateMsgLoad(messages: [NSObject : AnyObject]){
-        self.chatController.msgLoad(messages: messages)
-    }
-     func bigRoomNotificationDelegateMsgLock(status: Int){
-        self.chatController.msgLock(status: status)
-    }
-     func bigRoomNotificationDelegateMsgChangeRole(status: Int){
-        self.chatController.changeRole(status: status)
-    }
-    
-    
-    func quiteRoomNotification() {
-        let vc = self.tabBarController?.viewControllers![0] as? BMVideoViewController
-        vc!.quiteRoom()
-    }
-}
-
 extension BMMessageController: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -168,6 +147,22 @@ extension BMMessageController: SwitchSegmentNotification{
     func notifySwitchSegment(index: Int) {
         self.scrollView.setContentOffset(CGPoint(x: CGFloat(index) * self.view.frame.width, y: self.scrollView.bounds.origin.y), animated: false)
     }
+}
+
+extension BMMessageController: BMNavViewDelegate{
+    
+    func quiteRoomNotification() {
+        let vc = self.tabBarController?.viewControllers![0] as? BMVideoViewController
+        vc!.quiteRoom()
+
+    }
+    
+    func audioOnlyNotification(status: Bool) {
+        let vc = self.tabBarController?.viewControllers![0] as? BMVideoViewController
+        vc?.audioOnly = status
+        vc?.reloadView()
+    }
+    
 }
 
 

@@ -30,16 +30,16 @@ class SegmentedView: UIView {
     }
     
     func prepareSegmentControl(){
-        segmentedControl = HMSegmentedControl(sectionTitles: ["Channel", "About",])
+        segmentedControl = HMSegmentedControl(sectionTitles: ["Chat", "People",])
         segmentedControl.frame = CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.frame.width, height:  self.frame.height)
         segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-        segmentedControl.selectionIndicatorHeight = 3.0
+        segmentedControl.selectionIndicatorHeight = 5.0
         
-        segmentedControl.titleTextAttributes  = [NSForegroundColorAttributeName:UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 12)]
+        segmentedControl.titleTextAttributes  = [NSForegroundColorAttributeName:UIColor(red: 162/255.0, green: 171/255.0, blue: 187/255.0, alpha: 1.0), NSFontAttributeName: UIFont.systemFont(ofSize: 12)]
         
-        segmentedControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName:UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 12)]
+        segmentedControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName:UIColor(red: 43/255.0, green: 55/255.0, blue: 77/255.0, alpha: 1.0), NSFontAttributeName: UIFont.boldSystemFont(ofSize: 15)]
         
-        segmentedControl.selectionIndicatorColor = UIColor(red:0/255, green:192/255, blue:131/255, alpha:1)
+        segmentedControl.selectionIndicatorColor = UIColor(red: 16/255.0, green: 137/255.0, blue: 245/255.0, alpha: 1.0)
         segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         segmentedControl.selectedSegmentIndex = 0
         self.selectedSegmentIndex = segmentedControl.selectedSegmentIndex
