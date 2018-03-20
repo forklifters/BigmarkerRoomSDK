@@ -15,7 +15,7 @@ s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework', 'YTPlayerVie
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
 s.frameworks    = 'UIKit','AVFoundation','Foundation'
-
+s.resources = "BMSDK.bundle"
 s.ios.deployment_target = '9.3'
 s.source_files = 'BigmarkerRoomSDK/class/*.*'
 
