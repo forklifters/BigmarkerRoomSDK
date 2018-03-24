@@ -9,14 +9,14 @@
 import UIKit
 import BMroomSDK
 
-@objc protocol BigRoomConnectionProtocol {
+@objc public protocol BigRoomConnectionProtocol {
     @objc optional func  bmRoomDidConnect(bm: BMRoom!)
     @objc optional func  bmRoomFailedConnect(bm: BMRoom!)
 }
 
-class BigRoomBase: NSObject,  BMRoomDelegate {
+public class BigRoomBase: NSObject,  BMRoomDelegate {
     
-    var delegate:BigRoomConnectionProtocol?
+    public var delegate:BigRoomConnectionProtocol?
     
     var host   = ""
     var mcuID  = ""
@@ -24,13 +24,13 @@ class BigRoomBase: NSObject,  BMRoomDelegate {
     var data   = ""
     var conference: Conference!
     
-    init(conference: Conference) {
+    public init(conference: Conference) {
         self.conference = conference
         self.host = conference.conferenceServer!.replacingOccurrences(of: "https://", with: "")
     }
     
     
-    func connectServer(){
+    public func connectServer(){
         let options: NSMutableDictionary = NSMutableDictionary()
         options["host"]     = self.host
         options["authData"] = conference.dataKey!
@@ -42,7 +42,7 @@ class BigRoomBase: NSObject,  BMRoomDelegate {
         BMRoom(delegate: self, options: options as [NSObject : AnyObject])!.connectToServer()
     }
     
-    func disConnectServer(){
+    public func disConnectServer(){
         let options: NSMutableDictionary = NSMutableDictionary()
         options["host"]     = self.host
         options["authData"] = conference.dataKey!
@@ -53,31 +53,31 @@ class BigRoomBase: NSObject,  BMRoomDelegate {
         
         BMRoom(delegate: self, options: options as [NSObject : AnyObject])!.disconnectFromServer()
     }
-
     
-    func bmRoomDidConnect(_ bm: BMRoom!) {
+    
+    public func bmRoomDidConnect(_ bm: BMRoom!) {
         self.delegate?.bmRoomDidConnect!(bm: bm)
     }
     
-    func bmRoomFailedConnect(_ bm: BMRoom!) {
+    public func bmRoomFailedConnect(_ bm: BMRoom!) {
         self.delegate?.bmRoomFailedConnect!(bm: bm)
     }
     
-    func bmRoom(_ bm: BMRoom!, didReceiveSyncMessages messages: [NSObject : AnyObject]!) {}
-    func bmRoom(_ bm: BMRoom!, didSyncChatMessages messages: [NSObject : AnyObject]!) {}
-    func bmRoom(_ bm: BMRoom!, didReceiveChatMessage message: [NSObject : AnyObject]!) {}
-    func bmRoom(_ bm: BMRoom!, didConnectStream muxerID: String!) {}
-    func bmRoom(_ bm: BMRoom!, disconnectedStream muxerID: String!) {}
-    func bmRoom(_ bm: BMRoom!, didReceiveMessage message: [NSObject : AnyObject]!) {}
-     func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
+    public func bmRoom(_ bm: BMRoom!, didReceiveSyncMessages messages: [NSObject : AnyObject]!) {}
+    public func bmRoom(_ bm: BMRoom!, didSyncChatMessages messages: [NSObject : AnyObject]!) {}
+    public func bmRoom(_ bm: BMRoom!, didReceiveChatMessage message: [NSObject : AnyObject]!) {}
+    public func bmRoom(_ bm: BMRoom!, didConnectStream muxerID: String!) {}
+    public func bmRoom(_ bm: BMRoom!, disconnectedStream muxerID: String!) {}
+    public func bmRoom(_ bm: BMRoom!, didReceiveMessage message: [NSObject : AnyObject]!) {}
+    public func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
     }
-    func bmRoom(_ bm: BMRoom!, failedConnectStream muxerID: String!) {}
-    func bmRoom(_ bm: BMRoom!, userConnected user: [NSObject : AnyObject]!) {
+    public func bmRoom(_ bm: BMRoom!, failedConnectStream muxerID: String!) {}
+    public func bmRoom(_ bm: BMRoom!, userConnected user: [NSObject : AnyObject]!) {
     }
-    func bmRoom(_ bm: BMRoom!, userDisconnected sid: String!) {}
-    func bmRoomDidClose(_ bm: BMRoom!) {}
-    func bmRoom(_ bm: BMRoom!, didChangeVideoDimension muxerID: String!, with size: CGSize) {}
-    func bmRoom(_ bm: BMRoom!, muxerAudioLevel muxerID: String!, changedTo level: Int32) {}
+    public func bmRoom(_ bm: BMRoom!, userDisconnected sid: String!) {}
+    public func bmRoomDidClose(_ bm: BMRoom!) {}
+    public func bmRoom(_ bm: BMRoom!, didChangeVideoDimension muxerID: String!, with size: CGSize) {}
+    public func bmRoom(_ bm: BMRoom!, muxerAudioLevel muxerID: String!, changedTo level: Int32) {}
     
     
     func bmRoom(_ bm: BMRoom!, loadYoutubeMsg message: [NSObject : AnyObject]!) {}

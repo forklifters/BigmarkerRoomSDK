@@ -274,6 +274,45 @@
 		2021B25C206149CC00E30327 /* VideoBottomUserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoBottomUserInfoView.swift; path = class/VideoBottomUserInfoView.swift; sourceTree = "<group>"; };
 		2021B25E20614AB600E30327 /* BMMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMMessageViewController.swift; path = class/BMMessageViewController.swift; sourceTree = "<group>"; };
 		2021B2622061519100E30327 /* BMSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BMSDK.bundle; sourceTree = "<group>"; };
+		2022CA222065E0FF004056D6 /* CWStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStatusBarNotification.h; sourceTree = "<group>"; };
+		2022CA232065E0FF004056D6 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		2022CA242065E0FF004056D6 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		2022CA252065E0FF004056D6 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		2022CA262065E0FF004056D6 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		2022CA272065E0FF004056D6 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		2022CA282065E0FF004056D6 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		2022CA292065E0FF004056D6 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		2022CA2A2065E0FF004056D6 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		2022CA2B2065E0FF004056D6 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		2022CA2C2065E0FF004056D6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2022CA2D2065E0FF004056D6 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		2022CA2E2065E0FF004056D6 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		2022CA2F2065E0FF004056D6 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		2022CA302065E0FF004056D6 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		2022CA312065E0FF004056D6 /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
+		2022CA322065E0FF004056D6 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		2022CA332065E0FF004056D6 /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		2022CA342065E0FF004056D6 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		2022CA352065E0FF004056D6 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		2022CA362065E0FF004056D6 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		2022CA372065E0FF004056D6 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		2022CA382065E0FF004056D6 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		2022CA392065E0FF004056D6 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		2022CA3A2065E0FF004056D6 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		2022CA3B2065E0FF004056D6 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		2022CA3C2065E0FF004056D6 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		2022CA3D2065E0FF004056D6 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		2022CA3E2065E0FF004056D6 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		2022CA3F2065E0FF004056D6 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		2022CA402065E0FF004056D6 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		2022CA412065E0FF004056D6 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		2022CA422065E0FF004056D6 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		2022CA432065E0FF004056D6 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		2022CA442065E0FF004056D6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		2022CA452065E0FF004056D6 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		2022CA462065E0FF004056D6 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		2022CA472065E0FF004056D6 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		2022CA482065E0FF004056D6 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		202B806A2056A98000C1067C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		202B806E2056A9DC00C1067C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMQTTKit.a; path = MQTTKit/libMQTTKit.a; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -429,12 +468,59 @@
 		2021B1DD2061440700E30327 /* class */ = {
 			isa = PBXGroup;
 			children = (
+				2022CA212065E0FF004056D6 /* header */,
 				20F252D02056CA9300339D90 /* controller */,
 				20F252D12056CA9A00339D90 /* model */,
 				20F252D22056CAC300339D90 /* view */,
 				20191BA12057C16500FD0889 /* cell */,
 			);
 			path = class;
+			sourceTree = "<group>";
+		};
+		2022CA212065E0FF004056D6 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				2022CA222065E0FF004056D6 /* CWStatusBarNotification.h */,
+				2022CA232065E0FF004056D6 /* HMSegmentedControl.h */,
+				2022CA242065E0FF004056D6 /* MASCompositeConstraint.h */,
+				2022CA252065E0FF004056D6 /* MASConstraint+Private.h */,
+				2022CA262065E0FF004056D6 /* MASConstraint.h */,
+				2022CA272065E0FF004056D6 /* MASLayoutConstraint.h */,
+				2022CA282065E0FF004056D6 /* Masonry.h */,
+				2022CA292065E0FF004056D6 /* MASUtilities.h */,
+				2022CA2A2065E0FF004056D6 /* MASViewAttribute.h */,
+				2022CA2B2065E0FF004056D6 /* MASViewConstraint.h */,
+				2022CA2C2065E0FF004056D6 /* MBProgressHUD.h */,
+				2022CA2D2065E0FF004056D6 /* NSArray+MASAdditions.h */,
+				2022CA2E2065E0FF004056D6 /* NSArray+MASShorthandAdditions.h */,
+				2022CA2F2065E0FF004056D6 /* NSData+ImageContentType.h */,
+				2022CA302065E0FF004056D6 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				2022CA312065E0FF004056D6 /* PopoverAction.h */,
+				2022CA322065E0FF004056D6 /* PopoverView.h */,
+				2022CA332065E0FF004056D6 /* PopoverViewCell.h */,
+				2022CA342065E0FF004056D6 /* SDImageCache.h */,
+				2022CA352065E0FF004056D6 /* SDWebImageCompat.h */,
+				2022CA362065E0FF004056D6 /* SDWebImageDecoder.h */,
+				2022CA372065E0FF004056D6 /* SDWebImageDownloader.h */,
+				2022CA382065E0FF004056D6 /* SDWebImageDownloaderOperation.h */,
+				2022CA392065E0FF004056D6 /* SDWebImageManager.h */,
+				2022CA3A2065E0FF004056D6 /* SDWebImageOperation.h */,
+				2022CA3B2065E0FF004056D6 /* SDWebImagePrefetcher.h */,
+				2022CA3C2065E0FF004056D6 /* SVPullToRefresh.h */,
+				2022CA3D2065E0FF004056D6 /* UIButton+WebCache.h */,
+				2022CA3E2065E0FF004056D6 /* UIImage+GIF.h */,
+				2022CA3F2065E0FF004056D6 /* UIImage+MultiFormat.h */,
+				2022CA402065E0FF004056D6 /* UIImageView+HighlightedWebCache.h */,
+				2022CA412065E0FF004056D6 /* UIImageView+WebCache.h */,
+				2022CA422065E0FF004056D6 /* UIScrollView+SVInfiniteScrolling.h */,
+				2022CA432065E0FF004056D6 /* UIScrollView+SVPullToRefresh.h */,
+				2022CA442065E0FF004056D6 /* UIView+WebCacheOperation.h */,
+				2022CA452065E0FF004056D6 /* View+MASAdditions.h */,
+				2022CA462065E0FF004056D6 /* View+MASShorthandAdditions.h */,
+				2022CA472065E0FF004056D6 /* ViewController+MASAdditions.h */,
+				2022CA482065E0FF004056D6 /* YTPlayerView.h */,
+			);
+			path = header;
 			sourceTree = "<group>";
 		};
 		202B806D2056A9DC00C1067C /* Frameworks */ = {

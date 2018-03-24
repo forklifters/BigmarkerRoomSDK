@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 hanqing. All rights reserved.
 //
 import Foundation
+import BigmarkerRoomSDK
 
-class Conference: NSObject {
+public class Conference: NSObject {
     
     
     var dictionary: NSDictionary
     
-    init(dictionary: NSDictionary) {
+    public init(dictionary: NSDictionary) {
         self.dictionary = dictionary
     }
     
@@ -104,7 +105,7 @@ class Conference: NSObject {
     }
     
     
-    var recordId: String? {
+    public var recordId: String? {
         get {
             if let recordId = self.dictionary["id"] as? String {
                 return recordId
@@ -130,14 +131,14 @@ class Conference: NSObject {
         }
     }
     
-//    var conferenceType: String {
-//        get {
-//            if let conferenceType = self.dictionary["conference_type"] as? String {
-//                return conferenceType
-//            }
-//            return ""
-//        }
-//    }
+    //    var conferenceType: String {
+    //        get {
+    //            if let conferenceType = self.dictionary["conference_type"] as? String {
+    //                return conferenceType
+    //            }
+    //            return ""
+    //        }
+    //    }
     
     var duration : String {
         get {
@@ -148,13 +149,13 @@ class Conference: NSObject {
         }
     }
     
-//    var isFeature: Bool {
-//        if conferenceType == "future" {
-//            return true
-//        } else {
-//            return  false
-//        }
-//    }
+    //    var isFeature: Bool {
+    //        if conferenceType == "future" {
+    //            return true
+    //        } else {
+    //            return  false
+    //        }
+    //    }
     
     var twilioPassword: String {
         get {
@@ -228,7 +229,7 @@ class Conference: NSObject {
             return nil
         }
     }
-
+    
     var time: String? {
         get {
             if let time = self.dictionary["time_format"] as? String {
@@ -247,7 +248,7 @@ class Conference: NSObject {
         }
     }
     
- 
+    
     var backgroundImage: String? {
         get {
             if let backgroundImage = self.dictionary["background_image"] as? String {
@@ -276,7 +277,7 @@ class Conference: NSObject {
             return nil
         }
     }
-
+    
     
     var conferenceDate: String? {
         get {
@@ -498,7 +499,7 @@ class Conference: NSObject {
     
     var needToRegisterToEnter: Bool {
         get {
-          return !alreadyRegistered && !inProgress && !ended && (isFree || isChipIn)
+            return !alreadyRegistered && !inProgress && !ended && (isFree || isChipIn)
         }
     }
     
@@ -578,7 +579,7 @@ class Conference: NSObject {
             return false
         }
     }
-
+    
     
     var displayTime: String {
         get {
@@ -593,7 +594,7 @@ class Conference: NSObject {
             }
         }
     }
-
+    
     
     var displayTime3: String {
         get {
@@ -675,7 +676,7 @@ class Conference: NSObject {
     }
     
     
-    class func requestConferenceData(id: String, token: String, finishedCallback : @escaping (_ conference: Conference?) -> ()){
+    class public func requestConferenceData(id: String, token: String, finishedCallback : @escaping (_ conference: Conference?) -> ()){
         let urlString = SERVICE_API_DOMAIN + "/mobile/api/v1/conferences/\(id)?mobile_token=\(token)"
         //f75f6f7ddb80ed15100f26fed2afc37c5db24a75078e781895b4c04a2d440856
         //2d4f759e712412097a0e1f03c5aaea623a57ad750b3fc0b17ebd63d25ae1f54e
@@ -696,7 +697,7 @@ class Conference: NSObject {
         }
     }
     
-
+    
     
     
 }

@@ -88,8 +88,8 @@ import BMroomSDK
 }
 
 
-class BMTabBarController: UITabBarController {
-
+public class BMTabBarController: UITabBarController {
+    
     
     var bmroomVideoDelegate: BigRoomVideoDelegate?
     var bmroomUserDelegate: BigRoomUserDelegate?
@@ -104,25 +104,25 @@ class BMTabBarController: UITabBarController {
     
     var videoController: BMVideoViewController!
     var msgController: BMMessageController!
-
     
-    init(bm: BMRoom, conference: Conference) {
+    
+    public init(bm: BMRoom, conference: Conference) {
         super.init(nibName: nil, bundle: nil)
         self.bm = bm
         self.conference = conference
         addChildVc()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-
-    override func viewDidLoad() {
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
-//        bm.delegate = self
-//        avSession = AVAudioSession.sharedInstance()
-//        UIApplication.shared.isIdleTimerDisabled = true
+        //        bm.delegate = self
+        //        avSession = AVAudioSession.sharedInstance()
+        //        UIApplication.shared.isIdleTimerDisabled = true
         
         
         UITabBar.appearance().barTintColor = UIColor.white
@@ -134,20 +134,20 @@ class BMTabBarController: UITabBarController {
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(audioSessionWasInterrupted ), name: NSNotification.Name.AVAudioSessionInterruption, object: avSession)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBar.barTintColor = UIColor(red: 43/255, green: 55/255, blue: 76/255, alpha: 1)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVAudioSessionInterruption, object: avSession)
@@ -157,11 +157,11 @@ class BMTabBarController: UITabBarController {
         self.videoController = BMVideoViewController()
         videoController.bm = self.bm
         videoController.conference = self.conference
-
+        
         self.msgController  = BMMessageController()
         msgController.bm = self.bm
         msgController.conference = self.conference
-
+        
         self.viewControllers = [videoController, msgController]
         customTabBar()
     }
@@ -236,14 +236,14 @@ extension BMTabBarController {
     }
     
     func removePersonFromRoom(){
-//        self.navigationController?.popViewControllerAnimated(false)
-//        dispatch_async(dispatch_get_global_queue(0, 0)){
-//            for muxerInfo in self.bm.muxersInfo {
-//                self.bm.disconnectStream(muxerInfo.key as! String)
-//            }
-//            self.bm.disconnectFromServer()
-//            self.bm = nil
-//        }
+        //        self.navigationController?.popViewControllerAnimated(false)
+        //        dispatch_async(dispatch_get_global_queue(0, 0)){
+        //            for muxerInfo in self.bm.muxersInfo {
+        //                self.bm.disconnectStream(muxerInfo.key as! String)
+        //            }
+        //            self.bm.disconnectFromServer()
+        //            self.bm = nil
+        //        }
         
     }
     
@@ -277,85 +277,85 @@ extension BMTabBarController {
         // 判断是不是更改自己的role
         if  sid == bm.socketID { // 非realAdmin  是指在会议室里非手动修改的role
             if !self.conference.isAdmin(){
-                    // "Temp-Origanizer  代表在会议室里手动设置的role"
+                // "Temp-Origanizer  代表在会议室里手动设置的role"
                 if role == "Organizer" || role == "Temp-Organizer" || role == "Presenter" {
-//                    self.tmpAdminStatus = true
+                    //                    self.tmpAdminStatus = true
                     self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLock!(status: 1)
                     self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLock!(status: 1)
-//                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 1)
+                    //                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 1)
                     self.videoController.videoAction(action: action, status: 1)
                 }  else if role == "Member" {
-//                    self.tmpAdminStatus = false
+                    //                    self.tmpAdminStatus = false
                     self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLock!(status: 0)
                     self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLock!(status: 0)
-//                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 0)
+                    //                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: 0)
                     
-                     self.videoController.videoAction(action: action, status: 0)
+                    self.videoController.videoAction(action: action, status: 0)
                     
                     
                 }
             }
         }
         
-//        //发送会员变成管理员的通知,让whiteboard可以画
-//        NSNotificationCenter.defaultCenter().postNotificationName("changeMemberOrAdmin", object: data["status"], userInfo: nil)
-//        self.bmroomUserDelegate?.bigRoomNotificationDelegateUserChangeRole!(role, sid: sid)
+        //        //发送会员变成管理员的通知,让whiteboard可以画
+        //        NSNotificationCenter.defaultCenter().postNotificationName("changeMemberOrAdmin", object: data["status"], userInfo: nil)
+        //        self.bmroomUserDelegate?.bigRoomNotificationDelegateUserChangeRole!(role, sid: sid)
     }
- 
+    
 }
 
 
 extension BMTabBarController: BMRoomDelegate {
     
     
-    func connectServer(){ }
-    func bmRoomDidConnect(_ bm: BMRoom!) { }
-    func bmRoomFailedConnect(_ bm: BMRoom!) { }
+    public func connectServer(){ }
+    public func bmRoomDidConnect(_ bm: BMRoom!) { }
+    public func bmRoomFailedConnect(_ bm: BMRoom!) { }
     
     
-    func  bmRoom(_ bm: BMRoom!, userConnected user: [AnyHashable : Any]!) {
+    public func  bmRoom(_ bm: BMRoom!, userConnected user: [AnyHashable : Any]!) {
         self.bmroomUserDelegate?.bigRoomNotificationDelegateUserEnter!(user: user as [NSObject : AnyObject])
     }
     
-    func bmRoom(_ bm: BMRoom!, userDisconnected sid: String!) {
+    public func bmRoom(_ bm: BMRoom!, userDisconnected sid: String!) {
         self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLeave!(sid: sid)
     }
     
-    func bmRoom(_ bm: BMRoom!, didSyncChatMessages messages: [NSObject : AnyObject]!) {
-       self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLoad!(messages: messages)
+    public func bmRoom(_ bm: BMRoom!, didSyncChatMessages messages: [NSObject : AnyObject]!) {
+        self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLoad!(messages: messages)
     }
     
-    func bmRoom(_ bm: BMRoom!, didReceiveChatMessage message: [AnyHashable : Any]!) {
+    public func bmRoom(_ bm: BMRoom!, didReceiveChatMessage message: [AnyHashable : Any]!) {
         self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgAdd!(message: message as [NSObject : AnyObject])
-//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMsgAddTabbar!(message: message as [NSObject : AnyObject])
-//        
-//        let msg = Message.init(dictionary: message)
-//        if msg.toId == "" {
-//            //chat的消息条数改变的通知
-//            NotificationCenter.defaultCenter().postNotificationName("chatBadgeCount", object: msg, userInfo: nil)
-//        }else{
-//            PeopleMessage.totalMessages.append(msg)
-//            PeopleMessage.bigTotalMessages.append(msg)
-//            NSNotificationCenter.defaultCenter().postNotificationName("PeopleMsgAddNotification", object: message, userInfo: nil)
-//        }
+        //        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMsgAddTabbar!(message: message as [NSObject : AnyObject])
+        //
+        //        let msg = Message.init(dictionary: message)
+        //        if msg.toId == "" {
+        //            //chat的消息条数改变的通知
+        //            NotificationCenter.defaultCenter().postNotificationName("chatBadgeCount", object: msg, userInfo: nil)
+        //        }else{
+        //            PeopleMessage.totalMessages.append(msg)
+        //            PeopleMessage.bigTotalMessages.append(msg)
+        //            NSNotificationCenter.defaultCenter().postNotificationName("PeopleMsgAddNotification", object: message, userInfo: nil)
+        //        }
         
         
-
+        
     }
     
     
     //分页获取chats
     
-    func bmRoom(_ bm: BMRoom!, didReceiveSyncMessages messages: [AnyHashable : Any]!) {
+    public func bmRoom(_ bm: BMRoom!, didReceiveSyncMessages messages: [AnyHashable : Any]!) {
         self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLoad!(messages: messages as [NSObject : AnyObject])
     }
     
-    func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
+    public func bmRoom(_ bm: BMRoom!, didReceiveNewStream muxerID: String!, enableVideo video: String!, enableAudio audio: String!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateReceiveNewStream!(didReceiveNewStream: muxerID, enableVideo: video, enableAudio: audio)
     }
     
     
-    func bmRoom(_ bm: BMRoom!, didConnectStream muxerID: String!) {
+    public func bmRoom(_ bm: BMRoom!, didConnectStream muxerID: String!) {
         if isHeadsetPluggedIn() {
             bm.toggleAudioOutput("handset")
         } else {
@@ -365,119 +365,119 @@ extension BMTabBarController: BMRoomDelegate {
     }
     
     
-    func bmRoom(_ bm: BMRoom!, disconnectedStream muxerID: String!) {
+    public func bmRoom(_ bm: BMRoom!, disconnectedStream muxerID: String!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateDisconnectedStream!(muxerID: muxerID)
     }
     
-    func bmRoom(_ bm: BMRoom!, didReceiveMessage message: [AnyHashable : Any]!) {
+    public func bmRoom(_ bm: BMRoom!, didReceiveMessage message: [AnyHashable : Any]!) {
         
         let messageDict = message as NSDictionary
         guard let action = messageDict["action"] as? String else { return }
         
-            if action == "videoShare:get_time_now"  {
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateServerTime!(message: message as [NSObject : AnyObject])
-                return
-            }
+        if action == "videoShare:get_time_now"  {
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateServerTime!(message: message as [NSObject : AnyObject])
+            return
+        }
         
-            // change role admin/presenter/attendee
-            if action == "admin"  {
-                //print("=====\(message)")
-                self.changeRole(message: message as [NSObject : AnyObject])
-                return
-            }
+        // change role admin/presenter/attendee
+        if action == "admin"  {
+            //print("=====\(message)")
+            self.changeRole(message: message as [NSObject : AnyObject])
+            return
+        }
         
-            // close user video or audio
-            if (action == "mute-user-video" || action == "mute-user-audio")  {
+        // close user video or audio
+        if (action == "mute-user-video" || action == "mute-user-audio")  {
             
-                let data     = messageDict["data"] as! NSDictionary
-                let status   = data["status"] as! String
-                let sid      = data["sid"] as! String
-                let twitter_name = data["twitter_name"] as? String
+            let data     = messageDict["data"] as! NSDictionary
+            let status   = data["status"] as! String
+            let sid      = data["sid"] as! String
+            let twitter_name = data["twitter_name"] as? String
+            
+            //表示是对当前用户的操作
+            if  (sid == bm.socketID && twitter_name == nil) {
+                //self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
+                self.videoController.videoAction(action: action, status: status == "enable" ? 1 : 0)
                 
-                //表示是对当前用户的操作
-                if  (sid == bm.socketID && twitter_name == nil) {
-                    //self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
-                    self.videoController.videoAction(action: action, status: status == "enable" ? 1 : 0)
-                    
-                }
-                return
             }
+            return
+        }
         
-            // kick user out room
-            if (action == "leave-room") {
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateRemoveFromRoom!()
-                return
-            }
+        // kick user out room
+        if (action == "leave-room") {
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateRemoveFromRoom!()
+            return
+        }
         
-            // open/close attendee's cam & mic
-            if (action == "mute-all-mic" || action == "mute-all-cam") {
-                //print(self.conference.tmpRole)
-                if !self.conference.adminRole(){
-                    guard let data   = messageDict["data"] as? NSDictionary else { return }
-                    guard let status = data["status"] as? String else { return }
-//                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
-                    self.videoController.videoAction(action: action, status: status == "enable" ? 1 : 0)
-                }
-                return
+        // open/close attendee's cam & mic
+        if (action == "mute-all-mic" || action == "mute-all-cam") {
+            //print(self.conference.tmpRole)
+            if !self.conference.adminRole(){
+                guard let data   = messageDict["data"] as? NSDictionary else { return }
+                guard let status = data["status"] as? String else { return }
+                //                    self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoAction!(action: action, status: status == "enable" ? 1 : 0)
+                self.videoController.videoAction(action: action, status: status == "enable" ? 1 : 0)
             }
+            return
+        }
         
-            if action == "stream:mute" {
-                guard let data    = messageDict["data"] as? NSDictionary else { return }
-                guard let muxerId = data["mid"] as? String else { return }
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateMuteAudio!(muxerID: muxerId, status: false)
-                //self.videoDelegate?.notifyMuteAudio(muxerId, status: false)
-                return
-            }
+        if action == "stream:mute" {
+            guard let data    = messageDict["data"] as? NSDictionary else { return }
+            guard let muxerId = data["mid"] as? String else { return }
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateMuteAudio!(muxerID: muxerId, status: false)
+            //self.videoDelegate?.notifyMuteAudio(muxerId, status: false)
+            return
+        }
         
-            if action == "stream:unmute" {
-                guard let data    = messageDict["data"] as? NSDictionary else { return }
-                guard let muxerId = data["mid"] as? String else { return }
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateMuteAudio!(muxerID: muxerId, status: true)
-                //self.videoDelegate?.notifyMuteAudio(muxerId, status: true)
-                return
-            }
+        if action == "stream:unmute" {
+            guard let data    = messageDict["data"] as? NSDictionary else { return }
+            guard let muxerId = data["mid"] as? String else { return }
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateMuteAudio!(muxerID: muxerId, status: true)
+            //self.videoDelegate?.notifyMuteAudio(muxerId, status: true)
+            return
+        }
         
-            if (action == "whiteboard:create") {
-//                let arr = message["data"] as! NSArray
-//                //NSUserDefaults.standardUserDefaults().setObject(arr[1] as! String, forKey: "whiteboardHashId")
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateWhiteBoardCreated!()
-                return
-            }
+        if (action == "whiteboard:create") {
+            //                let arr = message["data"] as! NSArray
+            //                //NSUserDefaults.standardUserDefaults().setObject(arr[1] as! String, forKey: "whiteboardHashId")
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateWhiteBoardCreated!()
+            return
+        }
         
-            if action == "whiteboard:close" {
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateWhiteBoardRemoved!()
-                return
-            }
+        if action == "whiteboard:close" {
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateWhiteBoardRemoved!()
+            return
+        }
         
-            if action == "whiteboard:switch" {
-                let page = messageDict["data"] as? Int ?? 0
-                self.bmroomVideoDelegate?.bigRoomNotificationDelegateWhiteBoardSwitch!(page: page)
-                return
-            }
+        if action == "whiteboard:switch" {
+            let page = messageDict["data"] as? Int ?? 0
+            self.bmroomVideoDelegate?.bigRoomNotificationDelegateWhiteBoardSwitch!(page: page)
+            return
+        }
         
-            // enable or disenable public chat
-            if action == "chat-lock" {
-                if !self.conference.adminRole() {
-                    guard let status = messageDict["data"] as? String else { return }
-                    self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLock!(status: status == "enable" ? 1 : 0)
-                }
-                return
+        // enable or disenable public chat
+        if action == "chat-lock" {
+            if !self.conference.adminRole() {
+                guard let status = messageDict["data"] as? String else { return }
+                self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgLock!(status: status == "enable" ? 1 : 0)
             }
+            return
+        }
         
-           // enable or disenable attendee list
-            if action == "seeall-lock" {
-                if !self.conference.adminRole(){
-                    guard let status = messageDict["data"] as? String else { return }
-                    self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLock!(status: status == "enable" ? 1 : 0)
-                }
-                return
+        // enable or disenable attendee list
+        if action == "seeall-lock" {
+            if !self.conference.adminRole(){
+                guard let status = messageDict["data"] as? String else { return }
+                self.bmroomUserDelegate?.bigRoomNotificationDelegateUserLock!(status: status == "enable" ? 1 : 0)
             }
+            return
+        }
         
-            //delete a chat
-            if action == "message:delete" {
-                self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgDel!(message: message as [NSObject : AnyObject])
-                return
-            }
+        //delete a chat
+        if action == "message:delete" {
+            self.bmroomChatDelegate?.bigRoomNotificationDelegateMsgDel!(message: message as [NSObject : AnyObject])
+            return
+        }
         if action == "question-answer-lock" || action == "question-answer-view-lock"{
             self.bmroomQADelegate?.bigRoomNotificationDelegateQALock!(message: message as [NSObject : AnyObject])
         }
@@ -503,7 +503,7 @@ extension BMTabBarController: BMRoomDelegate {
             self.bmroomQADelegate?.bigRoomNotificationDelegateQADelete!(message: message as [NSObject : AnyObject])
             return
         }
-
+        
         if  action == "update_result" ||   action == "end_poll"  {
             
             self.bmroomPollDelegate?.bigRoomNotificationDelegatePollReload!(message: message as [NSObject : AnyObject])
@@ -521,7 +521,7 @@ extension BMTabBarController: BMRoomDelegate {
                 //NotificationCenter.defaultCenter.postNotificationName("changePollCount", object: nil, userInfo: nil)
                 //有新的投票
                 recieveNewPoll(message: message as [NSObject : AnyObject])
-
+                
             }
         }
         
@@ -534,35 +534,35 @@ extension BMTabBarController: BMRoomDelegate {
         //接收web页的坐标
         if action == "whiteboard:draw" {
             //let coordinateModel = CoordinateModel.init(dictionary: message["data"] as! NSDictionary)
-//            if self.bm.socketID == coordinateModel.drawer{
-//                
-//            }else{
-//                //print("接收web页的坐标\(message["data"])")
-//                NotificationCenter.defaultCenter().postNotificationName("addCoorinate", object: nil, userInfo: ["model":coordinateModel])
-//            }
+            //            if self.bm.socketID == coordinateModel.drawer{
+            //
+            //            }else{
+            //                //print("接收web页的坐标\(message["data"])")
+            //                NotificationCenter.defaultCenter().postNotificationName("addCoorinate", object: nil, userInfo: ["model":coordinateModel])
+            //            }
         }
         
         //接收web页的颜色和字体大小
         if action == "whiteboard:sync_position" {
-//            
-//            let drawPositionModel = DrawPositionModel.init(dictionary: message["data"] as! NSDictionary)
-//            //print("接收web页的颜色和字体大小:\(message["data"])")
-//            NSNotificationCenter.defaultCenter().postNotificationName("drawColorAndSize", object: nil, userInfo: ["model":drawPositionModel])
+            //
+            //            let drawPositionModel = DrawPositionModel.init(dictionary: message["data"] as! NSDictionary)
+            //            //print("接收web页的颜色和字体大小:\(message["data"])")
+            //            NSNotificationCenter.defaultCenter().postNotificationName("drawColorAndSize", object: nil, userInfo: ["model":drawPositionModel])
         }
         //提前接收web页传过来的颜色或者字体大小
         if action == "whiteboard:sync_draw_action" {
-//            print("提前接收web页传过来的颜色或者字体大小:\(message["data"])")
-//            let actionDic = message["data"] as! NSDictionary
-//            
-//            if actionDic["actionName"] as! String == "changeSize" {
-//                let drawSizeModel = DrawSizeModel.init(dictionary: actionDic)
-//                NSNotificationCenter.defaultCenter().postNotificationName("changeSize", object: nil, userInfo: ["model":drawSizeModel])
-//            }
-//            if actionDic["actionName"] as! String == "setColor" {
-//                let drawColorModel = DrawColorModel.init(dictionary: actionDic)
-//                
-//                NSNotificationCenter.defaultCenter().postNotificationName("changeColor", object: nil, userInfo: ["model":drawColorModel])
-//            }
+            //            print("提前接收web页传过来的颜色或者字体大小:\(message["data"])")
+            //            let actionDic = message["data"] as! NSDictionary
+            //
+            //            if actionDic["actionName"] as! String == "changeSize" {
+            //                let drawSizeModel = DrawSizeModel.init(dictionary: actionDic)
+            //                NSNotificationCenter.defaultCenter().postNotificationName("changeSize", object: nil, userInfo: ["model":drawSizeModel])
+            //            }
+            //            if actionDic["actionName"] as! String == "setColor" {
+            //                let drawColorModel = DrawColorModel.init(dictionary: actionDic)
+            //
+            //                NSNotificationCenter.defaultCenter().postNotificationName("changeColor", object: nil, userInfo: ["model":drawColorModel])
+            //            }
             
         }
         //接收web页的清除所有坐标命令
@@ -576,158 +576,158 @@ extension BMTabBarController: BMRoomDelegate {
         //新用户进来接收之前的画画的图片
         if action == "whiteboard:sync_history" {
             //print("新用户进来接收之前的画画的图片:\(message["data"])")
-//            if let whiteboardArr = message["data"] as? NSArray{
-//                let whiteboardDrawModel = WhiteboardDrawModel.init(dictionary: whiteboardArr[0] as! NSDictionary)
-//                NSNotificationCenter.defaultCenter().postNotificationName("whiteboardDrawModel", object: nil, userInfo: ["model":whiteboardDrawModel])
-//                
-//            }
+            //            if let whiteboardArr = message["data"] as? NSArray{
+            //                let whiteboardDrawModel = WhiteboardDrawModel.init(dictionary: whiteboardArr[0] as! NSDictionary)
+            //                NSNotificationCenter.defaultCenter().postNotificationName("whiteboardDrawModel", object: nil, userInfo: ["model":whiteboardDrawModel])
+            //
+            //            }
         }
-
-
+        
+        
     }
     
     func recieveNewPoll(message: [NSObject : AnyObject]){
-//        dispatch_async(dispatch_get_main_queue()){
-//            if self.backgroundView != nil {
-//                self.backgroundView.removeFromSuperview()
-//            }
-//            let action = message["action"] as! String
-//            let data = message["data"] as! NSDictionary
-//            if action == "new_poll" {
-//                let newPoll = NewPoll.init(dictionary: data)
-//                
-//                self.backgroundView = NewPollView.init(frame: CGRectMake(0, 0, ScreenW, ScreenH),newPoll: newPoll)
-//                self.backgroundView.submitNewPollDelegate = self
-//                self.tabBarController?.view.addSubview(self.backgroundView)
-//            }
-//        }
+        //        dispatch_async(dispatch_get_main_queue()){
+        //            if self.backgroundView != nil {
+        //                self.backgroundView.removeFromSuperview()
+        //            }
+        //            let action = message["action"] as! String
+        //            let data = message["data"] as! NSDictionary
+        //            if action == "new_poll" {
+        //                let newPoll = NewPoll.init(dictionary: data)
+        //
+        //                self.backgroundView = NewPollView.init(frame: CGRectMake(0, 0, ScreenW, ScreenH),newPoll: newPoll)
+        //                self.backgroundView.submitNewPollDelegate = self
+        //                self.tabBarController?.view.addSubview(self.backgroundView)
+        //            }
+        //        }
     }
     
-//    func didRecieveSelectBtnWithId(model:NewPoll,chooseArray:NSArray){
-//        
-//        var dict = [NSString:AnyObject]()
-//        dict["poll_id"]       =  model.pollId
-//        dict["timestamp"]     =  ToolHelper.getCurrentTimeStamp()
-//        dict["photo"]         =  conference.currentUserInfo?.photo
-//        dict["choose"]        =  NSArray.init(array: chooseArray)
-//        dict["submit_sid"]    =  bm.socketID
-//        dict["poll_question"] =  model.pollQuestion
-//        dict["choice"]        =  model.choiceIdDic
-//        
-//        self.bm.PollSubmit(dict)
-//        self.backgroundView.removeFromSuperview()
-//    }
-
+    //    func didRecieveSelectBtnWithId(model:NewPoll,chooseArray:NSArray){
+    //
+    //        var dict = [NSString:AnyObject]()
+    //        dict["poll_id"]       =  model.pollId
+    //        dict["timestamp"]     =  ToolHelper.getCurrentTimeStamp()
+    //        dict["photo"]         =  conference.currentUserInfo?.photo
+    //        dict["choose"]        =  NSArray.init(array: chooseArray)
+    //        dict["submit_sid"]    =  bm.socketID
+    //        dict["poll_question"] =  model.pollQuestion
+    //        dict["choice"]        =  model.choiceIdDic
+    //
+    //        self.bm.PollSubmit(dict)
+    //        self.backgroundView.removeFromSuperview()
+    //    }
     
-    func bmRoom(_ bm: BMRoom!, didChangeVideoDimension muxerID: String!, with size: CGSize) {
+    
+    public func bmRoom(_ bm: BMRoom!, didChangeVideoDimension muxerID: String!, with size: CGSize) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateVideoFrameChanged!(muxerID: muxerID, size: size)
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, muxerAudioLevel muxerID: String!, changedTo level: Int32) {
-//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateAudioSizeChanged!(muxerID: muxerID, level: level)
+    public func bmRoom(_ bm: BMRoom!, muxerAudioLevel muxerID: String!, changedTo level: Int32) {
+        //        self.bmroomVideoDelegate?.bigRoomNotificationDelegateAudioSizeChanged!(muxerID: muxerID, level: level)
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, failedConnectStream muxerID: String!) {
-       self.bmroomVideoDelegate?.bigRoomNotificationDelegateFailedConnectStream!(muxerID: muxerID)
-       return
+    public func bmRoom(_ bm: BMRoom!, failedConnectStream muxerID: String!) {
+        self.bmroomVideoDelegate?.bigRoomNotificationDelegateFailedConnectStream!(muxerID: muxerID)
+        return
     }
     
-    func bmRoomDidClose(_ bm: BMRoom!) {
+    public func bmRoomDidClose(_ bm: BMRoom!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateCloseRoom!()
-//        NotificationCenter.defaultCenter.postNotificationName("closeRoom", object: nil, userInfo: nil)
+        //        NotificationCenter.defaultCenter.postNotificationName("closeRoom", object: nil, userInfo: nil)
         return
     }
     
-
-    func  bmRoom(_ bm: BMRoom!, loadYoutubeMsg message: [AnyHashable : Any]!)  {
+    
+    public func  bmRoom(_ bm: BMRoom!, loadYoutubeMsg message: [AnyHashable : Any]!)  {
         //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeLoad!(message: message as [NSObject : AnyObject])
         self.videoController.youtubeLoad(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, seekYoutubeMsg message: [AnyHashable : Any]!) {
+    public func bmRoom(_ bm: BMRoom!, seekYoutubeMsg message: [AnyHashable : Any]!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeSeek!(message: message as [NSObject : AnyObject])
         return
     }
     
-
-    func bmRoom(_ bm: BMRoom!, playYoutubeMsg message: [AnyHashable : Any]!) {
-       // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePlay!(message: message as [NSObject : AnyObject])
+    
+    public func bmRoom(_ bm: BMRoom!, playYoutubeMsg message: [AnyHashable : Any]!) {
+        // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePlay!(message: message as [NSObject : AnyObject])
         self.videoController.youtubePlay(message: message as [NSObject : AnyObject])
         return
     }
     
-
-    func bmRoom(_ bm: BMRoom!, pauseYoutubeMsg message: [AnyHashable : Any]!) {
+    
+    public func bmRoom(_ bm: BMRoom!, pauseYoutubeMsg message: [AnyHashable : Any]!) {
         //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubePause!(message: message as [NSObject : AnyObject])
         self.videoController.youtubePause(message: message as [NSObject : AnyObject])
         return
     }
     
-
-    func bmRoom(_ bm: BMRoom!, endYoutubeMsg message: [AnyHashable : Any]!) {
+    
+    public func bmRoom(_ bm: BMRoom!, endYoutubeMsg message: [AnyHashable : Any]!) {
         //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeEnd!(message: message as [NSObject : AnyObject])
         self.videoController.youtubeEnd(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, muteYoutubeMsg message: [AnyHashable : Any]!) {
-       // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeMute!(message: message as [NSObject : AnyObject])
+    public func bmRoom(_ bm: BMRoom!, muteYoutubeMsg message: [AnyHashable : Any]!) {
+        // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeMute!(message: message as [NSObject : AnyObject])
         return
     }
     
-
-    func bmRoom(_ bm: BMRoom!, unmuteYoutubeMsg message: [AnyHashable : Any]!) {
-       // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeUnmute!(message: message as [NSObject : AnyObject])
+    
+    public func bmRoom(_ bm: BMRoom!, unmuteYoutubeMsg message: [AnyHashable : Any]!) {
+        // self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeUnmute!(message: message as [NSObject : AnyObject])
         return
     }
     
-
-    func bmRoom(_ bm: BMRoom!, volumeChangeYoutubeMsg message: [AnyHashable : Any]!) {
+    
+    public func bmRoom(_ bm: BMRoom!, volumeChangeYoutubeMsg message: [AnyHashable : Any]!) {
         self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeVolumeChange!(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, actionYoutubeMsg message: [AnyHashable : Any]!) {
+    public func bmRoom(_ bm: BMRoom!, actionYoutubeMsg message: [AnyHashable : Any]!) {
         //self.bmroomVideoDelegate?.bigRoomNotificationDelegateYoutubeAction!(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, loadMP4Msg message: [AnyHashable : Any]!) {
-//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Load!(message: message as [NSObject : AnyObject])
+    public func bmRoom(_ bm: BMRoom!, loadMP4Msg message: [AnyHashable : Any]!) {
+        //        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Load!(message: message as [NSObject : AnyObject])
         self.videoController.mp4Load(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, endMP4Msg message: [AnyHashable : Any]!) {
-//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4End!(message: message as [NSObject : AnyObject])
-         self.videoController.mp4Ended(message: message as [NSObject : AnyObject])
+    public func bmRoom(_ bm: BMRoom!, endMP4Msg message: [AnyHashable : Any]!) {
+        //        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4End!(message: message as [NSObject : AnyObject])
+        self.videoController.mp4Ended(message: message as [NSObject : AnyObject])
         return
     }
     
-
-    func bmRoom(_ bm: BMRoom!, muteMP4Msg message: [AnyHashable : Any]!) {}
     
-
-    func bmRoom(_ bm: BMRoom!, pauseMP4Msg message: [AnyHashable : Any]!) {
-//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Pause!(message: message as [NSObject : AnyObject])
-         self.videoController.mp4Pause(message: message as [NSObject : AnyObject])
+    public func bmRoom(_ bm: BMRoom!, muteMP4Msg message: [AnyHashable : Any]!) {}
+    
+    
+    public func bmRoom(_ bm: BMRoom!, pauseMP4Msg message: [AnyHashable : Any]!) {
+        //        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Pause!(message: message as [NSObject : AnyObject])
+        self.videoController.mp4Pause(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, playMP4Msg message: [AnyHashable : Any]!) {
-//        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Play!(message: message as [NSObject : AnyObject])
-         self.videoController.mp4Play(message: message as [NSObject : AnyObject])
+    public func bmRoom(_ bm: BMRoom!, playMP4Msg message: [AnyHashable : Any]!) {
+        //        self.bmroomVideoDelegate?.bigRoomNotificationDelegateMp4Play!(message: message as [NSObject : AnyObject])
+        self.videoController.mp4Play(message: message as [NSObject : AnyObject])
         return
     }
     
-    func bmRoom(_ bm: BMRoom!, unmuteMP4Msg message: [AnyHashable : Any]!) { }
+    public func bmRoom(_ bm: BMRoom!, unmuteMP4Msg message: [AnyHashable : Any]!) { }
     
-    func bmRoom(_ bm: BMRoom!, volumeChangeMP4Msg message: [AnyHashable : Any]!) {}
+    public func bmRoom(_ bm: BMRoom!, volumeChangeMP4Msg message: [AnyHashable : Any]!) {}
     
-    func bmRoom(_ bm: BMRoom!, actionMP4Msg message: [AnyHashable : Any]!) {}
+    public func bmRoom(_ bm: BMRoom!, actionMP4Msg message: [AnyHashable : Any]!) {}
     
 }
 

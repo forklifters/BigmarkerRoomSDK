@@ -33,6 +33,11 @@ class BMPeopleViewController: UIViewController{
         tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         //tableView.registerNib(UINib(nibName: "BMRoomPeopleCell", bundle: nil), forCellReuseIdentifier: BMRoomPepleCellID)
+        
+        let bundle =  Bundle(path: Bundle(for: BMChatListViewController.classForCoder()).path(forResource: "BMSDK", ofType: "bundle")!)
+        let persionNib = UINib(nibName: "BMPersionCell", bundle: bundle)
+        let attendeeNib = UINib(nibName: "AttendeeViewLockedCell", bundle: bundle)
+        
         tableView.register(UINib(nibName: "BMPersionCell", bundle: nil), forCellReuseIdentifier: "persionCell")
         tableView.register(UINib(nibName: "AttendeeViewLockedCell", bundle: nil), forCellReuseIdentifier: "attendeeViewLockedCell")
         return tableView

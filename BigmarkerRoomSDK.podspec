@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'BigmarkerRoomSDK'
-s.version          = '1.0.2'
+s.version          = '1.0.3'
 s.summary          = 'test test testBigmarkerRoomSDK'
 
 s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
@@ -8,9 +8,11 @@ s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.0.2'}
+s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.0.3'}
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
+
+s.public_header_files = "BigmarkerRoomSDK/class/*.h"
 
 s.dependency 'AFNetworking', '~> 2.0'
 s.dependency 'MBProgressHUD', '~> 1.0.0'

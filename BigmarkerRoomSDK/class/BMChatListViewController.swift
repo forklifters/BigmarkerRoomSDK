@@ -57,15 +57,19 @@ class BMChatListViewController: UIViewController {
         
         tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.register(UINib(nibName: "BMRoomChatMsgCell", bundle: nil), forCellReuseIdentifier: ChatCellID)
-        tableView.register(UINib(nibName: "NoChatCell", bundle: nil), forCellReuseIdentifier: "noChatCell")
+        
+        let bundle =  Bundle(path: Bundle(for: BMChatListViewController.classForCoder()).path(forResource: "BMSDK", ofType: "bundle")!)
+        let chatNib = UINib(nibName: "BMRoomChatMsgCell", bundle: bundle)
+        let noChatNib = UINib(nibName: "NoChatCell", bundle: bundle)
+        tableView.register(chatNib, forCellReuseIdentifier: ChatCellID)
+        tableView.register(noChatNib, forCellReuseIdentifier: "noChatCell")
         let tap = UITapGestureRecognizer(target: self, action: #selector(cancelKeyboard))
         tableView.addGestureRecognizer(tap)
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
-        tableView.addPullToRefresh(withAction: "pushType") {
+        tableView.addPullToRefresh(actionHandler: {
             self?.getPreMessages()
-        }
+        })
         tableView.showsInfiniteScrolling = false
         return tableView
         }()
