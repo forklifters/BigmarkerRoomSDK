@@ -12,10 +12,10 @@ s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
-s.public_header_files = "BigmarkerRoomSDK/PopoverView/*.h","BigmarkerRoomSDK/CWStatusBarNotification/*.h",
-                        "BigmarkerRoomSDK/HMSegmentedControl/*.h","BigmarkerRoomSDK/Masonry/*.h",
-                        "BigmarkerRoomSDK/MBProgressHUD/*.h", "BigmarkerRoomSDK/SDWebImage/*.h",
-                        "BigmarkerRoomSDK/SVPullToRefresh/*.h", "BigmarkerRoomSDK/YTPlayerView/*.h"
+s.public_header_files = "BigmarkerRoomSDK/PopoverView/*.h","CWStatusBarNotification/*.h",
+                        "HMSegmentedControl/*.h","Masonry/*.h",
+                        "MBProgressHUD/*.h", "SDWebImage/*.h",
+                        "SVPullToRefresh/*.h", "YTPlayerView/*.h"
 
 #s.dependency 'MBProgressHUD', '~> 1.0.0'
 #s.dependency 'HMSegmentedControl'
@@ -29,10 +29,10 @@ s.public_header_files = "BigmarkerRoomSDK/PopoverView/*.h","BigmarkerRoomSDK/CWS
 s.frameworks    = 'UIKit','AVFoundation','Foundation'
 s.resources = "BMSDK.bundle"
 s.ios.deployment_target = '9.3'
-s.source_files = 'BigmarkerRoomSDK/class/*.*', "BigmarkerRoomSDK/PopoverView/*.*",
-                 "BigmarkerRoomSDK/CWStatusBarNotification/*.*", "BigmarkerRoomSDK/HMSegmentedControl/*.*",
-                 "BigmarkerRoomSDK/Masonry/*.*", "BigmarkerRoomSDK/MBProgressHUD/*.*",
-                 "BigmarkerRoomSDK/SDWebImage/*.*","BigmarkerRoomSDK/SVPullToRefresh/*.*",
-                 "BigmarkerRoomSDK/YTPlayerView/*.*"
+s.source_files = 'BigmarkerRoomSDK/class/*.*', "PopoverView/*.*",
+                 "CWStatusBarNotification/*.*", "HMSegmentedControl/*.*",
+                 "Masonry/*.*", "MBProgressHUD/*.*",
+                 "SDWebImage/*.*","SVPullToRefresh/*.*",
+                 "YTPlayerView/*.*"
 
 end
