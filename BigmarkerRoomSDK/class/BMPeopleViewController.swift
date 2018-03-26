@@ -38,8 +38,8 @@ class BMPeopleViewController: UIViewController{
         let persionNib = UINib(nibName: "BMPersionCell", bundle: bundle)
         let attendeeNib = UINib(nibName: "AttendeeViewLockedCell", bundle: bundle)
         
-        tableView.register(UINib(nibName: "BMPersionCell", bundle: nil), forCellReuseIdentifier: "persionCell")
-        tableView.register(UINib(nibName: "AttendeeViewLockedCell", bundle: nil), forCellReuseIdentifier: "attendeeViewLockedCell")
+        tableView.register(UINib(nibName: "BMPersionCell", bundle: bundle), forCellReuseIdentifier: "persionCell")
+        tableView.register(UINib(nibName: "AttendeeViewLockedCell", bundle: bundle), forCellReuseIdentifier: "attendeeViewLockedCell")
         return tableView
         }()
     

@@ -28,6 +28,7 @@ extension MessageInputView {
     }
     
     class func inputView() -> MessageInputView {
-        return Bundle.main.loadNibNamed("MessageInputView", owner: nil, options: nil)!.first as! MessageInputView
+       let bundle =  Bundle(path: Bundle(for: MessageInputView.classForCoder()).path(forResource: "BMSDK", ofType: "bundle")!)
+        return bundle!.loadNibNamed("MessageInputView", owner: nil, options: nil)!.first as! MessageInputView
     }
 }
