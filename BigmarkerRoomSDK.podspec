@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'BigmarkerRoomSDK'
-s.version          = '1.1.5'
+s.version          = '1.1.6'
 s.summary          = 'test test testBigmarkerRoomSDK'
 
 s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
@@ -8,11 +8,11 @@ s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.5'}
+s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.6'}
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
-s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h", "BMroomSDK.framework/Headers/BMRoom.h"
+s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h", "BMroomSDK.framework/Headers/BMRoom.h",
                         "HMSegmentedControl/*.h","Masonry/*.h",
                         "MBProgressHUD/*.h", "SDWebImage/*.h",
                         "SVPullToRefresh/*.h", "YTPlayerView/*.h"
