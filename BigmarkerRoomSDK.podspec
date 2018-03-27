@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'BigmarkerRoomSDK'
-s.version          = '1.1.1'
+s.version          = '1.1.2'
 s.summary          = 'test test testBigmarkerRoomSDK'
 
 s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
@@ -8,7 +8,7 @@ s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.1'}
+s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.2'}
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
@@ -41,10 +41,10 @@ s.subspec 'class' do |ss|
     c.source_files = 'BigmarkerRoomSDK/class/controller/*.*'
   end
   ss.subspec 'model' do |m|
-    c.source_files = 'BigmarkerRoomSDK/class/model/*.*'
+    m.source_files = 'BigmarkerRoomSDK/class/model/*.*'
   end
   ss.subspec 'view' do |v|
-    c.source_files = 'BigmarkerRoomSDK/class/view/*.*'
+    v.source_files = 'BigmarkerRoomSDK/class/view/*.*'
   end
   ss.subspec 'cell' do |c|
     c.source_files = 'BigmarkerRoomSDK/class/cell/*.*'
