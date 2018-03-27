@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Conference.requestConferenceData(id: "4205e1bca97d", token: "f75f6f7ddb80ed15100f26fed2afc37c5db24a75078e781895b4c04a2d440856") { (conference) in
+        Conference.requestConferenceData(id: "2c18a88cd6ba", token: "f75f6f7ddb80ed15100f26fed2afc37c5db24a75078e781895b4c04a2d440856") { (conference) in
             if conference != nil {
                 self.conference = conference
                 self.bigRoom = BigRoomBase(conference: self.conference)
