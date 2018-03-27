@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'BigmarkerRoomSDK'
-s.version          = '1.1.4'
+s.version          = '1.1.5'
 s.summary          = 'test test testBigmarkerRoomSDK'
 
 s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
@@ -8,11 +8,11 @@ s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.4'}
+s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.5'}
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
-s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h",
+s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h", "BMroomSDK.framework/Headers/BMRoom.h"
                         "HMSegmentedControl/*.h","Masonry/*.h",
                         "MBProgressHUD/*.h", "SDWebImage/*.h",
                         "SVPullToRefresh/*.h", "YTPlayerView/*.h"
@@ -29,11 +29,9 @@ s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h",
 s.frameworks    = 'UIKit','AVFoundation','Foundation'
 s.resources = "BMSDK.bundle"
 s.ios.deployment_target = '9.3'
-#s.source_files = 'BigmarkerRoomSDK/class/*.*', "PopoverView/*.*",
-#                 "CWStatusBarNotification/*.*", "HMSegmentedControl/*.*",
-#                 "Masonry/*.*", "MBProgressHUD/*.*",
-#                 "SDWebImage/*.*","SVPullToRefresh/*.*",
-#                 "YTPlayerView/*.*"
+s.source_files =  "PopoverView/*.*", "CWStatusBarNotification/*.*", "HMSegmentedControl/*.*",
+                 "Masonry/*.*", "MBProgressHUD/*.*", "SDWebImage/*.*","SVPullToRefresh/*.*",
+                 "YTPlayerView/*.*"
 
 
 s.subspec 'class' do |ss|
@@ -49,35 +47,6 @@ s.subspec 'class' do |ss|
   ss.subspec 'cell' do |c|
     c.source_files = 'BigmarkerRoomSDK/class/cell/*.*'
   end
-
-ss.subspec 'PopoverView' do |c|
-c.source_files = "PopoverView/*.*"
-end
-
-  ss.subspec 'CWStatusBarNotification' do |c|
-    c.source_files = "CWStatusBarNotification/*.*"
- end
-
-ss.subspec 'HMSegmentedControl' do |c|
-c.source_files = "HMSegmentedControl/*.*"
-end
-
- ss.subspec 'Masonry' do |c|
-  c.source_files = 'Masonry/*.*'
- end
- ss.subspec 'MBProgressHUD' do |c|
-  c.source_files = 'MBProgressHUD/*.*'
- end
- ss.subspec 'SDWebImage' do |c|
-  c.source_files = 'SDWebImage/*.*'
- end
- ss.subspec 'SVPullToRefresh' do |c|
-  c.source_files = 'SVPullToRefresh/*.*'
- end
- ss.subspec 'YTPlayerView' do |c|
-  c.source_files = 'YTPlayerView/*.*'
- end
-
 end
 
 end
