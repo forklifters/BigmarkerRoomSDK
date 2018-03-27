@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 s.name             = 'BigmarkerRoomSDK'
-s.version          = '1.1.6'
-s.summary          = 'test test testBigmarkerRoomSDK'
+s.version          = '1.1.7'
+s.summary          = 'BigmarkerRoomSDK'
 
-s.description      = 'BigmarkerRoomSDK BigmarkerRoomSDK BigmarkerRoomSDK'
+s.description      = 'Bigmarker Conference Room SDK'
 
 s.homepage         = 'https://github.com/hanqingqingmomo/BigmarkerRoomSDK'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'HanQing' => 'qing.han@bigmarker.com' }
-s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.6'}
+s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.git', :tag => '1.1.7'}
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
@@ -28,11 +28,40 @@ s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h", "BMroom
 
 s.frameworks    = 'UIKit','AVFoundation','Foundation'
 s.resources = "BMSDK.bundle"
-s.ios.deployment_target = '9.3'
-s.source_files =  "PopoverView/*.*", "CWStatusBarNotification/*.*", "HMSegmentedControl/*.*",
-                 "Masonry/*.*", "MBProgressHUD/*.*", "SDWebImage/*.*","SVPullToRefresh/*.*",
-                 "YTPlayerView/*.*"
+s.ios.deployment_target = '9.0'
 
+
+s.subspec 'class' do |ss|
+ss.source_files = "PopoverView/*.*"
+end
+
+s.subspec 'class' do |ss|
+ ss.source_files = "CWStatusBarNotification/*.*"
+end
+
+s.subspec 'class' do |ss|
+ss.source_files = "HMSegmentedControl/*.*"
+end
+
+s.subspec 'class' do |ss|
+ss.source_files = 'Masonry/*.*'
+end
+
+s.subspec 'class' do |ss|
+ ss.source_files = 'MBProgressHUD/*.*'
+end
+
+s.subspec 'class' do |ss|
+  ss.source_files = 'SDWebImage/*.*'
+end
+
+s.subspec 'class' do |ss|
+ss.source_files = 'SVPullToRefresh/*.*'
+end
+
+s.subspec 'class' do |ss|
+  ss.source_files = 'YTPlayerView/*.*'
+end
 
 s.subspec 'class' do |ss|
   ss.subspec 'controller' do |c|
