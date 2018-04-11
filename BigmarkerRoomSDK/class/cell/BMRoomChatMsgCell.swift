@@ -16,19 +16,21 @@ class BMRoomChatMsgCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     
     var usersInfo: NSMutableDictionary!
-        
  
     var message : Message? {
         didSet {
+            
             self.userName.text = message?.userName
             self.timeLabel.text = message?.formatTime
-            
-            let url = URL(string: message!.avatarUrl!)
+            var url: URL!
+            if (message!.avatarUrl!.range(of: "assets") != nil) {
+                url = URL(string: SERVICE_API_DOMAIN + message!.avatarUrl!)
+            } else {
+                url = URL(string: message!.avatarUrl!)
+            }
             self.avatarImageVIew.sd_setImage(with: url, placeholderImage: UIImage(named: "BMSDK.bundle/default_profile_picture"))
-            
-            
             self.avatarImageVIew.layer.cornerRadius = 3
-            
+
             
             var newContent = message!.content!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
             

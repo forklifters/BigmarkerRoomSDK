@@ -17,4 +17,5 @@
 #import "UIImageView+WebCache.h"
 #import "HMSegmentedControl.h"
 #import "YTPlayerView.h"
+#import "WMPageController.h"
 

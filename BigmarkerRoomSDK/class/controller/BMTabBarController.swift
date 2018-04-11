@@ -168,8 +168,8 @@ public class BMTabBarController: UITabBarController {
     
     
     func customTabBar(){
-        let normalImageArr = NSArray.init(array: ["icon_video_inactive","icon_video_active"])
-        let selectedImageArray = NSArray.init(array: ["icon_video_active","icon_video_inactive"])
+        let normalImageArr = NSArray.init(array: ["icon_video_inactive","icon_chat_active"])
+        let selectedImageArray = NSArray.init(array: ["icon_video_active","icon_chat_no"])
         
         for (index, singleVC) in (self.viewControllers?.enumerated())! {
             

@@ -12,7 +12,7 @@ s.source           = { :git => 'git@github.com:hanqingqingmomo/BigmarkerRoomSDK.
 s.vendored_frameworks = ['BMroomSDK.framework', 'WebRTC.framework']
 s.vendored_libraries  = 'MQTTKit/libMQTTKit.a'
 
-s.public_header_files = "PopoverView/*.h","CWStatusBarNotification/*.h", "BMroomSDK.framework/Headers/BMRoom.h",
+s.public_header_files = "Pods/PopoverView/*.h","CWStatusBarNotification/*.h", "BMroomSDK.framework/Headers/BMRoom.h",
                         "HMSegmentedControl/*.h","Masonry/*.h",
                         "MBProgressHUD/*.h", "SDWebImage/*.h",
                         "SVPullToRefresh/*.h", "YTPlayerView/*.h"

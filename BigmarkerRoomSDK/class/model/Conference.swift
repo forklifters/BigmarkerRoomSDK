@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 hanqing. All rights reserved.
 //
 import Foundation
-import BigmarkerRoomSDK
 
 public class Conference: NSObject {
     
@@ -681,7 +680,8 @@ public class Conference: NSObject {
         //f75f6f7ddb80ed15100f26fed2afc37c5db24a75078e781895b4c04a2d440856
         //2d4f759e712412097a0e1f03c5aaea623a57ad750b3fc0b17ebd63d25ae1f54e
         print(urlString)
-        NetworkTools.requestData(type: .GET, URLString: urlString) { (result) in
+
+        NetworkTools.requestData(type: .GET, URLString: urlString, parameters: nil) { (result) in
             
             guard let dict = result as? NSDictionary else {
                 finishedCallback(nil)

@@ -9,7 +9,7 @@ enum MethodType {
 }
 
 class NetworkTools {
-    class func requestData(type : MethodType, URLString : String,
+    class func requestData(type : MethodType, URLString : String, parameters : NSDictionary?,
                            finishedCallback : @escaping (_ result : AnyObject) -> ()) {
         switch type {
         case MethodType.PUT:
@@ -18,8 +18,8 @@ class NetworkTools {
             
             break
         default:
-            let str = "Hello, playground"
-            print(str)
+//            let str = "Hello, playground"
+//            print(str)
             let url = URL(string: URLString)
             let session = URLSession.shared
             let task = session.dataTask(with: url!) { (data, response, error) in

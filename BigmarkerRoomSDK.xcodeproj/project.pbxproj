@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20072FDB207E3AF7002B17C3 /* NoResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FD9207E3AF7002B17C3 /* NoResultTableViewCell.swift */; };
+		20072FDC207E3AF7002B17C3 /* NoResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FDA207E3AF7002B17C3 /* NoResultTableViewCell.xib */; };
+		20072FDF207E3B09002B17C3 /* QATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FDD207E3B09002B17C3 /* QATableViewCell.swift */; };
+		20072FE0207E3B09002B17C3 /* QATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FDE207E3B09002B17C3 /* QATableViewCell.xib */; };
+		20072FE5207E4232002B17C3 /* QAOpenPollsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FE1207E4232002B17C3 /* QAOpenPollsCell.swift */; };
+		20072FE6207E4232002B17C3 /* QAOpenPollsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FE2207E4232002B17C3 /* QAOpenPollsCell.xib */; };
+		20072FE7207E4232002B17C3 /* QAClosedPollsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FE3207E4232002B17C3 /* QAClosedPollsCell.swift */; };
+		20072FE8207E4232002B17C3 /* QAClosedPollsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FE4207E4232002B17C3 /* QAClosedPollsCell.xib */; };
 		200E5F45205B993C003521DC /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 200E5F2D205B993C003521DC /* MASCompositeConstraint.m */; };
 		200E5F46205B993C003521DC /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 200E5F30205B993C003521DC /* MASConstraint.m */; };
 		200E5F47205B993C003521DC /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 200E5F32205B993C003521DC /* MASConstraintMaker.m */; };
@@ -55,6 +63,25 @@
 		201D6765205D652B000BB6F2 /* UIImageView+HighlightedWebCache.h in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF65205CF4A700D0FED1 /* UIImageView+HighlightedWebCache.h */; };
 		201D6766205D652B000BB6F2 /* UIView+WebCacheOperation.h in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF69205CF4A700D0FED1 /* UIView+WebCacheOperation.h */; };
 		2021B2632061519100E30327 /* BMSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2021B2622061519100E30327 /* BMSDK.bundle */; };
+		2021E7B6207DEEEC0017B6C3 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7AF207DEEEC0017B6C3 /* WMMenuItem.m */; };
+		2021E7B7207DEEEC0017B6C3 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7B1207DEEEC0017B6C3 /* WMMenuView.m */; };
+		2021E7B8207DEEEC0017B6C3 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7B3207DEEEC0017B6C3 /* WMProgressView.m */; };
+		2021E7B9207DEEEC0017B6C3 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7B5207DEEEC0017B6C3 /* WMScrollView.m */; };
+		2021E7BD207DEF450017B6C3 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7BC207DEF450017B6C3 /* WMPageController.m */; };
+		2021E7BE207DEF5C0017B6C3 /* WMPageController.h in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7BB207DEF450017B6C3 /* WMPageController.h */; };
+		2021E7C0207DF7FE0017B6C3 /* BMQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7BF207DF7FE0017B6C3 /* BMQAViewController.swift */; };
+		2021E7C2207DF8070017B6C3 /* BMPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C1207DF8070017B6C3 /* BMPollsViewController.swift */; };
+		2021E7C5207DF8610017B6C3 /* BMPollsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C3207DF8610017B6C3 /* BMPollsViewModel.swift */; };
+		2021E7C6207DF8610017B6C3 /* BMQAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C4207DF8610017B6C3 /* BMQAViewModel.swift */; };
+		2021E7CE207DF8AE0017B6C3 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C7207DF8AE0017B6C3 /* Poll.swift */; };
+		2021E7CF207DF8AE0017B6C3 /* QA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C8207DF8AE0017B6C3 /* QA.swift */; };
+		2021E7D0207DF8AE0017B6C3 /* PollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C9207DF8AE0017B6C3 /* PollChoice.swift */; };
+		2021E7D1207DF8AE0017B6C3 /* PollAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CA207DF8AE0017B6C3 /* PollAnswer.swift */; };
+		2021E7D2207DF8AE0017B6C3 /* PollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CB207DF8AE0017B6C3 /* PollResponse.swift */; };
+		2021E7D3207DF8AE0017B6C3 /* NewPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CC207DF8AE0017B6C3 /* NewPoll.swift */; };
+		2021E7D4207DF8AE0017B6C3 /* NewPollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CD207DF8AE0017B6C3 /* NewPollChoice.swift */; };
+		2021E7D6207DF9010017B6C3 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7D5207DF9010017B6C3 /* StatusView.swift */; };
+		2021E7D8207E00A20017B6C3 /* BMCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7D7207E00A20017B6C3 /* BMCurrentUser.swift */; };
 		202B806B2056A98000C1067C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 202B806A2056A98000C1067C /* MQTTKit */; };
 		202B806F2056A9DC00C1067C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202B806E2056A9DC00C1067C /* libMQTTKit.a */; };
 		203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992BE20564DE20058A8DC /* AppDelegate.swift */; };
@@ -182,6 +209,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		20072FD9207E3AF7002B17C3 /* NoResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultTableViewCell.swift; sourceTree = "<group>"; };
+		20072FDA207E3AF7002B17C3 /* NoResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultTableViewCell.xib; sourceTree = "<group>"; };
+		20072FDD207E3B09002B17C3 /* QATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QATableViewCell.swift; sourceTree = "<group>"; };
+		20072FDE207E3B09002B17C3 /* QATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QATableViewCell.xib; sourceTree = "<group>"; };
+		20072FE1207E4232002B17C3 /* QAOpenPollsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAOpenPollsCell.swift; sourceTree = "<group>"; };
+		20072FE2207E4232002B17C3 /* QAOpenPollsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QAOpenPollsCell.xib; sourceTree = "<group>"; };
+		20072FE3207E4232002B17C3 /* QAClosedPollsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAClosedPollsCell.swift; sourceTree = "<group>"; };
+		20072FE4207E4232002B17C3 /* QAClosedPollsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QAClosedPollsCell.xib; sourceTree = "<group>"; };
 		200E5F2C205B993C003521DC /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		200E5F2D205B993C003521DC /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		200E5F2E205B993C003521DC /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -218,6 +253,29 @@
 		201A8365205C2494006CE5BE /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
 		201A8366205C2494006CE5BE /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		2021B2622061519100E30327 /* BMSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BMSDK.bundle; sourceTree = "<group>"; };
+		2021E7AE207DEEEC0017B6C3 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		2021E7AF207DEEEC0017B6C3 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		2021E7B0207DEEEC0017B6C3 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		2021E7B1207DEEEC0017B6C3 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		2021E7B2207DEEEC0017B6C3 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		2021E7B3207DEEEC0017B6C3 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		2021E7B4207DEEEC0017B6C3 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		2021E7B5207DEEEC0017B6C3 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		2021E7BB207DEF450017B6C3 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		2021E7BC207DEF450017B6C3 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		2021E7BF207DF7FE0017B6C3 /* BMQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMQAViewController.swift; sourceTree = "<group>"; };
+		2021E7C1207DF8070017B6C3 /* BMPollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPollsViewController.swift; sourceTree = "<group>"; };
+		2021E7C3207DF8610017B6C3 /* BMPollsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPollsViewModel.swift; sourceTree = "<group>"; };
+		2021E7C4207DF8610017B6C3 /* BMQAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMQAViewModel.swift; sourceTree = "<group>"; };
+		2021E7C7207DF8AE0017B6C3 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		2021E7C8207DF8AE0017B6C3 /* QA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QA.swift; sourceTree = "<group>"; };
+		2021E7C9207DF8AE0017B6C3 /* PollChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollChoice.swift; sourceTree = "<group>"; };
+		2021E7CA207DF8AE0017B6C3 /* PollAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollAnswer.swift; sourceTree = "<group>"; };
+		2021E7CB207DF8AE0017B6C3 /* PollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollResponse.swift; sourceTree = "<group>"; };
+		2021E7CC207DF8AE0017B6C3 /* NewPoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPoll.swift; sourceTree = "<group>"; };
+		2021E7CD207DF8AE0017B6C3 /* NewPollChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollChoice.swift; sourceTree = "<group>"; };
+		2021E7D5207DF9010017B6C3 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		2021E7D7207E00A20017B6C3 /* BMCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMCurrentUser.swift; sourceTree = "<group>"; };
 		202B806A2056A98000C1067C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		202B806E2056A9DC00C1067C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMQTTKit.a; path = MQTTKit/libMQTTKit.a; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,6 +458,14 @@
 		20191BA12057C16500FD0889 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				20072FE1207E4232002B17C3 /* QAOpenPollsCell.swift */,
+				20072FE2207E4232002B17C3 /* QAOpenPollsCell.xib */,
+				20072FE3207E4232002B17C3 /* QAClosedPollsCell.swift */,
+				20072FE4207E4232002B17C3 /* QAClosedPollsCell.xib */,
+				20072FDD207E3B09002B17C3 /* QATableViewCell.swift */,
+				20072FDE207E3B09002B17C3 /* QATableViewCell.xib */,
+				20072FD9207E3AF7002B17C3 /* NoResultTableViewCell.swift */,
+				20072FDA207E3AF7002B17C3 /* NoResultTableViewCell.xib */,
 				2050B4582069E2C9009714A0 /* AttendeeViewLockedCell.nib */,
 				2050B4592069E2C9009714A0 /* AttendeeViewLockedCell.swift */,
 				2050B45A2069E2C9009714A0 /* AttendeeViewLockedCell.xib */,
@@ -448,6 +514,23 @@
 			path = class;
 			sourceTree = "<group>";
 		};
+		2021E7AD207DEEEC0017B6C3 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				2021E7BB207DEF450017B6C3 /* WMPageController.h */,
+				2021E7BC207DEF450017B6C3 /* WMPageController.m */,
+				2021E7AE207DEEEC0017B6C3 /* WMMenuItem.h */,
+				2021E7AF207DEEEC0017B6C3 /* WMMenuItem.m */,
+				2021E7B0207DEEEC0017B6C3 /* WMMenuView.h */,
+				2021E7B1207DEEEC0017B6C3 /* WMMenuView.m */,
+				2021E7B2207DEEEC0017B6C3 /* WMProgressView.h */,
+				2021E7B3207DEEEC0017B6C3 /* WMProgressView.m */,
+				2021E7B4207DEEEC0017B6C3 /* WMScrollView.h */,
+				2021E7B5207DEEEC0017B6C3 /* WMScrollView.m */,
+			);
+			path = WMMenuView;
+			sourceTree = "<group>";
+		};
 		202B806D2056A9DC00C1067C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +542,7 @@
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				2021E7AD207DEEEC0017B6C3 /* WMMenuView */,
 				2021B2622061519100E30327 /* BMSDK.bundle */,
 				20E5EB572060D996006AD214 /* YTPlayerView */,
 				20FE307A205EAA2300D2EBE6 /* HMSegmentedControl */,
@@ -572,6 +656,8 @@
 			isa = PBXGroup;
 			children = (
 				2050B3F62069DFBB009714A0 /* BMBaseViewController.swift */,
+				2021E7BF207DF7FE0017B6C3 /* BMQAViewController.swift */,
+				2021E7C1207DF8070017B6C3 /* BMPollsViewController.swift */,
 				2050B3F72069DFBB009714A0 /* BMChatListViewController.swift */,
 				2050B3F82069DFBB009714A0 /* BMMessageViewController.swift */,
 				2050B3F92069DFBB009714A0 /* BMPeopleViewController.swift */,
@@ -585,6 +671,16 @@
 		20F252D12056CA9A00339D90 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				2021E7D7207E00A20017B6C3 /* BMCurrentUser.swift */,
+				2021E7C7207DF8AE0017B6C3 /* Poll.swift */,
+				2021E7C8207DF8AE0017B6C3 /* QA.swift */,
+				2021E7C9207DF8AE0017B6C3 /* PollChoice.swift */,
+				2021E7CA207DF8AE0017B6C3 /* PollAnswer.swift */,
+				2021E7CB207DF8AE0017B6C3 /* PollResponse.swift */,
+				2021E7CC207DF8AE0017B6C3 /* NewPoll.swift */,
+				2021E7CD207DF8AE0017B6C3 /* NewPollChoice.swift */,
+				2021E7C3207DF8610017B6C3 /* BMPollsViewModel.swift */,
+				2021E7C4207DF8610017B6C3 /* BMQAViewModel.swift */,
 				2050B4262069E274009714A0 /* ArrayExt.swift */,
 				2050B4272069E274009714A0 /* BigRoomBase.swift */,
 				2050B4282069E274009714A0 /* Channel.swift */,
@@ -618,6 +714,7 @@
 		20F252D22056CAC300339D90 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2021E7D5207DF9010017B6C3 /* StatusView.swift */,
 				2050B4022069E0F5009714A0 /* AudioViewUI.swift */,
 				2050B4032069E0F5009714A0 /* BMNavView.swift */,
 				2050B4042069E0F5009714A0 /* ClubInfoView.swift */,
@@ -718,16 +815,20 @@
 				2050B4772069E2C9009714A0 /* MessageInputView.xib in Resources */,
 				2050B46D2069E2C9009714A0 /* AttendeeViewLockedCell.xib in Resources */,
 				203992C620564DE20058A8DC /* Assets.xcassets in Resources */,
+				20072FE6207E4232002B17C3 /* QAOpenPollsCell.xib in Resources */,
 				2050B4722069E2C9009714A0 /* BMRoomChatMsgCell.nib in Resources */,
 				2050B4752069E2C9009714A0 /* MessageInputView.nib in Resources */,
 				2050B47D2069E2C9009714A0 /* NoVideoCell.xib in Resources */,
 				202B806B2056A98000C1067C /* MQTTKit in Resources */,
+				20072FDC207E3AF7002B17C3 /* NoResultTableViewCell.xib in Resources */,
 				2050B46B2069E2C9009714A0 /* AttendeeViewLockedCell.nib in Resources */,
 				20EEEF46205CEE5F00D0FED1 /* LICENSE in Resources */,
 				2050B47B2069E2C9009714A0 /* NoVideoCell.nib in Resources */,
 				2050B4712069E2C9009714A0 /* BMPersionCell.xib in Resources */,
 				2050B47A2069E2C9009714A0 /* NoChatCell.xib in Resources */,
 				2050B46F2069E2C9009714A0 /* BMPersionCell.nib in Resources */,
+				20072FE8207E4232002B17C3 /* QAClosedPollsCell.xib in Resources */,
+				20072FE0207E3B09002B17C3 /* QATableViewCell.xib in Resources */,
 				2050B4782069E2C9009714A0 /* NoChatCell.nib in Resources */,
 				203992C420564DE20058A8DC /* Main.storyboard in Resources */,
 			);
@@ -740,22 +841,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2021E7BE207DEF5C0017B6C3 /* WMPageController.h in Sources */,
 				20FE307E205EAA2A00D2EBE6 /* HMSegmentedControl.h in Sources */,
+				2021E7C0207DF7FE0017B6C3 /* BMQAViewController.swift in Sources */,
 				2050B4222069E0F5009714A0 /* WhiteBoardColorToolView.swift in Sources */,
 				201D6759205D652B000BB6F2 /* NSData+ImageContentType.h in Sources */,
 				201D675A205D652B000BB6F2 /* SDImageCache.h in Sources */,
 				201D675B205D652B000BB6F2 /* SDWebImageCompat.h in Sources */,
 				2050B41A2069E0F5009714A0 /* MyView.swift in Sources */,
+				2021E7CF207DF8AE0017B6C3 /* QA.swift in Sources */,
 				2050B4232069E0F5009714A0 /* WhiteBoardToolView.swift in Sources */,
+				2021E7B8207DEEEC0017B6C3 /* WMProgressView.m in Sources */,
 				201D675C205D652B000BB6F2 /* SDWebImageDecoder.h in Sources */,
 				201D675D205D652B000BB6F2 /* SDWebImageDownloader.h in Sources */,
+				2021E7B9207DEEEC0017B6C3 /* WMScrollView.m in Sources */,
 				2050B44C2069E274009714A0 /* MemberModel.swift in Sources */,
 				201D675E205D652B000BB6F2 /* SDWebImageDownloaderOperation.h in Sources */,
 				201D675F205D652B000BB6F2 /* SDWebImageManager.h in Sources */,
 				2050B4542069E274009714A0 /* UserInfo.swift in Sources */,
+				2021E7C2207DF8070017B6C3 /* BMPollsViewController.swift in Sources */,
 				2050B4202069E0F5009714A0 /* VideoInfoView.swift in Sources */,
 				201D6760205D652B000BB6F2 /* SDWebImageOperation.h in Sources */,
 				2050B4702069E2C9009714A0 /* BMPersionCell.swift in Sources */,
+				2021E7B7207DEEEC0017B6C3 /* WMMenuView.m in Sources */,
 				201D6761205D652B000BB6F2 /* SDWebImagePrefetcher.h in Sources */,
 				2050B44B2069E274009714A0 /* Member.swift in Sources */,
 				201D6762205D652B000BB6F2 /* UIButton+WebCache.h in Sources */,
@@ -768,6 +876,7 @@
 				2050B4572069E274009714A0 /* WhiteboardDrawModel.swift in Sources */,
 				201D6766205D652B000BB6F2 /* UIView+WebCacheOperation.h in Sources */,
 				20EEEF79205CF4FB00D0FED1 /* UIImageView+WebCache.h in Sources */,
+				2021E7C6207DF8610017B6C3 /* BMQAViewModel.swift in Sources */,
 				201A836A205C249D006CE5BE /* PopoverAction.h in Sources */,
 				2050B4732069E2C9009714A0 /* BMRoomChatMsgCell.swift in Sources */,
 				2050B41C2069E0F5009714A0 /* ScreenShareView.swift in Sources */,
@@ -794,6 +903,7 @@
 				20EEEF6D205CF4A700D0FED1 /* SDWebImageCompat.m in Sources */,
 				20EEEF6F205CF4A700D0FED1 /* SDWebImageDownloader.m in Sources */,
 				2050B44D2069E274009714A0 /* Message.swift in Sources */,
+				2021E7BD207DEF450017B6C3 /* WMPageController.m in Sources */,
 				2050B4192069E0F5009714A0 /* MP4VideoView.swift in Sources */,
 				20EEEF48205CEE5F00D0FED1 /* README.mdown in Sources */,
 				2050B4252069E0F5009714A0 /* YouTubeVideoView.swift in Sources */,
@@ -808,21 +918,28 @@
 				2050B4792069E2C9009714A0 /* NoChatCell.swift in Sources */,
 				2050B4432069E274009714A0 /* ClubProfile.swift in Sources */,
 				201A8368205C2494006CE5BE /* PopoverView.m in Sources */,
+				2021E7C5207DF8610017B6C3 /* BMPollsViewModel.swift in Sources */,
+				2021E7D1207DF8AE0017B6C3 /* PollAnswer.swift in Sources */,
 				200E5F56205B9950003521DC /* MASViewAttribute.h in Sources */,
+				20072FDB207E3AF7002B17C3 /* NoResultTableViewCell.swift in Sources */,
 				200E5F57205B9950003521DC /* MASViewConstraint.h in Sources */,
 				200E5F58205B9950003521DC /* NSArray+MASAdditions.h in Sources */,
+				2021E7D0207DF8AE0017B6C3 /* PollChoice.swift in Sources */,
 				2050B4152069E0F5009714A0 /* BMNavView.swift in Sources */,
 				200E5F59205B9950003521DC /* NSArray+MASShorthandAdditions.h in Sources */,
 				20FE307D205EAA2300D2EBE6 /* HMSegmentedControl.m in Sources */,
 				2050B3FD2069DFBB009714A0 /* BMChatListViewController.swift in Sources */,
 				200E5F5A205B9950003521DC /* NSLayoutConstraint+MASDebugAdditions.h in Sources */,
 				200E5F5B205B9950003521DC /* View+MASAdditions.h in Sources */,
+				2021E7D2207DF8AE0017B6C3 /* PollResponse.swift in Sources */,
 				2050B44F2069E274009714A0 /* Presenter.swift in Sources */,
 				200E5F5C205B9950003521DC /* View+MASShorthandAdditions.h in Sources */,
 				200E5F5D205B9950003521DC /* ViewController+MASAdditions.h in Sources */,
 				200E5F48205B993C003521DC /* MASLayoutConstraint.m in Sources */,
+				2021E7D6207DF9010017B6C3 /* StatusView.swift in Sources */,
 				200E5F45205B993C003521DC /* MASCompositeConstraint.m in Sources */,
 				2050B44E2069E274009714A0 /* NetworkTools.swift in Sources */,
+				20072FE5207E4232002B17C3 /* QAOpenPollsCell.swift in Sources */,
 				200E5F46205B993C003521DC /* MASConstraint.m in Sources */,
 				2050B41F2069E0F5009714A0 /* VideoBottomUserInfoView.swift in Sources */,
 				200E5F49205B993C003521DC /* MASViewAttribute.m in Sources */,
@@ -830,8 +947,10 @@
 				2050B4482069E274009714A0 /* DrawColorModel.swift in Sources */,
 				200E5F47205B993C003521DC /* MASConstraintMaker.m in Sources */,
 				20EEEF71205CF4A700D0FED1 /* SDWebImageManager.m in Sources */,
+				2021E7D3207DF8AE0017B6C3 /* NewPoll.swift in Sources */,
 				2050B4562069E274009714A0 /* VideoUserInfo.swift in Sources */,
 				2050B4492069E274009714A0 /* DrawPositionModel.swift in Sources */,
+				2021E7D4207DF8AE0017B6C3 /* NewPollChoice.swift in Sources */,
 				20EEEF3F205CEDC300D0FED1 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				2050B3FC2069DFBB009714A0 /* BMBaseViewController.swift in Sources */,
 				201A8367205C2494006CE5BE /* PopoverAction.m in Sources */,
@@ -840,9 +959,11 @@
 				20EEEF40205CEDC300D0FED1 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				2050B4762069E2C9009714A0 /* MessageInputView.swift in Sources */,
 				20EEEF47205CEE5F00D0FED1 /* MBProgressHUD.m in Sources */,
+				20072FE7207E4232002B17C3 /* QAClosedPollsCell.swift in Sources */,
 				2050B4552069E274009714A0 /* VideoInfo.swift in Sources */,
 				20EEEF77205CF4A700D0FED1 /* UIImageView+WebCache.m in Sources */,
 				200E5F4D205B993C003521DC /* View+MASAdditions.m in Sources */,
+				2021E7CE207DF8AE0017B6C3 /* Poll.swift in Sources */,
 				2050B4522069E274009714A0 /* RoomInfo.swift in Sources */,
 				2050B4512069E274009714A0 /* Room.swift in Sources */,
 				2050B4242069E0F5009714A0 /* WhiteBoardView.swift in Sources */,
@@ -851,6 +972,7 @@
 				20EEEF6B205CF4A700D0FED1 /* NSData+ImageContentType.m in Sources */,
 				2050B44A2069E274009714A0 /* DrawSizeModel.swift in Sources */,
 				200E5F4B205B993C003521DC /* NSArray+MASAdditions.m in Sources */,
+				2021E7B6207DEEEC0017B6C3 /* WMMenuItem.m in Sources */,
 				2050B4412069E274009714A0 /* Channel.swift in Sources */,
 				20EEEF76205CF4A700D0FED1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				2050B4012069DFBB009714A0 /* BMVideoViewController.swift in Sources */,
@@ -858,9 +980,11 @@
 				2050B4402069E274009714A0 /* BigRoomBase.swift in Sources */,
 				20EEEF74205CF4A700D0FED1 /* UIImage+GIF.m in Sources */,
 				200E5F4C205B993C003521DC /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				2021E7D8207E00A20017B6C3 /* BMCurrentUser.swift in Sources */,
 				20EEEF78205CF4A700D0FED1 /* UIView+WebCacheOperation.m in Sources */,
 				2050B4452069E274009714A0 /* Conference.swift in Sources */,
 				200E5F4E205B993C003521DC /* ViewController+MASAdditions.m in Sources */,
+				20072FDF207E3B09002B17C3 /* QATableViewCell.swift in Sources */,
 				20EEEF6C205CF4A700D0FED1 /* SDImageCache.m in Sources */,
 				203992C120564DE20058A8DC /* ViewController.swift in Sources */,
 				2050B4142069E0F5009714A0 /* AudioViewUI.swift in Sources */,
