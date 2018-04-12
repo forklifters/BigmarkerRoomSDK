@@ -120,7 +120,9 @@ class BMMessageController:  WMPageController {
     
     override func pageController(_ pageController: WMPageController, viewControllerAt index: Int) -> UIViewController {
         if index == 0 {
-            return BMChatListViewController(frame: CGRect.zero, bm: self.bm, conference: self.conference)
+            let chatViewController = BMChatListViewController(frame: CGRect.zero, bm: self.bm, conference: self.conference)
+            (self.tabBarController as! BMTabBarController).bmroomChatDelegate = chatViewController
+            return chatViewController
         }else if index == 1{
             return BMPeopleViewController(frame: CGRect.zero, bm: self.bm, conference: self.conference)
         }else if index == 2{

@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/BMRoom.h</key>
+		<data>
+		RLXmsuyfyKdw9DVmwXS1WJle7xI=
+		</data>
 		<key>Headers/BMroomSDK.h</key>
 		<data>
 		sUoZ1AtvrhCRaFFh9QlJbIMI9aU=
@@ -19,6 +23,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/BMRoom.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RLXmsuyfyKdw9DVmwXS1WJle7xI=
+			</data>
+			<key>hash2</key>
+			<data>
+			U36osokafSRwvTfZZdsrBOjvkG7eHSQL4ypfpYq7vzk=
+			</data>
+		</dict>
 		<key>Headers/BMroomSDK.h</key>
 		<dict>
 			<key>hash</key>
