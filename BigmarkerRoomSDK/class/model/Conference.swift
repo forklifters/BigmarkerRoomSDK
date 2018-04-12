@@ -681,7 +681,7 @@ public class Conference: NSObject {
         //2d4f759e712412097a0e1f03c5aaea623a57ad750b3fc0b17ebd63d25ae1f54e
         print(urlString)
 
-        NetworkTools.requestData(type: .GET, URLString: urlString, parameters: nil) { (result) in
+        NetworkTools.requestDatas(type: .GET, URLString: urlString, parameters: nil) { (result) in
             
             guard let dict = result as? NSDictionary else {
                 finishedCallback(nil)

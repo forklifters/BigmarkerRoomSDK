@@ -18,4 +18,5 @@
 #import "HMSegmentedControl.h"
 #import "YTPlayerView.h"
 #import "WMPageController.h"
+#import "AFNetworking.h"
 

@@ -7,14 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20072FDB207E3AF7002B17C3 /* NoResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FD9207E3AF7002B17C3 /* NoResultTableViewCell.swift */; };
-		20072FDC207E3AF7002B17C3 /* NoResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FDA207E3AF7002B17C3 /* NoResultTableViewCell.xib */; };
-		20072FDF207E3B09002B17C3 /* QATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FDD207E3B09002B17C3 /* QATableViewCell.swift */; };
-		20072FE0207E3B09002B17C3 /* QATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FDE207E3B09002B17C3 /* QATableViewCell.xib */; };
-		20072FE5207E4232002B17C3 /* QAOpenPollsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FE1207E4232002B17C3 /* QAOpenPollsCell.swift */; };
-		20072FE6207E4232002B17C3 /* QAOpenPollsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FE2207E4232002B17C3 /* QAOpenPollsCell.xib */; };
-		20072FE7207E4232002B17C3 /* QAClosedPollsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FE3207E4232002B17C3 /* QAClosedPollsCell.swift */; };
-		20072FE8207E4232002B17C3 /* QAClosedPollsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20072FE4207E4232002B17C3 /* QAClosedPollsCell.xib */; };
+		20072FEB207E5AC9002B17C3 /* BMPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FE9207E5AC9002B17C3 /* BMPollsViewController.swift */; };
+		20072FEC207E5AC9002B17C3 /* BMQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072FEA207E5AC9002B17C3 /* BMQAViewController.swift */; };
+		2007309C207E5C00002B17C3 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073079207E5C00002B17C3 /* ArrayExt.swift */; };
+		2007309D207E5C00002B17C3 /* BigRoomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007307A207E5C00002B17C3 /* BigRoomBase.swift */; };
+		2007309E207E5C00002B17C3 /* BMCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007307B207E5C00002B17C3 /* BMCurrentUser.swift */; };
+		2007309F207E5C00002B17C3 /* BMPollsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007307C207E5C00002B17C3 /* BMPollsViewModel.swift */; };
+		200730A0207E5C00002B17C3 /* BMQAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007307D207E5C00002B17C3 /* BMQAViewModel.swift */; };
+		200730A1207E5C00002B17C3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007307E207E5C00002B17C3 /* Channel.swift */; };
+		200730A2207E5C00002B17C3 /* ClubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007307F207E5C00002B17C3 /* ClubInfo.swift */; };
+		200730A3207E5C00002B17C3 /* ClubProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073080207E5C00002B17C3 /* ClubProfile.swift */; };
+		200730A4207E5C00002B17C3 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073081207E5C00002B17C3 /* Community.swift */; };
+		200730A5207E5C00002B17C3 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073082207E5C00002B17C3 /* Conference.swift */; };
+		200730A6207E5C00002B17C3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073083207E5C00002B17C3 /* Constant.swift */; };
+		200730A7207E5C00002B17C3 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073084207E5C00002B17C3 /* CoordinateModel.swift */; };
+		200730A8207E5C00002B17C3 /* DrawColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073085207E5C00002B17C3 /* DrawColorModel.swift */; };
+		200730A9207E5C00002B17C3 /* DrawPositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073086207E5C00002B17C3 /* DrawPositionModel.swift */; };
+		200730AA207E5C00002B17C3 /* DrawSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073087207E5C00002B17C3 /* DrawSizeModel.swift */; };
+		200730AB207E5C00002B17C3 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073088207E5C00002B17C3 /* Member.swift */; };
+		200730AC207E5C00002B17C3 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073089207E5C00002B17C3 /* MemberModel.swift */; };
+		200730AD207E5C00002B17C3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007308A207E5C00002B17C3 /* Message.swift */; };
+		200730AE207E5C00002B17C3 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007308B207E5C00002B17C3 /* NetworkTools.swift */; };
+		200730AF207E5C00002B17C3 /* NewPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007308C207E5C00002B17C3 /* NewPoll.swift */; };
+		200730B0207E5C00002B17C3 /* NewPollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007308D207E5C00002B17C3 /* NewPollChoice.swift */; };
+		200730B1207E5C00002B17C3 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007308E207E5C00002B17C3 /* Poll.swift */; };
+		200730B2207E5C00002B17C3 /* PollAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007308F207E5C00002B17C3 /* PollAnswer.swift */; };
+		200730B3207E5C00002B17C3 /* PollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073090207E5C00002B17C3 /* PollChoice.swift */; };
+		200730B4207E5C00002B17C3 /* PollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073091207E5C00002B17C3 /* PollResponse.swift */; };
+		200730B5207E5C00002B17C3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073092207E5C00002B17C3 /* Presenter.swift */; };
+		200730B6207E5C00002B17C3 /* QA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073093207E5C00002B17C3 /* QA.swift */; };
+		200730B7207E5C00002B17C3 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073094207E5C00002B17C3 /* Register.swift */; };
+		200730B8207E5C00002B17C3 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073095207E5C00002B17C3 /* Room.swift */; };
+		200730B9207E5C00002B17C3 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073096207E5C00002B17C3 /* RoomInfo.swift */; };
+		200730BA207E5C00002B17C3 /* ToolHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073097207E5C00002B17C3 /* ToolHelper.swift */; };
+		200730BB207E5C00002B17C3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073098207E5C00002B17C3 /* UserInfo.swift */; };
+		200730BC207E5C00002B17C3 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20073099207E5C00002B17C3 /* VideoInfo.swift */; };
+		200730BD207E5C00002B17C3 /* VideoUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007309A207E5C00002B17C3 /* VideoUserInfo.swift */; };
+		200730BE207E5C00002B17C3 /* WhiteboardDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007309B207E5C00002B17C3 /* WhiteboardDrawModel.swift */; };
+		200730C0207E5C10002B17C3 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730BF207E5C10002B17C3 /* StatusView.swift */; };
+		200730DC207E5C28002B17C3 /* AttendeeViewLockedCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200730C1207E5C28002B17C3 /* AttendeeViewLockedCell.nib */; };
+		200730DD207E5C28002B17C3 /* AttendeeViewLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730C2207E5C28002B17C3 /* AttendeeViewLockedCell.swift */; };
+		200730DE207E5C28002B17C3 /* AttendeeViewLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730C3207E5C28002B17C3 /* AttendeeViewLockedCell.xib */; };
+		200730DF207E5C28002B17C3 /* AudioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730C4207E5C28002B17C3 /* AudioViewCell.swift */; };
+		200730E0207E5C28002B17C3 /* BMPersionCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200730C5207E5C28002B17C3 /* BMPersionCell.nib */; };
+		200730E1207E5C28002B17C3 /* BMPersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730C6207E5C28002B17C3 /* BMPersionCell.swift */; };
+		200730E2207E5C28002B17C3 /* BMPersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730C7207E5C28002B17C3 /* BMPersionCell.xib */; };
+		200730E3207E5C28002B17C3 /* BMRoomChatMsgCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200730C8207E5C28002B17C3 /* BMRoomChatMsgCell.nib */; };
+		200730E4207E5C28002B17C3 /* BMRoomChatMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730C9207E5C28002B17C3 /* BMRoomChatMsgCell.swift */; };
+		200730E5207E5C28002B17C3 /* BMRoomChatMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730CA207E5C28002B17C3 /* BMRoomChatMsgCell.xib */; };
+		200730E6207E5C28002B17C3 /* MessageInputView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200730CB207E5C28002B17C3 /* MessageInputView.nib */; };
+		200730E7207E5C28002B17C3 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730CC207E5C28002B17C3 /* MessageInputView.swift */; };
+		200730E8207E5C28002B17C3 /* MessageInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730CD207E5C28002B17C3 /* MessageInputView.xib */; };
+		200730E9207E5C28002B17C3 /* NoChatCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200730CE207E5C28002B17C3 /* NoChatCell.nib */; };
+		200730EA207E5C28002B17C3 /* NoChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730CF207E5C28002B17C3 /* NoChatCell.swift */; };
+		200730EB207E5C28002B17C3 /* NoChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730D0207E5C28002B17C3 /* NoChatCell.xib */; };
+		200730EC207E5C28002B17C3 /* NoResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730D1207E5C28002B17C3 /* NoResultTableViewCell.swift */; };
+		200730ED207E5C28002B17C3 /* NoResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730D2207E5C28002B17C3 /* NoResultTableViewCell.xib */; };
+		200730EE207E5C28002B17C3 /* NoVideoCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200730D3207E5C28002B17C3 /* NoVideoCell.nib */; };
+		200730EF207E5C28002B17C3 /* NoVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730D4207E5C28002B17C3 /* NoVideoCell.swift */; };
+		200730F0207E5C28002B17C3 /* NoVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730D5207E5C28002B17C3 /* NoVideoCell.xib */; };
+		200730F1207E5C28002B17C3 /* ClosedPollsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730D6207E5C28002B17C3 /* ClosedPollsCell.swift */; };
+		200730F2207E5C28002B17C3 /* ClosedPollsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730D7207E5C28002B17C3 /* ClosedPollsCell.xib */; };
+		200730F3207E5C28002B17C3 /* OpenPollsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730D8207E5C28002B17C3 /* OpenPollsCell.swift */; };
+		200730F4207E5C28002B17C3 /* OpenPollsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730D9207E5C28002B17C3 /* OpenPollsCell.xib */; };
+		200730F5207E5C28002B17C3 /* QATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200730DA207E5C28002B17C3 /* QATableViewCell.swift */; };
+		200730F6207E5C28002B17C3 /* QATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200730DB207E5C28002B17C3 /* QATableViewCell.xib */; };
+		200DD0CB207E68F20030FD1A /* NoResultTableViewCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 200DD0C7207E68F20030FD1A /* NoResultTableViewCell.nib */; };
+		200DD0F9207E71AC0030FD1A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0D2207E71AC0030FD1A /* AFHTTPRequestOperation.m */; };
+		200DD0FA207E71AC0030FD1A /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0D4207E71AC0030FD1A /* AFHTTPRequestOperationManager.m */; };
+		200DD0FB207E71AC0030FD1A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0D6207E71AC0030FD1A /* AFHTTPSessionManager.m */; };
+		200DD0FC207E71AC0030FD1A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0D9207E71AC0030FD1A /* AFNetworkReachabilityManager.m */; };
+		200DD0FD207E71AC0030FD1A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0DB207E71AC0030FD1A /* AFSecurityPolicy.m */; };
+		200DD0FE207E71AC0030FD1A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0DD207E71AC0030FD1A /* AFURLConnectionOperation.m */; };
+		200DD0FF207E71AC0030FD1A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0DF207E71AC0030FD1A /* AFURLRequestSerialization.m */; };
+		200DD100207E71AC0030FD1A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0E1207E71AC0030FD1A /* AFURLResponseSerialization.m */; };
+		200DD101207E71AC0030FD1A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0E3207E71AC0030FD1A /* AFURLSessionManager.m */; };
+		200DD102207E71AC0030FD1A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 200DD0E4207E71AC0030FD1A /* LICENSE */; };
+		200DD103207E71AC0030FD1A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0E5207E71AC0030FD1A /* README.md */; };
+		200DD104207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0E8207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.m */; };
+		200DD105207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0EA207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.m */; };
+		200DD106207E71AC0030FD1A /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0EC207E71AC0030FD1A /* UIAlertView+AFNetworking.m */; };
+		200DD107207E71AC0030FD1A /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0EE207E71AC0030FD1A /* UIButton+AFNetworking.m */; };
+		200DD108207E71AC0030FD1A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0F1207E71AC0030FD1A /* UIImageView+AFNetworking.m */; };
+		200DD109207E71AC0030FD1A /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0F4207E71AC0030FD1A /* UIProgressView+AFNetworking.m */; };
+		200DD10A207E71AC0030FD1A /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0F6207E71AC0030FD1A /* UIRefreshControl+AFNetworking.m */; };
+		200DD10B207E71AC0030FD1A /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 200DD0F8207E71AC0030FD1A /* UIWebView+AFNetworking.m */; };
 		200E5F45205B993C003521DC /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 200E5F2D205B993C003521DC /* MASCompositeConstraint.m */; };
 		200E5F46205B993C003521DC /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 200E5F30205B993C003521DC /* MASConstraint.m */; };
 		200E5F47205B993C003521DC /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 200E5F32205B993C003521DC /* MASConstraintMaker.m */; };
@@ -69,19 +146,6 @@
 		2021E7B9207DEEEC0017B6C3 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7B5207DEEEC0017B6C3 /* WMScrollView.m */; };
 		2021E7BD207DEF450017B6C3 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7BC207DEF450017B6C3 /* WMPageController.m */; };
 		2021E7BE207DEF5C0017B6C3 /* WMPageController.h in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7BB207DEF450017B6C3 /* WMPageController.h */; };
-		2021E7C0207DF7FE0017B6C3 /* BMQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7BF207DF7FE0017B6C3 /* BMQAViewController.swift */; };
-		2021E7C2207DF8070017B6C3 /* BMPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C1207DF8070017B6C3 /* BMPollsViewController.swift */; };
-		2021E7C5207DF8610017B6C3 /* BMPollsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C3207DF8610017B6C3 /* BMPollsViewModel.swift */; };
-		2021E7C6207DF8610017B6C3 /* BMQAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C4207DF8610017B6C3 /* BMQAViewModel.swift */; };
-		2021E7CE207DF8AE0017B6C3 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C7207DF8AE0017B6C3 /* Poll.swift */; };
-		2021E7CF207DF8AE0017B6C3 /* QA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C8207DF8AE0017B6C3 /* QA.swift */; };
-		2021E7D0207DF8AE0017B6C3 /* PollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7C9207DF8AE0017B6C3 /* PollChoice.swift */; };
-		2021E7D1207DF8AE0017B6C3 /* PollAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CA207DF8AE0017B6C3 /* PollAnswer.swift */; };
-		2021E7D2207DF8AE0017B6C3 /* PollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CB207DF8AE0017B6C3 /* PollResponse.swift */; };
-		2021E7D3207DF8AE0017B6C3 /* NewPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CC207DF8AE0017B6C3 /* NewPoll.swift */; };
-		2021E7D4207DF8AE0017B6C3 /* NewPollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7CD207DF8AE0017B6C3 /* NewPollChoice.swift */; };
-		2021E7D6207DF9010017B6C3 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7D5207DF9010017B6C3 /* StatusView.swift */; };
-		2021E7D8207E00A20017B6C3 /* BMCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021E7D7207E00A20017B6C3 /* BMCurrentUser.swift */; };
 		202B806B2056A98000C1067C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 202B806A2056A98000C1067C /* MQTTKit */; };
 		202B806F2056A9DC00C1067C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202B806E2056A9DC00C1067C /* libMQTTKit.a */; };
 		203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203992BE20564DE20058A8DC /* AppDelegate.swift */; };
@@ -115,50 +179,6 @@
 		2050B4232069E0F5009714A0 /* WhiteBoardToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4112069E0F5009714A0 /* WhiteBoardToolView.swift */; };
 		2050B4242069E0F5009714A0 /* WhiteBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4122069E0F5009714A0 /* WhiteBoardView.swift */; };
 		2050B4252069E0F5009714A0 /* YouTubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4132069E0F5009714A0 /* YouTubeVideoView.swift */; };
-		2050B43F2069E274009714A0 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4262069E274009714A0 /* ArrayExt.swift */; };
-		2050B4402069E274009714A0 /* BigRoomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4272069E274009714A0 /* BigRoomBase.swift */; };
-		2050B4412069E274009714A0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4282069E274009714A0 /* Channel.swift */; };
-		2050B4422069E274009714A0 /* ClubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4292069E274009714A0 /* ClubInfo.swift */; };
-		2050B4432069E274009714A0 /* ClubProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B42A2069E274009714A0 /* ClubProfile.swift */; };
-		2050B4442069E274009714A0 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B42B2069E274009714A0 /* Community.swift */; };
-		2050B4452069E274009714A0 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B42C2069E274009714A0 /* Conference.swift */; };
-		2050B4462069E274009714A0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B42D2069E274009714A0 /* Constant.swift */; };
-		2050B4472069E274009714A0 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B42E2069E274009714A0 /* CoordinateModel.swift */; };
-		2050B4482069E274009714A0 /* DrawColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B42F2069E274009714A0 /* DrawColorModel.swift */; };
-		2050B4492069E274009714A0 /* DrawPositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4302069E274009714A0 /* DrawPositionModel.swift */; };
-		2050B44A2069E274009714A0 /* DrawSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4312069E274009714A0 /* DrawSizeModel.swift */; };
-		2050B44B2069E274009714A0 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4322069E274009714A0 /* Member.swift */; };
-		2050B44C2069E274009714A0 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4332069E274009714A0 /* MemberModel.swift */; };
-		2050B44D2069E274009714A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4342069E274009714A0 /* Message.swift */; };
-		2050B44E2069E274009714A0 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4352069E274009714A0 /* NetworkTools.swift */; };
-		2050B44F2069E274009714A0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4362069E274009714A0 /* Presenter.swift */; };
-		2050B4502069E274009714A0 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4372069E274009714A0 /* Register.swift */; };
-		2050B4512069E274009714A0 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4382069E274009714A0 /* Room.swift */; };
-		2050B4522069E274009714A0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4392069E274009714A0 /* RoomInfo.swift */; };
-		2050B4532069E274009714A0 /* ToolHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B43A2069E274009714A0 /* ToolHelper.swift */; };
-		2050B4542069E274009714A0 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B43B2069E274009714A0 /* UserInfo.swift */; };
-		2050B4552069E274009714A0 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B43C2069E274009714A0 /* VideoInfo.swift */; };
-		2050B4562069E274009714A0 /* VideoUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B43D2069E274009714A0 /* VideoUserInfo.swift */; };
-		2050B4572069E274009714A0 /* WhiteboardDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B43E2069E274009714A0 /* WhiteboardDrawModel.swift */; };
-		2050B46B2069E2C9009714A0 /* AttendeeViewLockedCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4582069E2C9009714A0 /* AttendeeViewLockedCell.nib */; };
-		2050B46C2069E2C9009714A0 /* AttendeeViewLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4592069E2C9009714A0 /* AttendeeViewLockedCell.swift */; };
-		2050B46D2069E2C9009714A0 /* AttendeeViewLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B45A2069E2C9009714A0 /* AttendeeViewLockedCell.xib */; };
-		2050B46E2069E2C9009714A0 /* AudioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B45B2069E2C9009714A0 /* AudioViewCell.swift */; };
-		2050B46F2069E2C9009714A0 /* BMPersionCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B45C2069E2C9009714A0 /* BMPersionCell.nib */; };
-		2050B4702069E2C9009714A0 /* BMPersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B45D2069E2C9009714A0 /* BMPersionCell.swift */; };
-		2050B4712069E2C9009714A0 /* BMPersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B45E2069E2C9009714A0 /* BMPersionCell.xib */; };
-		2050B4722069E2C9009714A0 /* BMRoomChatMsgCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B45F2069E2C9009714A0 /* BMRoomChatMsgCell.nib */; };
-		2050B4732069E2C9009714A0 /* BMRoomChatMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4602069E2C9009714A0 /* BMRoomChatMsgCell.swift */; };
-		2050B4742069E2C9009714A0 /* BMRoomChatMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4612069E2C9009714A0 /* BMRoomChatMsgCell.xib */; };
-		2050B4752069E2C9009714A0 /* MessageInputView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4622069E2C9009714A0 /* MessageInputView.nib */; };
-		2050B4762069E2C9009714A0 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4632069E2C9009714A0 /* MessageInputView.swift */; };
-		2050B4772069E2C9009714A0 /* MessageInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4642069E2C9009714A0 /* MessageInputView.xib */; };
-		2050B4782069E2C9009714A0 /* NoChatCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4652069E2C9009714A0 /* NoChatCell.nib */; };
-		2050B4792069E2C9009714A0 /* NoChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4662069E2C9009714A0 /* NoChatCell.swift */; };
-		2050B47A2069E2C9009714A0 /* NoChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4672069E2C9009714A0 /* NoChatCell.xib */; };
-		2050B47B2069E2C9009714A0 /* NoVideoCell.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B4682069E2C9009714A0 /* NoVideoCell.nib */; };
-		2050B47C2069E2C9009714A0 /* NoVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050B4692069E2C9009714A0 /* NoVideoCell.swift */; };
-		2050B47D2069E2C9009714A0 /* NoVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2050B46A2069E2C9009714A0 /* NoVideoCell.xib */; };
 		20E5EB5A2060D996006AD214 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E5EB592060D996006AD214 /* YTPlayerView.m */; };
 		20EEEF3F205CEDC300D0FED1 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF3C205CEDC300D0FED1 /* UIScrollView+SVInfiniteScrolling.m */; };
 		20EEEF40205CEDC300D0FED1 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEF3E205CEDC300D0FED1 /* UIScrollView+SVPullToRefresh.m */; };
@@ -209,14 +229,111 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		20072FD9207E3AF7002B17C3 /* NoResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultTableViewCell.swift; sourceTree = "<group>"; };
-		20072FDA207E3AF7002B17C3 /* NoResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultTableViewCell.xib; sourceTree = "<group>"; };
-		20072FDD207E3B09002B17C3 /* QATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QATableViewCell.swift; sourceTree = "<group>"; };
-		20072FDE207E3B09002B17C3 /* QATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QATableViewCell.xib; sourceTree = "<group>"; };
-		20072FE1207E4232002B17C3 /* QAOpenPollsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAOpenPollsCell.swift; sourceTree = "<group>"; };
-		20072FE2207E4232002B17C3 /* QAOpenPollsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QAOpenPollsCell.xib; sourceTree = "<group>"; };
-		20072FE3207E4232002B17C3 /* QAClosedPollsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAClosedPollsCell.swift; sourceTree = "<group>"; };
-		20072FE4207E4232002B17C3 /* QAClosedPollsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QAClosedPollsCell.xib; sourceTree = "<group>"; };
+		20072FE9207E5AC9002B17C3 /* BMPollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMPollsViewController.swift; path = class/controller/BMPollsViewController.swift; sourceTree = "<group>"; };
+		20072FEA207E5AC9002B17C3 /* BMQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMQAViewController.swift; path = class/controller/BMQAViewController.swift; sourceTree = "<group>"; };
+		20073079207E5C00002B17C3 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExt.swift; path = class/model/ArrayExt.swift; sourceTree = "<group>"; };
+		2007307A207E5C00002B17C3 /* BigRoomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BigRoomBase.swift; path = class/model/BigRoomBase.swift; sourceTree = "<group>"; };
+		2007307B207E5C00002B17C3 /* BMCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMCurrentUser.swift; path = class/model/BMCurrentUser.swift; sourceTree = "<group>"; };
+		2007307C207E5C00002B17C3 /* BMPollsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMPollsViewModel.swift; path = class/model/BMPollsViewModel.swift; sourceTree = "<group>"; };
+		2007307D207E5C00002B17C3 /* BMQAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMQAViewModel.swift; path = class/model/BMQAViewModel.swift; sourceTree = "<group>"; };
+		2007307E207E5C00002B17C3 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = class/model/Channel.swift; sourceTree = "<group>"; };
+		2007307F207E5C00002B17C3 /* ClubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClubInfo.swift; path = class/model/ClubInfo.swift; sourceTree = "<group>"; };
+		20073080207E5C00002B17C3 /* ClubProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClubProfile.swift; path = class/model/ClubProfile.swift; sourceTree = "<group>"; };
+		20073081207E5C00002B17C3 /* Community.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Community.swift; path = class/model/Community.swift; sourceTree = "<group>"; };
+		20073082207E5C00002B17C3 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conference.swift; path = class/model/Conference.swift; sourceTree = "<group>"; };
+		20073083207E5C00002B17C3 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = class/model/Constant.swift; sourceTree = "<group>"; };
+		20073084207E5C00002B17C3 /* CoordinateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinateModel.swift; path = class/model/CoordinateModel.swift; sourceTree = "<group>"; };
+		20073085207E5C00002B17C3 /* DrawColorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawColorModel.swift; path = class/model/DrawColorModel.swift; sourceTree = "<group>"; };
+		20073086207E5C00002B17C3 /* DrawPositionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawPositionModel.swift; path = class/model/DrawPositionModel.swift; sourceTree = "<group>"; };
+		20073087207E5C00002B17C3 /* DrawSizeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawSizeModel.swift; path = class/model/DrawSizeModel.swift; sourceTree = "<group>"; };
+		20073088207E5C00002B17C3 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Member.swift; path = class/model/Member.swift; sourceTree = "<group>"; };
+		20073089207E5C00002B17C3 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberModel.swift; path = class/model/MemberModel.swift; sourceTree = "<group>"; };
+		2007308A207E5C00002B17C3 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = class/model/Message.swift; sourceTree = "<group>"; };
+		2007308B207E5C00002B17C3 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTools.swift; path = class/model/NetworkTools.swift; sourceTree = "<group>"; };
+		2007308C207E5C00002B17C3 /* NewPoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPoll.swift; path = class/model/NewPoll.swift; sourceTree = "<group>"; };
+		2007308D207E5C00002B17C3 /* NewPollChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPollChoice.swift; path = class/model/NewPollChoice.swift; sourceTree = "<group>"; };
+		2007308E207E5C00002B17C3 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Poll.swift; path = class/model/Poll.swift; sourceTree = "<group>"; };
+		2007308F207E5C00002B17C3 /* PollAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollAnswer.swift; path = class/model/PollAnswer.swift; sourceTree = "<group>"; };
+		20073090207E5C00002B17C3 /* PollChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollChoice.swift; path = class/model/PollChoice.swift; sourceTree = "<group>"; };
+		20073091207E5C00002B17C3 /* PollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollResponse.swift; path = class/model/PollResponse.swift; sourceTree = "<group>"; };
+		20073092207E5C00002B17C3 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Presenter.swift; path = class/model/Presenter.swift; sourceTree = "<group>"; };
+		20073093207E5C00002B17C3 /* QA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QA.swift; path = class/model/QA.swift; sourceTree = "<group>"; };
+		20073094207E5C00002B17C3 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register.swift; path = class/model/Register.swift; sourceTree = "<group>"; };
+		20073095207E5C00002B17C3 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Room.swift; path = class/model/Room.swift; sourceTree = "<group>"; };
+		20073096207E5C00002B17C3 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoomInfo.swift; path = class/model/RoomInfo.swift; sourceTree = "<group>"; };
+		20073097207E5C00002B17C3 /* ToolHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToolHelper.swift; path = class/model/ToolHelper.swift; sourceTree = "<group>"; };
+		20073098207E5C00002B17C3 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = class/model/UserInfo.swift; sourceTree = "<group>"; };
+		20073099207E5C00002B17C3 /* VideoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoInfo.swift; path = class/model/VideoInfo.swift; sourceTree = "<group>"; };
+		2007309A207E5C00002B17C3 /* VideoUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoUserInfo.swift; path = class/model/VideoUserInfo.swift; sourceTree = "<group>"; };
+		2007309B207E5C00002B17C3 /* WhiteboardDrawModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteboardDrawModel.swift; path = class/model/WhiteboardDrawModel.swift; sourceTree = "<group>"; };
+		200730BF207E5C10002B17C3 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusView.swift; path = class/view/StatusView.swift; sourceTree = "<group>"; };
+		200730C1207E5C28002B17C3 /* AttendeeViewLockedCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = AttendeeViewLockedCell.nib; path = class/cell/AttendeeViewLockedCell.nib; sourceTree = "<group>"; };
+		200730C2207E5C28002B17C3 /* AttendeeViewLockedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendeeViewLockedCell.swift; path = class/cell/AttendeeViewLockedCell.swift; sourceTree = "<group>"; };
+		200730C3207E5C28002B17C3 /* AttendeeViewLockedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AttendeeViewLockedCell.xib; path = class/cell/AttendeeViewLockedCell.xib; sourceTree = "<group>"; };
+		200730C4207E5C28002B17C3 /* AudioViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioViewCell.swift; path = class/cell/AudioViewCell.swift; sourceTree = "<group>"; };
+		200730C5207E5C28002B17C3 /* BMPersionCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMPersionCell.nib; path = class/cell/BMPersionCell.nib; sourceTree = "<group>"; };
+		200730C6207E5C28002B17C3 /* BMPersionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMPersionCell.swift; path = class/cell/BMPersionCell.swift; sourceTree = "<group>"; };
+		200730C7207E5C28002B17C3 /* BMPersionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMPersionCell.xib; path = class/cell/BMPersionCell.xib; sourceTree = "<group>"; };
+		200730C8207E5C28002B17C3 /* BMRoomChatMsgCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMRoomChatMsgCell.nib; path = class/cell/BMRoomChatMsgCell.nib; sourceTree = "<group>"; };
+		200730C9207E5C28002B17C3 /* BMRoomChatMsgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMRoomChatMsgCell.swift; path = class/cell/BMRoomChatMsgCell.swift; sourceTree = "<group>"; };
+		200730CA207E5C28002B17C3 /* BMRoomChatMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMRoomChatMsgCell.xib; path = class/cell/BMRoomChatMsgCell.xib; sourceTree = "<group>"; };
+		200730CB207E5C28002B17C3 /* MessageInputView.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = MessageInputView.nib; path = class/cell/MessageInputView.nib; sourceTree = "<group>"; };
+		200730CC207E5C28002B17C3 /* MessageInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageInputView.swift; path = class/cell/MessageInputView.swift; sourceTree = "<group>"; };
+		200730CD207E5C28002B17C3 /* MessageInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageInputView.xib; path = class/cell/MessageInputView.xib; sourceTree = "<group>"; };
+		200730CE207E5C28002B17C3 /* NoChatCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = NoChatCell.nib; path = class/cell/NoChatCell.nib; sourceTree = "<group>"; };
+		200730CF207E5C28002B17C3 /* NoChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoChatCell.swift; path = class/cell/NoChatCell.swift; sourceTree = "<group>"; };
+		200730D0207E5C28002B17C3 /* NoChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoChatCell.xib; path = class/cell/NoChatCell.xib; sourceTree = "<group>"; };
+		200730D1207E5C28002B17C3 /* NoResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoResultTableViewCell.swift; path = class/cell/NoResultTableViewCell.swift; sourceTree = "<group>"; };
+		200730D2207E5C28002B17C3 /* NoResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoResultTableViewCell.xib; path = class/cell/NoResultTableViewCell.xib; sourceTree = "<group>"; };
+		200730D3207E5C28002B17C3 /* NoVideoCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = NoVideoCell.nib; path = class/cell/NoVideoCell.nib; sourceTree = "<group>"; };
+		200730D4207E5C28002B17C3 /* NoVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoVideoCell.swift; path = class/cell/NoVideoCell.swift; sourceTree = "<group>"; };
+		200730D5207E5C28002B17C3 /* NoVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoVideoCell.xib; path = class/cell/NoVideoCell.xib; sourceTree = "<group>"; };
+		200730D6207E5C28002B17C3 /* ClosedPollsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosedPollsCell.swift; path = class/cell/ClosedPollsCell.swift; sourceTree = "<group>"; };
+		200730D7207E5C28002B17C3 /* ClosedPollsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClosedPollsCell.xib; path = class/cell/ClosedPollsCell.xib; sourceTree = "<group>"; };
+		200730D8207E5C28002B17C3 /* OpenPollsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPollsCell.swift; path = class/cell/OpenPollsCell.swift; sourceTree = "<group>"; };
+		200730D9207E5C28002B17C3 /* OpenPollsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OpenPollsCell.xib; path = class/cell/OpenPollsCell.xib; sourceTree = "<group>"; };
+		200730DA207E5C28002B17C3 /* QATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QATableViewCell.swift; path = class/cell/QATableViewCell.swift; sourceTree = "<group>"; };
+		200730DB207E5C28002B17C3 /* QATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QATableViewCell.xib; path = class/cell/QATableViewCell.xib; sourceTree = "<group>"; };
+		200DD0C7207E68F20030FD1A /* NoResultTableViewCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = NoResultTableViewCell.nib; path = class/cell/NoResultTableViewCell.nib; sourceTree = "<group>"; };
+		200DD0D1207E71AC0030FD1A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		200DD0D2207E71AC0030FD1A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		200DD0D3207E71AC0030FD1A /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		200DD0D4207E71AC0030FD1A /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		200DD0D5207E71AC0030FD1A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		200DD0D6207E71AC0030FD1A /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		200DD0D7207E71AC0030FD1A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		200DD0D8207E71AC0030FD1A /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		200DD0D9207E71AC0030FD1A /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		200DD0DA207E71AC0030FD1A /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		200DD0DB207E71AC0030FD1A /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		200DD0DC207E71AC0030FD1A /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		200DD0DD207E71AC0030FD1A /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		200DD0DE207E71AC0030FD1A /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		200DD0DF207E71AC0030FD1A /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		200DD0E0207E71AC0030FD1A /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		200DD0E1207E71AC0030FD1A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		200DD0E2207E71AC0030FD1A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		200DD0E3207E71AC0030FD1A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		200DD0E4207E71AC0030FD1A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		200DD0E5207E71AC0030FD1A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		200DD0E7207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		200DD0E8207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		200DD0E9207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0EA207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		200DD0EB207E71AC0030FD1A /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0EC207E71AC0030FD1A /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		200DD0ED207E71AC0030FD1A /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0EE207E71AC0030FD1A /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		200DD0EF207E71AC0030FD1A /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0F0207E71AC0030FD1A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0F1207E71AC0030FD1A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		200DD0F2207E71AC0030FD1A /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0F3207E71AC0030FD1A /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0F4207E71AC0030FD1A /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		200DD0F5207E71AC0030FD1A /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0F6207E71AC0030FD1A /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		200DD0F7207E71AC0030FD1A /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		200DD0F8207E71AC0030FD1A /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		200E5F2C205B993C003521DC /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		200E5F2D205B993C003521DC /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		200E5F2E205B993C003521DC /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -263,19 +380,6 @@
 		2021E7B5207DEEEC0017B6C3 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
 		2021E7BB207DEF450017B6C3 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
 		2021E7BC207DEF450017B6C3 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
-		2021E7BF207DF7FE0017B6C3 /* BMQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMQAViewController.swift; sourceTree = "<group>"; };
-		2021E7C1207DF8070017B6C3 /* BMPollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPollsViewController.swift; sourceTree = "<group>"; };
-		2021E7C3207DF8610017B6C3 /* BMPollsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPollsViewModel.swift; sourceTree = "<group>"; };
-		2021E7C4207DF8610017B6C3 /* BMQAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMQAViewModel.swift; sourceTree = "<group>"; };
-		2021E7C7207DF8AE0017B6C3 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
-		2021E7C8207DF8AE0017B6C3 /* QA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QA.swift; sourceTree = "<group>"; };
-		2021E7C9207DF8AE0017B6C3 /* PollChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollChoice.swift; sourceTree = "<group>"; };
-		2021E7CA207DF8AE0017B6C3 /* PollAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollAnswer.swift; sourceTree = "<group>"; };
-		2021E7CB207DF8AE0017B6C3 /* PollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollResponse.swift; sourceTree = "<group>"; };
-		2021E7CC207DF8AE0017B6C3 /* NewPoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPoll.swift; sourceTree = "<group>"; };
-		2021E7CD207DF8AE0017B6C3 /* NewPollChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollChoice.swift; sourceTree = "<group>"; };
-		2021E7D5207DF9010017B6C3 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		2021E7D7207E00A20017B6C3 /* BMCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMCurrentUser.swift; sourceTree = "<group>"; };
 		202B806A2056A98000C1067C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		202B806E2056A9DC00C1067C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMQTTKit.a; path = MQTTKit/libMQTTKit.a; sourceTree = "<group>"; };
 		203992BB20564DE20058A8DC /* BigmarkerRoomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigmarkerRoomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,50 +415,6 @@
 		2050B4112069E0F5009714A0 /* WhiteBoardToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteBoardToolView.swift; path = class/view/WhiteBoardToolView.swift; sourceTree = "<group>"; };
 		2050B4122069E0F5009714A0 /* WhiteBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteBoardView.swift; path = class/view/WhiteBoardView.swift; sourceTree = "<group>"; };
 		2050B4132069E0F5009714A0 /* YouTubeVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YouTubeVideoView.swift; path = class/view/YouTubeVideoView.swift; sourceTree = "<group>"; };
-		2050B4262069E274009714A0 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExt.swift; path = class/model/ArrayExt.swift; sourceTree = "<group>"; };
-		2050B4272069E274009714A0 /* BigRoomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BigRoomBase.swift; path = class/model/BigRoomBase.swift; sourceTree = "<group>"; };
-		2050B4282069E274009714A0 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = class/model/Channel.swift; sourceTree = "<group>"; };
-		2050B4292069E274009714A0 /* ClubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClubInfo.swift; path = class/model/ClubInfo.swift; sourceTree = "<group>"; };
-		2050B42A2069E274009714A0 /* ClubProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClubProfile.swift; path = class/model/ClubProfile.swift; sourceTree = "<group>"; };
-		2050B42B2069E274009714A0 /* Community.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Community.swift; path = class/model/Community.swift; sourceTree = "<group>"; };
-		2050B42C2069E274009714A0 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conference.swift; path = class/model/Conference.swift; sourceTree = "<group>"; };
-		2050B42D2069E274009714A0 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = class/model/Constant.swift; sourceTree = "<group>"; };
-		2050B42E2069E274009714A0 /* CoordinateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinateModel.swift; path = class/model/CoordinateModel.swift; sourceTree = "<group>"; };
-		2050B42F2069E274009714A0 /* DrawColorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawColorModel.swift; path = class/model/DrawColorModel.swift; sourceTree = "<group>"; };
-		2050B4302069E274009714A0 /* DrawPositionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawPositionModel.swift; path = class/model/DrawPositionModel.swift; sourceTree = "<group>"; };
-		2050B4312069E274009714A0 /* DrawSizeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawSizeModel.swift; path = class/model/DrawSizeModel.swift; sourceTree = "<group>"; };
-		2050B4322069E274009714A0 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Member.swift; path = class/model/Member.swift; sourceTree = "<group>"; };
-		2050B4332069E274009714A0 /* MemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberModel.swift; path = class/model/MemberModel.swift; sourceTree = "<group>"; };
-		2050B4342069E274009714A0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = class/model/Message.swift; sourceTree = "<group>"; };
-		2050B4352069E274009714A0 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTools.swift; path = class/model/NetworkTools.swift; sourceTree = "<group>"; };
-		2050B4362069E274009714A0 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Presenter.swift; path = class/model/Presenter.swift; sourceTree = "<group>"; };
-		2050B4372069E274009714A0 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register.swift; path = class/model/Register.swift; sourceTree = "<group>"; };
-		2050B4382069E274009714A0 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Room.swift; path = class/model/Room.swift; sourceTree = "<group>"; };
-		2050B4392069E274009714A0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoomInfo.swift; path = class/model/RoomInfo.swift; sourceTree = "<group>"; };
-		2050B43A2069E274009714A0 /* ToolHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToolHelper.swift; path = class/model/ToolHelper.swift; sourceTree = "<group>"; };
-		2050B43B2069E274009714A0 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = class/model/UserInfo.swift; sourceTree = "<group>"; };
-		2050B43C2069E274009714A0 /* VideoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoInfo.swift; path = class/model/VideoInfo.swift; sourceTree = "<group>"; };
-		2050B43D2069E274009714A0 /* VideoUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoUserInfo.swift; path = class/model/VideoUserInfo.swift; sourceTree = "<group>"; };
-		2050B43E2069E274009714A0 /* WhiteboardDrawModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteboardDrawModel.swift; path = class/model/WhiteboardDrawModel.swift; sourceTree = "<group>"; };
-		2050B4582069E2C9009714A0 /* AttendeeViewLockedCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = AttendeeViewLockedCell.nib; path = class/cell/AttendeeViewLockedCell.nib; sourceTree = "<group>"; };
-		2050B4592069E2C9009714A0 /* AttendeeViewLockedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendeeViewLockedCell.swift; path = class/cell/AttendeeViewLockedCell.swift; sourceTree = "<group>"; };
-		2050B45A2069E2C9009714A0 /* AttendeeViewLockedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AttendeeViewLockedCell.xib; path = class/cell/AttendeeViewLockedCell.xib; sourceTree = "<group>"; };
-		2050B45B2069E2C9009714A0 /* AudioViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioViewCell.swift; path = class/cell/AudioViewCell.swift; sourceTree = "<group>"; };
-		2050B45C2069E2C9009714A0 /* BMPersionCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMPersionCell.nib; path = class/cell/BMPersionCell.nib; sourceTree = "<group>"; };
-		2050B45D2069E2C9009714A0 /* BMPersionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMPersionCell.swift; path = class/cell/BMPersionCell.swift; sourceTree = "<group>"; };
-		2050B45E2069E2C9009714A0 /* BMPersionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMPersionCell.xib; path = class/cell/BMPersionCell.xib; sourceTree = "<group>"; };
-		2050B45F2069E2C9009714A0 /* BMRoomChatMsgCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMRoomChatMsgCell.nib; path = class/cell/BMRoomChatMsgCell.nib; sourceTree = "<group>"; };
-		2050B4602069E2C9009714A0 /* BMRoomChatMsgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BMRoomChatMsgCell.swift; path = class/cell/BMRoomChatMsgCell.swift; sourceTree = "<group>"; };
-		2050B4612069E2C9009714A0 /* BMRoomChatMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMRoomChatMsgCell.xib; path = class/cell/BMRoomChatMsgCell.xib; sourceTree = "<group>"; };
-		2050B4622069E2C9009714A0 /* MessageInputView.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = MessageInputView.nib; path = class/cell/MessageInputView.nib; sourceTree = "<group>"; };
-		2050B4632069E2C9009714A0 /* MessageInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageInputView.swift; path = class/cell/MessageInputView.swift; sourceTree = "<group>"; };
-		2050B4642069E2C9009714A0 /* MessageInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageInputView.xib; path = class/cell/MessageInputView.xib; sourceTree = "<group>"; };
-		2050B4652069E2C9009714A0 /* NoChatCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = NoChatCell.nib; path = class/cell/NoChatCell.nib; sourceTree = "<group>"; };
-		2050B4662069E2C9009714A0 /* NoChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoChatCell.swift; path = class/cell/NoChatCell.swift; sourceTree = "<group>"; };
-		2050B4672069E2C9009714A0 /* NoChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoChatCell.xib; path = class/cell/NoChatCell.xib; sourceTree = "<group>"; };
-		2050B4682069E2C9009714A0 /* NoVideoCell.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = NoVideoCell.nib; path = class/cell/NoVideoCell.nib; sourceTree = "<group>"; };
-		2050B4692069E2C9009714A0 /* NoVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoVideoCell.swift; path = class/cell/NoVideoCell.swift; sourceTree = "<group>"; };
-		2050B46A2069E2C9009714A0 /* NoVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoVideoCell.xib; path = class/cell/NoVideoCell.xib; sourceTree = "<group>"; };
 		20E5EB582060D996006AD214 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		20E5EB592060D996006AD214 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		20EEEF3A205CEDC300D0FED1 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
@@ -413,6 +473,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		200DD0CF207E71AC0030FD1A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				200DD0D0207E71AC0030FD1A /* AFNetworking */,
+				200DD0E4207E71AC0030FD1A /* LICENSE */,
+				200DD0E5207E71AC0030FD1A /* README.md */,
+				200DD0E6207E71AC0030FD1A /* UIKit+AFNetworking */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		200DD0D0207E71AC0030FD1A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				200DD0D1207E71AC0030FD1A /* AFHTTPRequestOperation.h */,
+				200DD0D2207E71AC0030FD1A /* AFHTTPRequestOperation.m */,
+				200DD0D3207E71AC0030FD1A /* AFHTTPRequestOperationManager.h */,
+				200DD0D4207E71AC0030FD1A /* AFHTTPRequestOperationManager.m */,
+				200DD0D5207E71AC0030FD1A /* AFHTTPSessionManager.h */,
+				200DD0D6207E71AC0030FD1A /* AFHTTPSessionManager.m */,
+				200DD0D7207E71AC0030FD1A /* AFNetworking.h */,
+				200DD0D8207E71AC0030FD1A /* AFNetworkReachabilityManager.h */,
+				200DD0D9207E71AC0030FD1A /* AFNetworkReachabilityManager.m */,
+				200DD0DA207E71AC0030FD1A /* AFSecurityPolicy.h */,
+				200DD0DB207E71AC0030FD1A /* AFSecurityPolicy.m */,
+				200DD0DC207E71AC0030FD1A /* AFURLConnectionOperation.h */,
+				200DD0DD207E71AC0030FD1A /* AFURLConnectionOperation.m */,
+				200DD0DE207E71AC0030FD1A /* AFURLRequestSerialization.h */,
+				200DD0DF207E71AC0030FD1A /* AFURLRequestSerialization.m */,
+				200DD0E0207E71AC0030FD1A /* AFURLResponseSerialization.h */,
+				200DD0E1207E71AC0030FD1A /* AFURLResponseSerialization.m */,
+				200DD0E2207E71AC0030FD1A /* AFURLSessionManager.h */,
+				200DD0E3207E71AC0030FD1A /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		200DD0E6207E71AC0030FD1A /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				200DD0E7207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.h */,
+				200DD0E8207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.m */,
+				200DD0E9207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.h */,
+				200DD0EA207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.m */,
+				200DD0EB207E71AC0030FD1A /* UIAlertView+AFNetworking.h */,
+				200DD0EC207E71AC0030FD1A /* UIAlertView+AFNetworking.m */,
+				200DD0ED207E71AC0030FD1A /* UIButton+AFNetworking.h */,
+				200DD0EE207E71AC0030FD1A /* UIButton+AFNetworking.m */,
+				200DD0EF207E71AC0030FD1A /* UIImage+AFNetworking.h */,
+				200DD0F0207E71AC0030FD1A /* UIImageView+AFNetworking.h */,
+				200DD0F1207E71AC0030FD1A /* UIImageView+AFNetworking.m */,
+				200DD0F2207E71AC0030FD1A /* UIKit+AFNetworking.h */,
+				200DD0F3207E71AC0030FD1A /* UIProgressView+AFNetworking.h */,
+				200DD0F4207E71AC0030FD1A /* UIProgressView+AFNetworking.m */,
+				200DD0F5207E71AC0030FD1A /* UIRefreshControl+AFNetworking.h */,
+				200DD0F6207E71AC0030FD1A /* UIRefreshControl+AFNetworking.m */,
+				200DD0F7207E71AC0030FD1A /* UIWebView+AFNetworking.h */,
+				200DD0F8207E71AC0030FD1A /* UIWebView+AFNetworking.m */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
 		200E5F2B205B993C003521DC /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,33 +580,34 @@
 		20191BA12057C16500FD0889 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				20072FE1207E4232002B17C3 /* QAOpenPollsCell.swift */,
-				20072FE2207E4232002B17C3 /* QAOpenPollsCell.xib */,
-				20072FE3207E4232002B17C3 /* QAClosedPollsCell.swift */,
-				20072FE4207E4232002B17C3 /* QAClosedPollsCell.xib */,
-				20072FDD207E3B09002B17C3 /* QATableViewCell.swift */,
-				20072FDE207E3B09002B17C3 /* QATableViewCell.xib */,
-				20072FD9207E3AF7002B17C3 /* NoResultTableViewCell.swift */,
-				20072FDA207E3AF7002B17C3 /* NoResultTableViewCell.xib */,
-				2050B4582069E2C9009714A0 /* AttendeeViewLockedCell.nib */,
-				2050B4592069E2C9009714A0 /* AttendeeViewLockedCell.swift */,
-				2050B45A2069E2C9009714A0 /* AttendeeViewLockedCell.xib */,
-				2050B45B2069E2C9009714A0 /* AudioViewCell.swift */,
-				2050B45C2069E2C9009714A0 /* BMPersionCell.nib */,
-				2050B45D2069E2C9009714A0 /* BMPersionCell.swift */,
-				2050B45E2069E2C9009714A0 /* BMPersionCell.xib */,
-				2050B45F2069E2C9009714A0 /* BMRoomChatMsgCell.nib */,
-				2050B4602069E2C9009714A0 /* BMRoomChatMsgCell.swift */,
-				2050B4612069E2C9009714A0 /* BMRoomChatMsgCell.xib */,
-				2050B4622069E2C9009714A0 /* MessageInputView.nib */,
-				2050B4632069E2C9009714A0 /* MessageInputView.swift */,
-				2050B4642069E2C9009714A0 /* MessageInputView.xib */,
-				2050B4652069E2C9009714A0 /* NoChatCell.nib */,
-				2050B4662069E2C9009714A0 /* NoChatCell.swift */,
-				2050B4672069E2C9009714A0 /* NoChatCell.xib */,
-				2050B4682069E2C9009714A0 /* NoVideoCell.nib */,
-				2050B4692069E2C9009714A0 /* NoVideoCell.swift */,
-				2050B46A2069E2C9009714A0 /* NoVideoCell.xib */,
+				200730C1207E5C28002B17C3 /* AttendeeViewLockedCell.nib */,
+				200730C2207E5C28002B17C3 /* AttendeeViewLockedCell.swift */,
+				200730C3207E5C28002B17C3 /* AttendeeViewLockedCell.xib */,
+				200730C4207E5C28002B17C3 /* AudioViewCell.swift */,
+				200730C5207E5C28002B17C3 /* BMPersionCell.nib */,
+				200730C6207E5C28002B17C3 /* BMPersionCell.swift */,
+				200730C7207E5C28002B17C3 /* BMPersionCell.xib */,
+				200730C8207E5C28002B17C3 /* BMRoomChatMsgCell.nib */,
+				200730C9207E5C28002B17C3 /* BMRoomChatMsgCell.swift */,
+				200730CA207E5C28002B17C3 /* BMRoomChatMsgCell.xib */,
+				200730CB207E5C28002B17C3 /* MessageInputView.nib */,
+				200730CC207E5C28002B17C3 /* MessageInputView.swift */,
+				200730CD207E5C28002B17C3 /* MessageInputView.xib */,
+				200730CE207E5C28002B17C3 /* NoChatCell.nib */,
+				200730CF207E5C28002B17C3 /* NoChatCell.swift */,
+				200730D0207E5C28002B17C3 /* NoChatCell.xib */,
+				200730D1207E5C28002B17C3 /* NoResultTableViewCell.swift */,
+				200730D2207E5C28002B17C3 /* NoResultTableViewCell.xib */,
+				200730D3207E5C28002B17C3 /* NoVideoCell.nib */,
+				200730D4207E5C28002B17C3 /* NoVideoCell.swift */,
+				200730D5207E5C28002B17C3 /* NoVideoCell.xib */,
+				200730D6207E5C28002B17C3 /* ClosedPollsCell.swift */,
+				200730D7207E5C28002B17C3 /* ClosedPollsCell.xib */,
+				200730D8207E5C28002B17C3 /* OpenPollsCell.swift */,
+				200730D9207E5C28002B17C3 /* OpenPollsCell.xib */,
+				200730DA207E5C28002B17C3 /* QATableViewCell.swift */,
+				200730DB207E5C28002B17C3 /* QATableViewCell.xib */,
+				200DD0C7207E68F20030FD1A /* NoResultTableViewCell.nib */,
 			);
 			name = cell;
 			path = ..;
@@ -542,6 +665,7 @@
 		203992B220564DE20058A8DC = {
 			isa = PBXGroup;
 			children = (
+				200DD0CF207E71AC0030FD1A /* AFNetworking */,
 				2021E7AD207DEEEC0017B6C3 /* WMMenuView */,
 				2021B2622061519100E30327 /* BMSDK.bundle */,
 				20E5EB572060D996006AD214 /* YTPlayerView */,
@@ -656,8 +780,8 @@
 			isa = PBXGroup;
 			children = (
 				2050B3F62069DFBB009714A0 /* BMBaseViewController.swift */,
-				2021E7BF207DF7FE0017B6C3 /* BMQAViewController.swift */,
-				2021E7C1207DF8070017B6C3 /* BMPollsViewController.swift */,
+				20072FE9207E5AC9002B17C3 /* BMPollsViewController.swift */,
+				20072FEA207E5AC9002B17C3 /* BMQAViewController.swift */,
 				2050B3F72069DFBB009714A0 /* BMChatListViewController.swift */,
 				2050B3F82069DFBB009714A0 /* BMMessageViewController.swift */,
 				2050B3F92069DFBB009714A0 /* BMPeopleViewController.swift */,
@@ -671,41 +795,41 @@
 		20F252D12056CA9A00339D90 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				2021E7D7207E00A20017B6C3 /* BMCurrentUser.swift */,
-				2021E7C7207DF8AE0017B6C3 /* Poll.swift */,
-				2021E7C8207DF8AE0017B6C3 /* QA.swift */,
-				2021E7C9207DF8AE0017B6C3 /* PollChoice.swift */,
-				2021E7CA207DF8AE0017B6C3 /* PollAnswer.swift */,
-				2021E7CB207DF8AE0017B6C3 /* PollResponse.swift */,
-				2021E7CC207DF8AE0017B6C3 /* NewPoll.swift */,
-				2021E7CD207DF8AE0017B6C3 /* NewPollChoice.swift */,
-				2021E7C3207DF8610017B6C3 /* BMPollsViewModel.swift */,
-				2021E7C4207DF8610017B6C3 /* BMQAViewModel.swift */,
-				2050B4262069E274009714A0 /* ArrayExt.swift */,
-				2050B4272069E274009714A0 /* BigRoomBase.swift */,
-				2050B4282069E274009714A0 /* Channel.swift */,
-				2050B4292069E274009714A0 /* ClubInfo.swift */,
-				2050B42A2069E274009714A0 /* ClubProfile.swift */,
-				2050B42B2069E274009714A0 /* Community.swift */,
-				2050B42C2069E274009714A0 /* Conference.swift */,
-				2050B42D2069E274009714A0 /* Constant.swift */,
-				2050B42E2069E274009714A0 /* CoordinateModel.swift */,
-				2050B42F2069E274009714A0 /* DrawColorModel.swift */,
-				2050B4302069E274009714A0 /* DrawPositionModel.swift */,
-				2050B4312069E274009714A0 /* DrawSizeModel.swift */,
-				2050B4322069E274009714A0 /* Member.swift */,
-				2050B4332069E274009714A0 /* MemberModel.swift */,
-				2050B4342069E274009714A0 /* Message.swift */,
-				2050B4352069E274009714A0 /* NetworkTools.swift */,
-				2050B4362069E274009714A0 /* Presenter.swift */,
-				2050B4372069E274009714A0 /* Register.swift */,
-				2050B4382069E274009714A0 /* Room.swift */,
-				2050B4392069E274009714A0 /* RoomInfo.swift */,
-				2050B43A2069E274009714A0 /* ToolHelper.swift */,
-				2050B43B2069E274009714A0 /* UserInfo.swift */,
-				2050B43C2069E274009714A0 /* VideoInfo.swift */,
-				2050B43D2069E274009714A0 /* VideoUserInfo.swift */,
-				2050B43E2069E274009714A0 /* WhiteboardDrawModel.swift */,
+				20073079207E5C00002B17C3 /* ArrayExt.swift */,
+				2007307A207E5C00002B17C3 /* BigRoomBase.swift */,
+				2007307B207E5C00002B17C3 /* BMCurrentUser.swift */,
+				2007307C207E5C00002B17C3 /* BMPollsViewModel.swift */,
+				2007307D207E5C00002B17C3 /* BMQAViewModel.swift */,
+				2007307E207E5C00002B17C3 /* Channel.swift */,
+				2007307F207E5C00002B17C3 /* ClubInfo.swift */,
+				20073080207E5C00002B17C3 /* ClubProfile.swift */,
+				20073081207E5C00002B17C3 /* Community.swift */,
+				20073082207E5C00002B17C3 /* Conference.swift */,
+				20073083207E5C00002B17C3 /* Constant.swift */,
+				20073084207E5C00002B17C3 /* CoordinateModel.swift */,
+				20073085207E5C00002B17C3 /* DrawColorModel.swift */,
+				20073086207E5C00002B17C3 /* DrawPositionModel.swift */,
+				20073087207E5C00002B17C3 /* DrawSizeModel.swift */,
+				20073088207E5C00002B17C3 /* Member.swift */,
+				20073089207E5C00002B17C3 /* MemberModel.swift */,
+				2007308A207E5C00002B17C3 /* Message.swift */,
+				2007308B207E5C00002B17C3 /* NetworkTools.swift */,
+				2007308C207E5C00002B17C3 /* NewPoll.swift */,
+				2007308D207E5C00002B17C3 /* NewPollChoice.swift */,
+				2007308E207E5C00002B17C3 /* Poll.swift */,
+				2007308F207E5C00002B17C3 /* PollAnswer.swift */,
+				20073090207E5C00002B17C3 /* PollChoice.swift */,
+				20073091207E5C00002B17C3 /* PollResponse.swift */,
+				20073092207E5C00002B17C3 /* Presenter.swift */,
+				20073093207E5C00002B17C3 /* QA.swift */,
+				20073094207E5C00002B17C3 /* Register.swift */,
+				20073095207E5C00002B17C3 /* Room.swift */,
+				20073096207E5C00002B17C3 /* RoomInfo.swift */,
+				20073097207E5C00002B17C3 /* ToolHelper.swift */,
+				20073098207E5C00002B17C3 /* UserInfo.swift */,
+				20073099207E5C00002B17C3 /* VideoInfo.swift */,
+				2007309A207E5C00002B17C3 /* VideoUserInfo.swift */,
+				2007309B207E5C00002B17C3 /* WhiteboardDrawModel.swift */,
 			);
 			name = model;
 			path = ..;
@@ -714,7 +838,7 @@
 		20F252D22056CAC300339D90 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				2021E7D5207DF9010017B6C3 /* StatusView.swift */,
+				200730BF207E5C10002B17C3 /* StatusView.swift */,
 				2050B4022069E0F5009714A0 /* AudioViewUI.swift */,
 				2050B4032069E0F5009714A0 /* BMNavView.swift */,
 				2050B4042069E0F5009714A0 /* ClubInfoView.swift */,
@@ -809,27 +933,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200730ED207E5C28002B17C3 /* NoResultTableViewCell.xib in Resources */,
 				203992C920564DE20058A8DC /* LaunchScreen.storyboard in Resources */,
-				2050B4742069E2C9009714A0 /* BMRoomChatMsgCell.xib in Resources */,
+				200730E5207E5C28002B17C3 /* BMRoomChatMsgCell.xib in Resources */,
+				200730F6207E5C28002B17C3 /* QATableViewCell.xib in Resources */,
 				2021B2632061519100E30327 /* BMSDK.bundle in Resources */,
-				2050B4772069E2C9009714A0 /* MessageInputView.xib in Resources */,
-				2050B46D2069E2C9009714A0 /* AttendeeViewLockedCell.xib in Resources */,
+				200730E8207E5C28002B17C3 /* MessageInputView.xib in Resources */,
+				200730DE207E5C28002B17C3 /* AttendeeViewLockedCell.xib in Resources */,
+				200730F4207E5C28002B17C3 /* OpenPollsCell.xib in Resources */,
 				203992C620564DE20058A8DC /* Assets.xcassets in Resources */,
-				20072FE6207E4232002B17C3 /* QAOpenPollsCell.xib in Resources */,
-				2050B4722069E2C9009714A0 /* BMRoomChatMsgCell.nib in Resources */,
-				2050B4752069E2C9009714A0 /* MessageInputView.nib in Resources */,
-				2050B47D2069E2C9009714A0 /* NoVideoCell.xib in Resources */,
+				200730E3207E5C28002B17C3 /* BMRoomChatMsgCell.nib in Resources */,
+				200730EE207E5C28002B17C3 /* NoVideoCell.nib in Resources */,
+				200730E6207E5C28002B17C3 /* MessageInputView.nib in Resources */,
 				202B806B2056A98000C1067C /* MQTTKit in Resources */,
-				20072FDC207E3AF7002B17C3 /* NoResultTableViewCell.xib in Resources */,
-				2050B46B2069E2C9009714A0 /* AttendeeViewLockedCell.nib in Resources */,
+				200730DC207E5C28002B17C3 /* AttendeeViewLockedCell.nib in Resources */,
+				200730F2207E5C28002B17C3 /* ClosedPollsCell.xib in Resources */,
+				200DD102207E71AC0030FD1A /* LICENSE in Resources */,
 				20EEEF46205CEE5F00D0FED1 /* LICENSE in Resources */,
-				2050B47B2069E2C9009714A0 /* NoVideoCell.nib in Resources */,
-				2050B4712069E2C9009714A0 /* BMPersionCell.xib in Resources */,
-				2050B47A2069E2C9009714A0 /* NoChatCell.xib in Resources */,
-				2050B46F2069E2C9009714A0 /* BMPersionCell.nib in Resources */,
-				20072FE8207E4232002B17C3 /* QAClosedPollsCell.xib in Resources */,
-				20072FE0207E3B09002B17C3 /* QATableViewCell.xib in Resources */,
-				2050B4782069E2C9009714A0 /* NoChatCell.nib in Resources */,
+				200730E2207E5C28002B17C3 /* BMPersionCell.xib in Resources */,
+				200730EB207E5C28002B17C3 /* NoChatCell.xib in Resources */,
+				200730E0207E5C28002B17C3 /* BMPersionCell.nib in Resources */,
+				200730E9207E5C28002B17C3 /* NoChatCell.nib in Resources */,
+				200DD0CB207E68F20030FD1A /* NoResultTableViewCell.nib in Resources */,
+				200730F0207E5C28002B17C3 /* NoVideoCell.xib in Resources */,
 				203992C420564DE20058A8DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -841,156 +967,174 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200DD101207E71AC0030FD1A /* AFURLSessionManager.m in Sources */,
 				2021E7BE207DEF5C0017B6C3 /* WMPageController.h in Sources */,
 				20FE307E205EAA2A00D2EBE6 /* HMSegmentedControl.h in Sources */,
-				2021E7C0207DF7FE0017B6C3 /* BMQAViewController.swift in Sources */,
 				2050B4222069E0F5009714A0 /* WhiteBoardColorToolView.swift in Sources */,
+				200730B8207E5C00002B17C3 /* Room.swift in Sources */,
 				201D6759205D652B000BB6F2 /* NSData+ImageContentType.h in Sources */,
 				201D675A205D652B000BB6F2 /* SDImageCache.h in Sources */,
 				201D675B205D652B000BB6F2 /* SDWebImageCompat.h in Sources */,
 				2050B41A2069E0F5009714A0 /* MyView.swift in Sources */,
-				2021E7CF207DF8AE0017B6C3 /* QA.swift in Sources */,
+				200730B3207E5C00002B17C3 /* PollChoice.swift in Sources */,
+				200730BA207E5C00002B17C3 /* ToolHelper.swift in Sources */,
 				2050B4232069E0F5009714A0 /* WhiteBoardToolView.swift in Sources */,
+				200DD104207E71AC0030FD1A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				200DD0FD207E71AC0030FD1A /* AFSecurityPolicy.m in Sources */,
 				2021E7B8207DEEEC0017B6C3 /* WMProgressView.m in Sources */,
 				201D675C205D652B000BB6F2 /* SDWebImageDecoder.h in Sources */,
 				201D675D205D652B000BB6F2 /* SDWebImageDownloader.h in Sources */,
 				2021E7B9207DEEEC0017B6C3 /* WMScrollView.m in Sources */,
-				2050B44C2069E274009714A0 /* MemberModel.swift in Sources */,
 				201D675E205D652B000BB6F2 /* SDWebImageDownloaderOperation.h in Sources */,
+				200730BD207E5C00002B17C3 /* VideoUserInfo.swift in Sources */,
+				200730E7207E5C28002B17C3 /* MessageInputView.swift in Sources */,
+				200730A7207E5C00002B17C3 /* CoordinateModel.swift in Sources */,
 				201D675F205D652B000BB6F2 /* SDWebImageManager.h in Sources */,
-				2050B4542069E274009714A0 /* UserInfo.swift in Sources */,
-				2021E7C2207DF8070017B6C3 /* BMPollsViewController.swift in Sources */,
+				200DD103207E71AC0030FD1A /* README.md in Sources */,
+				200DD105207E71AC0030FD1A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2050B4202069E0F5009714A0 /* VideoInfoView.swift in Sources */,
 				201D6760205D652B000BB6F2 /* SDWebImageOperation.h in Sources */,
-				2050B4702069E2C9009714A0 /* BMPersionCell.swift in Sources */,
+				2007309F207E5C00002B17C3 /* BMPollsViewModel.swift in Sources */,
 				2021E7B7207DEEEC0017B6C3 /* WMMenuView.m in Sources */,
+				200730AC207E5C00002B17C3 /* MemberModel.swift in Sources */,
 				201D6761205D652B000BB6F2 /* SDWebImagePrefetcher.h in Sources */,
-				2050B44B2069E274009714A0 /* Member.swift in Sources */,
+				200DD108207E71AC0030FD1A /* UIImageView+AFNetworking.m in Sources */,
+				20072FEB207E5AC9002B17C3 /* BMPollsViewController.swift in Sources */,
 				201D6762205D652B000BB6F2 /* UIButton+WebCache.h in Sources */,
+				200DD10A207E71AC0030FD1A /* UIRefreshControl+AFNetworking.m in Sources */,
 				201D6763205D652B000BB6F2 /* UIImage+GIF.h in Sources */,
+				200730AF207E5C00002B17C3 /* NewPoll.swift in Sources */,
 				2050B4182069E0F5009714A0 /* LoadingView.swift in Sources */,
+				200730DD207E5C28002B17C3 /* AttendeeViewLockedCell.swift in Sources */,
 				201D6764205D652B000BB6F2 /* UIImage+MultiFormat.h in Sources */,
 				201D6765205D652B000BB6F2 /* UIImageView+HighlightedWebCache.h in Sources */,
+				200730B2207E5C00002B17C3 /* PollAnswer.swift in Sources */,
 				2050B41E2069E0F5009714A0 /* SettingView.swift in Sources */,
-				2050B4532069E274009714A0 /* ToolHelper.swift in Sources */,
-				2050B4572069E274009714A0 /* WhiteboardDrawModel.swift in Sources */,
+				200730A5207E5C00002B17C3 /* Conference.swift in Sources */,
 				201D6766205D652B000BB6F2 /* UIView+WebCacheOperation.h in Sources */,
 				20EEEF79205CF4FB00D0FED1 /* UIImageView+WebCache.h in Sources */,
-				2021E7C6207DF8610017B6C3 /* BMQAViewModel.swift in Sources */,
 				201A836A205C249D006CE5BE /* PopoverAction.h in Sources */,
-				2050B4732069E2C9009714A0 /* BMRoomChatMsgCell.swift in Sources */,
+				200730F1207E5C28002B17C3 /* ClosedPollsCell.swift in Sources */,
 				2050B41C2069E0F5009714A0 /* ScreenShareView.swift in Sources */,
 				20E5EB5A2060D996006AD214 /* YTPlayerView.m in Sources */,
+				200730EA207E5C28002B17C3 /* NoChatCell.swift in Sources */,
+				200730A3207E5C00002B17C3 /* ClubProfile.swift in Sources */,
 				2050B3FE2069DFBB009714A0 /* BMMessageViewController.swift in Sources */,
 				201A836B205C249D006CE5BE /* PopoverView.h in Sources */,
 				20EEEF72205CF4A700D0FED1 /* SDWebImagePrefetcher.m in Sources */,
+				200DD109207E71AC0030FD1A /* UIProgressView+AFNetworking.m in Sources */,
 				2050B4172069E0F5009714A0 /* ColorView.swift in Sources */,
+				200DD0F9207E71AC0030FD1A /* AFHTTPRequestOperation.m in Sources */,
 				2050B41D2069E0F5009714A0 /* SegmentedView.swift in Sources */,
+				200DD0FE207E71AC0030FD1A /* AFURLConnectionOperation.m in Sources */,
 				201A836C205C249D006CE5BE /* PopoverViewCell.h in Sources */,
 				200E5F62205B9A51003521DC /* CWStatusBarNotification.h in Sources */,
 				2050B41B2069E0F5009714A0 /* NoticeView.swift in Sources */,
-				2050B47C2069E2C9009714A0 /* NoVideoCell.swift in Sources */,
+				200730AD207E5C00002B17C3 /* Message.swift in Sources */,
 				200E5F65205B9A96003521DC /* CWStatusBarNotification.m in Sources */,
-				2050B46E2069E2C9009714A0 /* AudioViewCell.swift in Sources */,
+				200730B6207E5C00002B17C3 /* QA.swift in Sources */,
 				200E5F4F205B9950003521DC /* MASCompositeConstraint.h in Sources */,
-				2050B46C2069E2C9009714A0 /* AttendeeViewLockedCell.swift in Sources */,
+				200730A1207E5C00002B17C3 /* Channel.swift in Sources */,
+				200730E4207E5C28002B17C3 /* BMRoomChatMsgCell.swift in Sources */,
+				200DD0FF207E71AC0030FD1A /* AFURLRequestSerialization.m in Sources */,
+				200730C0207E5C10002B17C3 /* StatusView.swift in Sources */,
 				201A8369205C2494006CE5BE /* PopoverViewCell.m in Sources */,
 				200E5F50205B9950003521DC /* MASConstraint+Private.h in Sources */,
 				2050B4162069E0F5009714A0 /* ClubInfoView.swift in Sources */,
 				200E5F51205B9950003521DC /* MASConstraint.h in Sources */,
+				200730B4207E5C00002B17C3 /* PollResponse.swift in Sources */,
+				200DD0FB207E71AC0030FD1A /* AFHTTPSessionManager.m in Sources */,
 				200E5F52205B9950003521DC /* MASConstraintMaker.h in Sources */,
 				200E5F53205B9950003521DC /* MASLayoutConstraint.h in Sources */,
 				20EEEF6D205CF4A700D0FED1 /* SDWebImageCompat.m in Sources */,
+				200730A2207E5C00002B17C3 /* ClubInfo.swift in Sources */,
+				200DD107207E71AC0030FD1A /* UIButton+AFNetworking.m in Sources */,
 				20EEEF6F205CF4A700D0FED1 /* SDWebImageDownloader.m in Sources */,
-				2050B44D2069E274009714A0 /* Message.swift in Sources */,
 				2021E7BD207DEF450017B6C3 /* WMPageController.m in Sources */,
 				2050B4192069E0F5009714A0 /* MP4VideoView.swift in Sources */,
 				20EEEF48205CEE5F00D0FED1 /* README.mdown in Sources */,
 				2050B4252069E0F5009714A0 /* YouTubeVideoView.swift in Sources */,
-				2050B4422069E274009714A0 /* ClubInfo.swift in Sources */,
+				200730AE207E5C00002B17C3 /* NetworkTools.swift in Sources */,
 				20EEEF75205CF4A700D0FED1 /* UIImage+MultiFormat.m in Sources */,
-				2050B4502069E274009714A0 /* Register.swift in Sources */,
-				2050B4472069E274009714A0 /* CoordinateModel.swift in Sources */,
 				200E5F54205B9950003521DC /* Masonry.h in Sources */,
+				200730B9207E5C00002B17C3 /* RoomInfo.swift in Sources */,
+				2007309E207E5C00002B17C3 /* BMCurrentUser.swift in Sources */,
+				200730DF207E5C28002B17C3 /* AudioViewCell.swift in Sources */,
 				20EEEF73205CF4A700D0FED1 /* UIButton+WebCache.m in Sources */,
-				2050B43F2069E274009714A0 /* ArrayExt.swift in Sources */,
+				200730BB207E5C00002B17C3 /* UserInfo.swift in Sources */,
 				200E5F55205B9950003521DC /* MASUtilities.h in Sources */,
-				2050B4792069E2C9009714A0 /* NoChatCell.swift in Sources */,
-				2050B4432069E274009714A0 /* ClubProfile.swift in Sources */,
+				2007309C207E5C00002B17C3 /* ArrayExt.swift in Sources */,
 				201A8368205C2494006CE5BE /* PopoverView.m in Sources */,
-				2021E7C5207DF8610017B6C3 /* BMPollsViewModel.swift in Sources */,
-				2021E7D1207DF8AE0017B6C3 /* PollAnswer.swift in Sources */,
 				200E5F56205B9950003521DC /* MASViewAttribute.h in Sources */,
-				20072FDB207E3AF7002B17C3 /* NoResultTableViewCell.swift in Sources */,
 				200E5F57205B9950003521DC /* MASViewConstraint.h in Sources */,
 				200E5F58205B9950003521DC /* NSArray+MASAdditions.h in Sources */,
-				2021E7D0207DF8AE0017B6C3 /* PollChoice.swift in Sources */,
 				2050B4152069E0F5009714A0 /* BMNavView.swift in Sources */,
 				200E5F59205B9950003521DC /* NSArray+MASShorthandAdditions.h in Sources */,
+				200730B0207E5C00002B17C3 /* NewPollChoice.swift in Sources */,
 				20FE307D205EAA2300D2EBE6 /* HMSegmentedControl.m in Sources */,
+				2007309D207E5C00002B17C3 /* BigRoomBase.swift in Sources */,
 				2050B3FD2069DFBB009714A0 /* BMChatListViewController.swift in Sources */,
 				200E5F5A205B9950003521DC /* NSLayoutConstraint+MASDebugAdditions.h in Sources */,
+				200DD100207E71AC0030FD1A /* AFURLResponseSerialization.m in Sources */,
 				200E5F5B205B9950003521DC /* View+MASAdditions.h in Sources */,
-				2021E7D2207DF8AE0017B6C3 /* PollResponse.swift in Sources */,
-				2050B44F2069E274009714A0 /* Presenter.swift in Sources */,
 				200E5F5C205B9950003521DC /* View+MASShorthandAdditions.h in Sources */,
 				200E5F5D205B9950003521DC /* ViewController+MASAdditions.h in Sources */,
+				200730F3207E5C28002B17C3 /* OpenPollsCell.swift in Sources */,
+				200730EC207E5C28002B17C3 /* NoResultTableViewCell.swift in Sources */,
 				200E5F48205B993C003521DC /* MASLayoutConstraint.m in Sources */,
-				2021E7D6207DF9010017B6C3 /* StatusView.swift in Sources */,
 				200E5F45205B993C003521DC /* MASCompositeConstraint.m in Sources */,
-				2050B44E2069E274009714A0 /* NetworkTools.swift in Sources */,
-				20072FE5207E4232002B17C3 /* QAOpenPollsCell.swift in Sources */,
+				200DD106207E71AC0030FD1A /* UIAlertView+AFNetworking.m in Sources */,
 				200E5F46205B993C003521DC /* MASConstraint.m in Sources */,
 				2050B41F2069E0F5009714A0 /* VideoBottomUserInfoView.swift in Sources */,
 				200E5F49205B993C003521DC /* MASViewAttribute.m in Sources */,
-				2050B4442069E274009714A0 /* Community.swift in Sources */,
-				2050B4482069E274009714A0 /* DrawColorModel.swift in Sources */,
 				200E5F47205B993C003521DC /* MASConstraintMaker.m in Sources */,
+				200DD0FC207E71AC0030FD1A /* AFNetworkReachabilityManager.m in Sources */,
 				20EEEF71205CF4A700D0FED1 /* SDWebImageManager.m in Sources */,
-				2021E7D3207DF8AE0017B6C3 /* NewPoll.swift in Sources */,
-				2050B4562069E274009714A0 /* VideoUserInfo.swift in Sources */,
-				2050B4492069E274009714A0 /* DrawPositionModel.swift in Sources */,
-				2021E7D4207DF8AE0017B6C3 /* NewPollChoice.swift in Sources */,
+				200730EF207E5C28002B17C3 /* NoVideoCell.swift in Sources */,
+				200730A9207E5C00002B17C3 /* DrawPositionModel.swift in Sources */,
+				200730A8207E5C00002B17C3 /* DrawColorModel.swift in Sources */,
 				20EEEF3F205CEDC300D0FED1 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				200730B7207E5C00002B17C3 /* Register.swift in Sources */,
 				2050B3FC2069DFBB009714A0 /* BMBaseViewController.swift in Sources */,
 				201A8367205C2494006CE5BE /* PopoverAction.m in Sources */,
+				200730E1207E5C28002B17C3 /* BMPersionCell.swift in Sources */,
 				200E5F4A205B993C003521DC /* MASViewConstraint.m in Sources */,
 				20EEEF6E205CF4A700D0FED1 /* SDWebImageDecoder.m in Sources */,
 				20EEEF40205CEDC300D0FED1 /* UIScrollView+SVPullToRefresh.m in Sources */,
-				2050B4762069E2C9009714A0 /* MessageInputView.swift in Sources */,
+				200730A6207E5C00002B17C3 /* Constant.swift in Sources */,
 				20EEEF47205CEE5F00D0FED1 /* MBProgressHUD.m in Sources */,
-				20072FE7207E4232002B17C3 /* QAClosedPollsCell.swift in Sources */,
-				2050B4552069E274009714A0 /* VideoInfo.swift in Sources */,
 				20EEEF77205CF4A700D0FED1 /* UIImageView+WebCache.m in Sources */,
 				200E5F4D205B993C003521DC /* View+MASAdditions.m in Sources */,
-				2021E7CE207DF8AE0017B6C3 /* Poll.swift in Sources */,
-				2050B4522069E274009714A0 /* RoomInfo.swift in Sources */,
-				2050B4512069E274009714A0 /* Room.swift in Sources */,
+				200730AB207E5C00002B17C3 /* Member.swift in Sources */,
 				2050B4242069E0F5009714A0 /* WhiteBoardView.swift in Sources */,
+				200730BE207E5C00002B17C3 /* WhiteboardDrawModel.swift in Sources */,
 				2050B4002069DFBB009714A0 /* BMTabBarController.swift in Sources */,
 				2050B4212069E0F5009714A0 /* VideoPannelView.swift in Sources */,
 				20EEEF6B205CF4A700D0FED1 /* NSData+ImageContentType.m in Sources */,
-				2050B44A2069E274009714A0 /* DrawSizeModel.swift in Sources */,
 				200E5F4B205B993C003521DC /* NSArray+MASAdditions.m in Sources */,
+				200730A4207E5C00002B17C3 /* Community.swift in Sources */,
 				2021E7B6207DEEEC0017B6C3 /* WMMenuItem.m in Sources */,
-				2050B4412069E274009714A0 /* Channel.swift in Sources */,
 				20EEEF76205CF4A700D0FED1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				2050B4012069DFBB009714A0 /* BMVideoViewController.swift in Sources */,
+				200730F5207E5C28002B17C3 /* QATableViewCell.swift in Sources */,
 				20EEEF70205CF4A700D0FED1 /* SDWebImageDownloaderOperation.m in Sources */,
-				2050B4402069E274009714A0 /* BigRoomBase.swift in Sources */,
+				200730B5207E5C00002B17C3 /* Presenter.swift in Sources */,
 				20EEEF74205CF4A700D0FED1 /* UIImage+GIF.m in Sources */,
 				200E5F4C205B993C003521DC /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				2021E7D8207E00A20017B6C3 /* BMCurrentUser.swift in Sources */,
 				20EEEF78205CF4A700D0FED1 /* UIView+WebCacheOperation.m in Sources */,
-				2050B4452069E274009714A0 /* Conference.swift in Sources */,
+				200730BC207E5C00002B17C3 /* VideoInfo.swift in Sources */,
 				200E5F4E205B993C003521DC /* ViewController+MASAdditions.m in Sources */,
-				20072FDF207E3B09002B17C3 /* QATableViewCell.swift in Sources */,
 				20EEEF6C205CF4A700D0FED1 /* SDImageCache.m in Sources */,
+				200730B1207E5C00002B17C3 /* Poll.swift in Sources */,
+				200730AA207E5C00002B17C3 /* DrawSizeModel.swift in Sources */,
 				203992C120564DE20058A8DC /* ViewController.swift in Sources */,
+				20072FEC207E5AC9002B17C3 /* BMQAViewController.swift in Sources */,
 				2050B4142069E0F5009714A0 /* AudioViewUI.swift in Sources */,
-				2050B4462069E274009714A0 /* Constant.swift in Sources */,
 				203992BF20564DE20058A8DC /* AppDelegate.swift in Sources */,
+				200DD10B207E71AC0030FD1A /* UIWebView+AFNetworking.m in Sources */,
 				2050B3FF2069DFBB009714A0 /* BMPeopleViewController.swift in Sources */,
+				200DD0FA207E71AC0030FD1A /* AFHTTPRequestOperationManager.m in Sources */,
+				200730A0207E5C00002B17C3 /* BMQAViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

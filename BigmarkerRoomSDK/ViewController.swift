@@ -17,8 +17,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Conference.requestConferenceData(id: "a306e21a18ec", token: "81456a4cb4b26b5989f825582ae9166c981fd0ee340bcfd4906ea6cb7625c34d") { (conference) in
+        Conference.requestConferenceData(id: "0a3c44fd59e1", token: "81456a4cb4b26b5989f825582ae9166c981fd0ee340bcfd4906ea6cb7625c34d") { (conference) in
             if conference != nil {
+                let result = ["api_token": "81456a4cb4b26b5989f825582ae9166c981fd0ee340bcfd4906ea6cb7625c34d"]
+                BMCurrentUser.saveInfo(responseObject: result as AnyObject!)
+       
                 self.conference = conference
                 self.bigRoom = BigRoomBase(conference: self.conference)
                 self.bigRoom.delegate = self

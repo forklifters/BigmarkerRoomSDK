@@ -9,7 +9,54 @@ enum MethodType {
 }
 
 class NetworkTools {
-    class func requestData(type : MethodType, URLString : String, parameters : NSDictionary?,
+    
+    class func requestDatas(type : MethodType, URLString : String, parameters : NSDictionary?, finishedCallback : @escaping (_ result : AnyObject) -> ()) {
+        
+        let manager = AFHTTPRequestOperationManager()
+        
+        
+        switch type {
+        case MethodType.PUT:
+            
+   
+            manager.put(URLString, parameters: parameters,  success: { (operation: AFHTTPRequestOperation!,
+                responseObject: Any) in
+                finishedCallback(responseObject as AnyObject)
+            },
+                        failure: { (operation: AFHTTPRequestOperation?,
+                            error: Error!) in
+                            finishedCallback(error as AnyObject )
+            })
+            break
+        case MethodType.POST:
+            manager.post(URLString, parameters: parameters,  success: { (operation: AFHTTPRequestOperation!,
+                responseObject: Any) in
+                finishedCallback(responseObject  as AnyObject)
+            },
+                         failure: { (operation: AFHTTPRequestOperation?,
+                            error: Error) in
+                            finishedCallback(error as AnyObject)
+            })
+            break
+        default:
+            manager.get(URLString, parameters: parameters,  success: { (operation: AFHTTPRequestOperation!,
+                responseObject: Any) in
+                finishedCallback(responseObject  as AnyObject)
+            },
+                        failure: { (operation: AFHTTPRequestOperation?,
+                            error: Error!) in
+                            finishedCallback(error as AnyObject)
+            })
+            break
+        }
+        
+        
+        
+    }
+
+    
+    
+    class func requestDataa(type : MethodType, URLString : String, parameters : NSDictionary?,
                            finishedCallback : @escaping (_ result : AnyObject) -> ()) {
         switch type {
         case MethodType.PUT:
@@ -33,6 +80,7 @@ class NetworkTools {
                     return
                 }
                 let result = try! JSONSerialization.jsonObject(with: data, options: [])
+                //print(result)
                 finishedCallback(result as AnyObject)
             
             }
